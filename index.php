@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, minimal-ui, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="description" content="Interactive mapping tool for Environment and Natural Resources Trust Fund funded fee title and conservation easement land acquisitions.">
+    <meta name="description" content="Interactive mapping tool for Environment and Natural Resources Trust Fund funded fee Legacy Ammendment projects.">
 	<meta name="author" content="Leg. Coordinating Commission GIS">
-	<meta name="keywords" content="LCCMR, LCC, ENRTF, MNDNR">
+	<meta name="keywords" content="Legacy, LCCMR, LCC, ENRTF, MNDNR">
     <!--Facebook Share customization open graph meta tags. https://developers.facebook.com/tools/debug/og/object/-->
     <meta property="fb:app_id" content="944707115597875" />
-	<meta property="og:url"                content="http://www.gis.leg.mn/iMaps/LCCMR/landAcq/" />
+	<meta property="og:url"                content="http://www.gis.leg.mn/iMaps/Legacy/" />
 	<meta property="og:type"               content="website" />
-	<meta property="og:title"              content="LCCMR Land Acquisitions Map" />
+	<meta property="og:title"              content="Legacy Ammendment Projects Map" />
 	<meta property="og:description"        content="Interactive mapping tool for Environment and Natural Resources Trust Fund funded fee title and conservation easement land acquisitions." />
 	<meta property="og:image"              content="http://www.gis.leg.mn/iMaps/LCCMR/landAcq/images/enrtf-logo-social.jpg" />
     
