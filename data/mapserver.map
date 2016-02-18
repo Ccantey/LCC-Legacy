@@ -1,0 +1,644 @@
+MAP
+  NAME 'LCCMR Land Acquisitions'
+  STATUS ON
+        UNITS METERS
+  FONTSET   "/web/gis/mapserver/fonts/fontset.list"
+  SYMBOLSET "/web/gis/mapserver/symbols/symbol.sym"
+  TRANSPARENT ON
+        PROJECTION
+        "proj=utm"
+        "ellps=GRS80"
+        "datum=NAD83"
+        "zone=15"
+        "units=m"
+        "north"
+        "no_defs"
+END
+    
+  OUTPUTFORMAT
+    NAME 'agg/png'
+    DRIVER AGG/PNG
+    IMAGEMODE RGBA
+    FORMATOPTION "TRANSPARENT=TRUE"
+  END 
+
+  IMAGETYPE AGG/PNG
+
+  WEB
+    metadata
+       "ows_enable_request" "*" 
+             "wms_title" "LCCMR Land Acquisitions" 
+             "wms_onlineresource" "http://www.gis.leg.mn/cgi-bin/mapserv?map=/web/gis/OpenLayers/elect/mapserver1.map" 
+      wms_srs "EPSG:4326 EPSG:900913"
+    end
+  END
+
+############################ BEGIN LAYERS #########################################
+
+## County LAYER
+  LAYER
+    CONNECTIONTYPE postgis
+    NAME 'cty2010'
+    CONNECTION "user=lee dbname=geoprod host=10.12.12.218"
+    PROCESSING "CLOSE_CONNECTION=DEFER"
+    DATA "the_geom from cty2010"
+
+   STATUS ON
+    DEBUG ON
+    TYPE POLYGON
+    MAXSCALEDENOM 10000000
+    PROCESSING "LABEL_NO_CLIP=True"
+    #LABELMAXSCALEDENOM 8000000
+    LABELITEM 'name'
+    
+    CLASS
+      NAME 'County Boundaries'
+      STYLE
+        OUTLINECOLOR 35 31 32
+        WIDTH 2.5
+      END   
+      #TEXT ([name])   
+      LABEL
+        TYPE TRUETYPE
+        SIZE 10
+        FONT "arial-bold"
+        COLOR 35 31 32
+        OUTLINECOLOR 255 255 255
+        OUTLINEWIDTH 1
+        MAXSCALEDENOM 3000000
+        #MAXSCALEDENOM 1000
+        POSITION AUTO
+        WRAP ' '
+        ALIGN center
+        BUFFER 2
+        PARTIALS FALSE              
+      END
+    END
+  END
+
+
+## MCD LAYER
+LAYER
+    CONNECTIONTYPE postgis
+    NAME 'mcd2010'
+    CONNECTION "user=lee dbname=geoprod host=10.12.12.218"
+    PROCESSING "CLOSE_CONNECTION=DEFER"
+    DATA "the_geom from mcd2010"
+
+    STATUS on
+    DEBUG ON
+    TYPE POLYGON
+    MAXSCALEDENOM 10000000
+    #LABELITEM 'NAME'
+    #LABELMAXSCALE 800000
+    CLASS
+      NAME 'City and Town Boundaries'
+      STYLE
+        OUTLINECOLOR 35 31 32
+        WIDTH 1
+      END      
+    END
+  END
+
+
+
+
+#STATE PARKS - CC
+  LAYER #bdry_stprkpy3 is the mn state park boundaries
+    NAME 'StateParks' #name should match layer name in mapbook
+
+    DATA '/geo/data/park/bdry_stprkpy3'
+    
+    STATUS ON
+    DEBUG ON
+    TYPE POLYGON
+    MAXSCALEDENOM 10000000
+    PROCESSING "LABEL_NO_CLIP=True"
+    #LABELMAXSCALEDENOM 8000000
+    LABELITEM 'LONG_NAME'
+    
+    CLASS
+      NAME 'StateParks'
+      STYLE
+           COLOR 0 200 0
+           OUTLINECOLOR 0 0 0
+           WIDTH 1
+      END  
+      #TEXT ([name])   
+      LABEL
+        TYPE TRUETYPE
+        SIZE 10
+        FONT "arial-bold"
+        COLOR 0 200 0
+        OUTLINECOLOR 255 255 255
+        OUTLINEWIDTH 1
+        MAXSCALEDENOM 3000000
+        #MAXSCALEDENOM 1000
+        POSITION AUTO
+        WRAP ' '
+        ALIGN center
+        BUFFER 2
+        PARTIALS FALSE              
+      END
+    END
+  END
+
+
+# STATE FORESTS - CC
+  LAYER 
+    NAME 'StateForests' 
+    DATA '/geo/data/dnr/bdry_stforpy3'
+    STATUS ON
+    DEBUG ON
+    TYPE POLYGON
+    MAXSCALEDENOM 10000000
+    PROCESSING "LABEL_NO_CLIP=True"
+    #LABELMAXSCALEDENOM 8000000
+    LABELITEM 'NAME'    
+    CLASS
+      NAME 'StateForests'
+      STYLE
+        COLOR 237 255 217
+        OUTLINECOLOR 0 0 0
+        WIDTH 1
+    END   
+      #TEXT ([name])   
+      LABEL
+        TYPE TRUETYPE
+        SIZE 10
+        FONT "arial-bold"
+        COLOR 35 31 32
+        OUTLINECOLOR 255 255 255
+        OUTLINEWIDTH 1
+        MAXSCALEDENOM 3000000
+        #MAXSCALEDENOM 1000
+        POSITION AUTO
+        WRAP ' '
+        ALIGN center
+        BUFFER 2
+        PARTIALS FALSE              
+      END
+    END
+  END
+
+
+ # WMA - CC 
+  LAYER    
+    NAME 'WildlifeManagementAreas'
+    DATA '/geo/data/dnr/bdry_adwma2py3'
+    STATUS ON
+    DEBUG ON
+    TYPE POLYGON
+    MAXSCALEDENOM 10000000
+    PROCESSING "LABEL_NO_CLIP=True"
+    #LABELMAXSCALEDENOM 8000000
+    LABELITEM 'unitname'
+
+    CLASS
+      NAME 'WildlifeManagementAreas'
+      STYLE
+           COLOR  245 184 0
+           OUTLINECOLOR 0 0 0
+           WIDTH 2
+      END     
+      LABEL
+        TYPE TRUETYPE
+        SIZE 10
+        FONT "arial"
+        COLOR 245 184 0
+        OUTLINECOLOR 55 55 5
+        OUTLINEWIDTH 1
+        MAXSCALEDENOM 1500000
+        #MAXSCALEDENOM 1000
+        POSITION AUTO
+        WRAP '+'
+        ALIGN center
+        BUFFER 2
+        PARTIALS FALSE              
+      END
+    END
+  END
+
+
+
+
+
+# SCIENTIFIC NATURAL AREA - CC
+LAYER    
+    NAME 'ScientificNaturalArea'
+    DATA '/geo/data/dnr/scientifid'
+    
+    STATUS ON
+    DEBUG ON
+    TYPE POLYGON
+    MAXSCALEDENOM 10000000
+    PROCESSING "LABEL_NO_CLIP=True"
+    #LABELMAXSCALEDENOM 8000000
+    LABELITEM 'SITE_NAME'
+    
+    CLASS
+      NAME 'ScientificNaturalArea'
+      STYLE
+         COLOR 255 176 190
+         OUTLINECOLOR 0 0 0
+         WIDTH 2
+      END   
+      #TEXT ([name])   
+      LABEL
+        TYPE TRUETYPE
+        SIZE 10
+        FONT "arial-bold"
+        COLOR 255 176 190
+        OUTLINECOLOR 55 55 55
+        OUTLINEWIDTH 1
+        MAXSCALEDENOM 3000000
+        #MAXSCALEDENOM 1000
+        POSITION AUTO
+        WRAP ' '
+        ALIGN center
+        BUFFER 2
+        PARTIALS FALSE              
+      END
+    END
+  END
+
+
+# WETLAND MANAGEMENT DISTRICTS - CC
+  LAYER    
+    NAME 'WetlandManagementDistricts' #name should match layer name in mapbook
+    DATA '/geo/data/dnr/wetland.shp'
+
+    STATUS ON
+    DEBUG ON
+    TYPE POLYGON
+    MAXSCALEDENOM 10000000
+    PROCESSING "LABEL_NO_CLIP=True"
+    #LABELMAXSCALEDENOM 8000000
+    LABELITEM 'ORGNAME'
+    
+    CLASS
+      NAME 'WetlandManagementDistricts'
+      STYLE
+          COLOR  43 140 190
+          OUTLINECOLOR 0 0 0
+          WIDTH 2
+      END   
+      #TEXT ([name])   
+      LABEL
+        TYPE TRUETYPE
+        SIZE 10
+        FONT "arial-bold"
+        COLOR 43 140 190
+        OUTLINECOLOR 255 255 255
+        OUTLINEWIDTH 1
+        MAXSCALEDENOM 3000000
+        #MAXSCALEDENOM 1000
+        POSITION AUTO
+        WRAP ' '
+        ALIGN center
+        BUFFER 2
+        PARTIALS FALSE              
+      END
+    END
+  END
+
+
+
+
+# CANOE AREA BWCA - CC
+  LAYER    
+    NAME 'BoundaryWaterCanoeArea' #name should match layer name in mapbook
+    DATA '/geo/data/dnr/Waterscano.shp'
+
+   STATUS ON
+    DEBUG ON
+    TYPE POLYGON
+    MAXSCALEDENOM 10000000
+    PROCESSING "LABEL_NO_CLIP=True"
+    #LABELMAXSCALEDENOM 8000000
+    LABELITEM 'bwca_unit'
+    
+    CLASS
+      NAME 'BoundaryWaterCanoeAreas'
+      STYLE
+         COLOR  245 122 122
+         OUTLINECOLOR 0 0 0
+         WIDTH 2
+      END   
+      #TEXT ([name])   
+      LABEL
+        TYPE TRUETYPE
+        SIZE 10
+        FONT "arial-bold"
+        COLOR 245 122 122
+        OUTLINECOLOR 255 255 255
+        OUTLINEWIDTH 1
+        MAXSCALEDENOM 3000000
+        #MAXSCALEDENOM 1000
+        POSITION AUTO
+        WRAP ' '
+        ALIGN center
+        BUFFER 2
+        PARTIALS FALSE              
+      END
+    END
+  END
+
+
+# NATIONAL FOREST - CC
+  LAYER    
+    NAME 'NationalForest' 
+    DATA '/geo/data/dnr/nationforest.shp'
+
+    STATUS ON
+    DEBUG ON
+    TYPE POLYGON
+    MAXSCALEDENOM 10000000
+    PROCESSING "LABEL_NO_CLIP=True"
+    #LABELMAXSCALEDENOM 8000000
+    LABELITEM 'NAME'
+
+    
+    CLASS
+      NAME 'NationalForest'
+      STYLE
+          COLOR  0 115 76
+          OUTLINECOLOR 0 0 0
+          WIDTH 2
+      END   
+      #TEXT ([name])   
+      LABEL
+        TYPE TRUETYPE
+        SIZE 10
+        FONT "arial-bold"
+        COLOR 0 115 76
+        OUTLINECOLOR 255 255 255
+        OUTLINEWIDTH 1
+        MAXSCALEDENOM 3000000
+        #MAXSCALEDENOM 1000
+        POSITION AUTO
+        WRAP ' '
+        ALIGN center
+        BUFFER 2
+        PARTIALS FALSE              
+      END
+    END
+  END
+
+
+# NATIONAL WILDLIFE REFUGES - CC
+  LAYER    
+    NAME 'NationalWildlifeRefuges' 
+    DATA '/geo/data/dnr/wildlife_refuge.shp'
+
+    STATUS ON
+    DEBUG ON
+    TYPE POLYGON
+    MAXSCALEDENOM 10000000
+    PROCESSING "LABEL_NO_CLIP=True"
+    #LABELMAXSCALEDENOM 8000000
+    LABELITEM 'ORGNAME'
+    
+    CLASS
+      NAME 'NationalWildlifeRefuges'
+      STYLE
+         COLOR  197 0 255
+         OUTLINECOLOR 0 0 0
+         WIDTH 2
+      END   
+      #TEXT ([name])   
+      LABEL
+        TYPE TRUETYPE
+        SIZE 10
+        FONT "arial-bold"
+        COLOR 197 0 255
+        OUTLINECOLOR 255 255 255
+        OUTLINEWIDTH 1
+        MAXSCALEDENOM 3000000
+        #MAXSCALEDENOM 1000
+        POSITION AUTO
+        WRAP ' '
+        ALIGN center
+        BUFFER 2
+        PARTIALS FALSE              
+      END
+    END
+  END
+
+
+## HOUSE LAYER
+  LAYER
+    CONNECTIONTYPE postgis
+    NAME 'hse2012_1'
+    CONNECTION "user=lee dbname=geoprod host=10.12.12.218"
+    PROCESSING "CLOSE_CONNECTION=DEFER"
+    DATA "the_geom from hse2012_1"
+
+    STATUS ON
+    DEBUG ON
+    TYPE POLYGON
+    MAXSCALEDENOM 10000000
+    PROCESSING "LABEL_NO_CLIP=True"
+    #LABELMAXSCALEDENOM 8000000
+    LABELITEM 'district'
+
+    CLASS
+      NAME 'House District Boundaries'
+      STYLE
+        OUTLINECOLOR 255 133 51
+        WIDTH 1.5
+      END   
+      #TEXT ('H.R.+' + '[district]')   
+      LABEL
+        TYPE TRUETYPE
+        SIZE 10
+        FONT "arial"
+        COLOR 255 102 0
+        OUTLINECOLOR 255 255 255
+        OUTLINEWIDTH 1
+        MAXSCALEDENOM 1500000
+        #MAXSCALEDENOM 1000
+        POSITION AUTO
+        WRAP '+'
+        ALIGN center
+        BUFFER 2
+        PARTIALS FALSE              
+      END
+    END
+  END
+
+
+
+## Senate LAYER 
+ LAYER
+    CONNECTIONTYPE postgis
+    NAME 'sen2012'
+    CONNECTION "user=lee dbname=geoprod host=10.12.12.218"
+    PROCESSING "CLOSE_CONNECTION=DEFER"
+    DATA "the_geom from sen2012"
+
+    STATUS ON
+    DEBUG ON
+    TYPE POLYGON
+    MAXSCALEDENOM 10000000
+    PROCESSING "LABEL_NO_CLIP=True"
+    #LABELMAXSCALEDENOM 8000000
+    LABELITEM 'district'
+    
+    CLASS
+      NAME 'Senate District Boundaries'
+      STYLE
+        OUTLINECOLOR 255 102 0
+        WIDTH 3
+      END   
+      #TEXT ('Sen.+' + '[district]')   
+      LABEL
+        TYPE TRUETYPE
+        SIZE 10
+        FONT "arial-bold"
+        COLOR 255 102 0
+        OUTLINECOLOR 255 255 255
+        OUTLINEWIDTH 3
+        MAXSCALEDENOM 3000000
+        #MAXSCALEDENOM 1000
+        POSITION AUTO
+        WRAP '+'
+        ALIGN center
+        BUFFER 2
+        PARTIALS FALSE              
+      END
+    END
+  END
+
+
+# REGIONS? - CC
+  LAYER
+    NAME 'Regions'
+    PROJECTION
+     'init=epsg:26915'
+          END
+    DATA '/geo/data/lccmr/ecs_sectpy2.shp'
+    STATUS on
+    TYPE POLYGON
+    OPACITY 45
+    CLASSITEM "SECNAME"
+  
+
+    CLASS
+        NAME "N. Minnesota & Ontario Peatlands"
+        EXPRESSION "N. Minnesota & Ontario Peatlands"
+        STYLE
+                COLOR 252 191 182
+      OUTLINECOLOR 0 0 0
+      WIDTH 2
+        END 
+          
+                END
+    CLASS
+        NAME "Red River Valley"
+        EXPRESSION "Red River Valley"
+        STYLE
+                COLOR 252 215 240
+          OUTLINECOLOR 0 0 0
+          WIDTH 2
+        END 
+     
+                END
+    
+    CLASS
+          NAME "Lake Agassiz, Aspen Parklands"
+          EXPRESSION "Lake Agassiz, Aspen Parklands"
+          STYLE
+                  COLOR 194 218 252
+        OUTLINECOLOR 0 0 0
+            WIDTH 2
+          END
+        
+         
+                END
+    CLASS
+        NAME "Northern Superior Uplands"
+        EXPRESSION "Northern Superior Uplands"
+        STYLE
+                COLOR 183 179 252
+      OUTLINECOLOR 0 0 0
+          WIDTH 2
+        END
+        
+                END
+    CLASS
+        NAME "N. Minnesota Drift & Lake Plains"
+        EXPRESSION "N. Minnesota Drift & Lake Plains"
+        STYLE
+                 COLOR 251 184 252
+       OUTLINECOLOR 0 0 0
+           WIDTH 2
+         END
+        
+                END
+
+
+    CLASS
+        NAME "Minnesota & NE Iowa Morainal"
+        EXPRESSION "Minnesota & NE Iowa Morainal"
+        STYLE
+                 COLOR 214 252 182
+       OUTLINECOLOR 0 0 0
+           WIDTH 2
+         END
+        
+                END
+
+    CLASS
+        NAME "Western Superior Uplands"
+        EXPRESSION "Western Superior Uplands"
+        STYLE
+                 COLOR 252 249 179
+       OUTLINECOLOR 0 0 0
+           WIDTH 2
+         END
+        
+                END
+
+
+    CLASS
+        NAME "Southern Superior Uplands"
+        EXPRESSION "Southern Superior Uplands"
+        STYLE
+                 COLOR 182 252 212
+       OUTLINECOLOR 0 0 0
+           WIDTH 2
+         END
+        
+                END
+
+    CLASS
+        NAME "North Central Glaciated Plains"
+        EXPRESSION "North Central Glaciated Plains"
+        STYLE
+                 COLOR 212 252 235
+       OUTLINECOLOR 0 0 0
+           WIDTH 2
+         END
+        
+                END
+
+    CLASS
+        NAME "Paleozoic Plateau"
+        EXPRESSION "Paleozoic Plateau"
+        STYLE
+                 COLOR 252 234 204
+       OUTLINECOLOR 0 0 0
+           WIDTH 2
+         END
+        
+                END
+    
+    HEADER 'imagemap_header.xml'
+    TEMPLATE 'imagemap_record.xml'
+    FOOTER 'imagemap_footer.xml'
+    
+  END #Layer
+  
+END ## end Map
+
