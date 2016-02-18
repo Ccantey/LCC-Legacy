@@ -1,9 +1,9 @@
-## Minnesota Legislative Coordinating Commission
-### Legislative-Citizen Commission on Minnesota Resources (LCCMR) mapping application User Interface
+## Minnesota Legislative Coordinating Commission (In Progress - Forked from LCCMR app)
+### Minnesota Legacy Ammendment project mapping application User Interface
 
-The **Land Acquisitions Map** application is a completely open-source full-stack, responsive (RWD) application, built with PostGIS, Leaflet, and a little TLC.
+The **Legacy Ammendment Map** application is a completely open-source full-stack, responsive (RWD) application, built with PostGIS, Leaflet, and a little TLC.
 
-See it in the wild at [http://gis.leg.mn/iMaps/LCCMR/landAcq](http://www.gis.leg.mn/iMaps/LCCMR/landAcq/)
+See it in the wild at [http://www.legacy.leg.mn/](http://www.legacy.leg.mn//)
 
 ### What's included?
 - Code
