@@ -19,7 +19,8 @@ $(function() {
   addNotifications($('[data-layerlist-id="basemap"]'));
   //load map layers
   init();
-  
+
+  //Identify variables in URL string from Legacy main page
   //http://ww2.commissions.leg.state.mn.us/gis/iMaps/Legacy/index.php?address=Minnesota
   getQueryVariable('address');
 
