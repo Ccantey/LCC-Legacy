@@ -108,7 +108,7 @@
 					 </div>
 
 					 <div class="logo">
-				          	<img src="images/enrtf-logo.png" height="75px"/>
+				          	<img src="images/logo-new.png" height="75px"/>
 				        </div>
 		        </div> <!-- search -->
 

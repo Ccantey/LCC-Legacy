@@ -1,5 +1,6 @@
 $(function() {
-
+  
+  
   //initial 'active' states
   // $("#layers, #results, #lccmr").hide();
   $("#physicalSwitches, #naturalSwitches, #basemap").hide();
@@ -18,11 +19,15 @@ $(function() {
   addNotifications($('[data-layerlist-id="basemap"]'));
   //load map layers
   init();
+  
+  //http://ww2.commissions.leg.state.mn.us/gis/iMaps/Legacy/index.php?address=Minnesota
+  getQueryVariable('address');
 
   // both key and enter fire geoCodeAddress
     $('#addressSearchButton').click(function(e){
       e.preventDefault();
-      geoCodeAddress(geocoder, map);
+      address = document.getElementById('addressSearch').value;
+      geoCodeAddress(geocoder, map, address);
     })
 
   //Populate Search Select Boxes 

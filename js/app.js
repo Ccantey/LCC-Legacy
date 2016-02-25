@@ -6,6 +6,9 @@ var pushPinMarker, grayBasemap, streetsBasemap, satelliteBasemap, selectedIcon;
 var previousSelection = [];
 var geocoder = null;
 
+//address from URL
+var address;
+
 
 //Set initial basemap with init() - called in helper.js
 function init () {
@@ -445,8 +448,8 @@ function addNotifications(el){
       notification.html(notificationCount);
 }
 
-function geoCodeAddress(geocoder, resultsMap) {
-  var address = document.getElementById('addressSearch').value;
+function geoCodeAddress(geocoder, resultsMap, address) {
+  //var address = document.getElementById('addressSearch').value;
   $("#loading").show();
 
   //clear searchboxes
@@ -515,6 +518,26 @@ function keypressInBox(e) {
     if (code == 13) { //Enter keycode                        
         e.preventDefault();
         dataLayer.push({'event': 'enterKeyGeocode'});
-        geoCodeAddress(geocoder, map);
+        address = document.getElementById('addressSearch').value;
+        geoCodeAddress(geocoder, map, address);
     }
 };
+
+//call getVariable('district' or 'address', whatever variable you want to pass through url)
+function getQueryVariable(variable)
+{
+       var query = window.location.search.substring(1);
+       var vars = query.split("&");
+       console.log(vars);
+
+       for (var i=0;i<vars.length;i++) {
+               var pair = vars[i].split("=");
+               if(pair[0] == variable){
+                address = pair[1].replace(/%20/g,' ');
+                geoCodeAddress(geocoder, map, address);                
+                return address;
+            }
+       }
+       return(false);
+
+}
