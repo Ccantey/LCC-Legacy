@@ -534,7 +534,8 @@ function getQueryVariable(variable)
                var pair = vars[i].split("=");
                if(pair[0] == variable){
                 address = pair[1].replace(/%20/g,' ');
-                geoCodeAddress(geocoder, map, address);                
+                geoCodeAddress(geocoder, map, address);
+                $('#addressSearch').val(address);
                 return address;
             }
        }
