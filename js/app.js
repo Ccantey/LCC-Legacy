@@ -16,13 +16,13 @@ function init () {
     var southWest = L.latLng(41.86956, -105.7140625),
         northEast = L.latLng(50.1487464, -84.202832);
     bounds = L.latLngBounds(southWest, northEast);
-
+    geocoder = new google.maps.Geocoder;
     map = L.map("map", {
-        center: L.latLng(46.1706, -94.9678),
+        center: getCenter(),//L.latLng(46.1706, -94.9678),
         maxBounds: bounds,
         zoom: 7
     });
-    geocoder = new google.maps.Geocoder;
+    
 
     // Add gray basemap
     grayBasemap = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiY2NhbnRleSIsImEiOiJjaWVsdDNubmEwMGU3czNtNDRyNjRpdTVqIn0.yFaW4Ty6VE3GHkrDvdbW6g', {
@@ -120,6 +120,15 @@ function init () {
     }); //getJson
     //toggleBaseLayers($('#graylayeronoffswitch'),grayBasemap,streetsBasemap);
 } //end init()
+
+function getCenter(){
+    if (getQueryVariable('address')){
+         getQueryVariable('address');
+    } else {
+        var center = L.latLng(46.1706, -94.9678);
+        return center;
+    }
+}
 
 function showParcelTable (selection) {
     var html = "";
@@ -232,6 +241,7 @@ function clearmap () {
 	toggleLayerSwitches();
 	$('.layernotification').hide();// hide notificaions and set their values = 0
     $('#geocodeFeedback').hide();
+    $('#addressSearch').val('');
 
 }
 
@@ -494,7 +504,7 @@ function geocodeFeedback(precision, components){
         $('#geocodeFeedback').show();
     } else {
         message = "Approximate location! Center of " + componentMap[components[0].types[0]];
-        $('#geocodeFeedback').html(message).css('color', 'red');
+        $('#geocodeFeedback').html(message).css('color', '#ae4b37');
         $('#geocodeFeedback').show();
     }
     
@@ -523,7 +533,8 @@ function keypressInBox(e) {
     }
 };
 
-//call getVariable('district' or 'address', whatever variable you want to pass through url)
+//call getQueryVariable('district' or 'address', whatever variable you want to pass through url)
+//example: http://ww2.commissions.leg.state.mn.us/gis/iMaps/Legacy/index.php?address=1414 Skyline Rd, Eagan
 function getQueryVariable(variable)
 {
        var query = window.location.search.substring(1);

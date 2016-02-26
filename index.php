@@ -15,7 +15,7 @@
 	<meta property="og:type"               content="website" />
 	<meta property="og:title"              content="Legacy Ammendment Projects Map" />
 	<meta property="og:description"        content="Interactive mapping tool for Environment and Natural Resources Trust Fund funded fee title and conservation easement land acquisitions." />
-	<meta property="og:image"              content="http://www.gis.leg.mn/iMaps/LCCMR/landAcq/images/enrtf-logo-social.jpg" />
+	<meta property="og:image"              content="http://www.gis.leg.mn/iMaps/Legacy/images/legacy_logo_rgb.jpg" />
     
     <!-- favicon and iPhone icon -->
     <link rel="apple-touch-icon" href="http://www.gis.leg.mn/iMaps/LCCMR/landAcq/images/enrtf-logo.jpg">
@@ -108,7 +108,7 @@
 					 </div>
 
 					 <div class="logo">
-				          	<img src="images/legacy_logo_horizontal2.png" height="80px"/>
+				          	<img src="images/logo-new.png" height="105px"/>
 				        </div>
 		        </div> <!-- search -->
 
@@ -353,7 +353,7 @@
 
 	             </div>
 	             <div class="logo">
-		          	<img src="images/enrtf-logo.png" height="75px"/>
+		          	<img src="images/logo-new.png" height="105px"/>
 		        </div>
 	            </div> <!-- end layers tab -->
 
@@ -423,7 +423,7 @@
 					</table>
             	</div> -->
             	<div class="logo">
-		          	<img src="images/enrtf-logo.png" height="75px"/>
+		          	<img src="images/logo-new.png" height="105px"/>
 		        </div>
             </div>
             <!------------------------------------------- Sidebar/LCCMR Div ---------------------------------------------->
@@ -493,7 +493,7 @@
 		          </div>  <!-- END BASEMAP SWITCHES -->
 
                 <div class="logo">
-		          	<img src="images/enrtf-logo.png" height="75px"/>
+		          	<img src="images/logo-new.png" height="105px"/>
 		        </div>
             </div>
 

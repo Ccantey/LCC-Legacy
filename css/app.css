@@ -44,7 +44,7 @@ form label{
 }
 
 select.form-control{
-  background-color:#50667f;
+  background-color:#646c72;
   color:#fff;
   width:100%;
   margin-top:4px;
@@ -77,7 +77,7 @@ table{
 }
 
 .table-hover > tbody > tr:hover{
-  background-color: #51616c;
+  background-color: #646c72;
   color:#fff !important;
   cursor:pointer;
 }
@@ -205,7 +205,7 @@ table{
     padding: 20px;
     overflow-x: hidden;
     overflow-y: auto; 
-    background-color: #142736;
+    background-color: #404040;
     /*min-height:700px;*/
 
   }
@@ -215,8 +215,8 @@ table{
 .nav-sidebar > .active > a:hover,
 .nav-sidebar > .active > a:focus {
   color: #fff;
-  background-color:#51616c;
-  border-left: 4px solid #142736;
+  background-color:#646c72;
+  border-left: 4px solid #ae4b37;
   margin-left: -4px;
 }
 
@@ -228,13 +228,13 @@ table{
 .nav.navbar-nav.helpul > .active > a:hover,
 .nav.navbar-nav.helpul > .active > a:focus {
   color: #fff;
-  background-color:#51616c;
-  outline-color: #51616c;
+  background-color:#646c72;
+  outline-color: #646c72;
 /*  border-left: 4px solid #142736;
   margin-left: -4px;*/
 }
 #navtabs {
-    background-color: #393f43;
+    background-color: #333;
     border-right:1px solid #000;
     /*border-left: 4px solid #727d86;*/
     height: 100%;
@@ -251,6 +251,9 @@ table{
   width:47px;
   text-align: center;
   border-left: 4px solid #727d86;
+}
+a:focus, a:hover{
+  color: #ae4b37;
 }
 
 .navtext{
@@ -272,10 +275,10 @@ table{
 
 .logo{
 	position:absolute;
-	left:19%;
+	left: 27%;
 	bottom:10px;
-  padding-top:  10px;
-  /*box-shadow: 0 0 2px 2px #565656;*/
+  padding: 3px 3px 2px 0;
+  /*box-shadow: 0 0 2px 2px #343434;*/
 }
 .closetab {
     display:visible;
@@ -308,7 +311,7 @@ table{
   right: 10px;
 }
 #map-tools a {
-  background-color: #142736;
+  background-color: #333;
   color: #808080;
   display: block;
   float: left;
@@ -342,7 +345,7 @@ table{
   /* text-shadow: 1px 1px 1px #333; */
 }
 #map-tools a:hover, #map-tools a.active {
-  background-color: #51616c;
+  background-color: #646c72;
   text-decoration: none;
   color: #fff;
   /* border: 1px solid #ff6600; */
@@ -429,7 +432,7 @@ table{
   text-align: center;
 }
 .active.searchli, .active.layersli,.active.helpli{ 
-  background-color:#51616c;
+  background-color:#646c72;
 }
 
 .active.searchli >a, .active.layersli >a,.active.helpli >a{ 
@@ -487,12 +490,12 @@ table{
 #addressSearchButton{
   padding:0;
   border-radius: 0;
-  background-color: #50667f;
+  background-color: #646c72;
   color:#fff;
   margin-bottom:3px;
   margin-left:5px;
   padding:7px 9px;
-  border-color:#50667f;
+  border-color:#646c72;
 }
 
 
@@ -507,7 +510,7 @@ table{
   margin-top: 5px;
 }
 #replink a{
-  color:#50667f;
+  color:#7a8288;
 }
 
 /*Layers tab*/
@@ -531,7 +534,7 @@ table{
   text-transform: uppercase;
 }
 #data a{
-  color: #50667f;
+  color: #646c72;
   font-size: italic;
 }
 
