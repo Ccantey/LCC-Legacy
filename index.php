@@ -108,7 +108,7 @@
 					 </div>
 
 					 <div class="logo">
-				          	<img src="images/logo-new.png" height="75px"/>
+				          	<img src="images/legacy_logo_horizontal2.png" height="80px"/>
 				        </div>
 		        </div> <!-- search -->
 

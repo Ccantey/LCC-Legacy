@@ -272,9 +272,10 @@ table{
 
 .logo{
 	position:absolute;
-	left:24%;
+	left:19%;
 	bottom:10px;
   padding-top:  10px;
+  /*box-shadow: 0 0 2px 2px #565656;*/
 }
 .closetab {
     display:visible;
