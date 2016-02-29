@@ -48,7 +48,7 @@ function init () {
 
     // Add satellite basemap
     satelliteBasemap = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiY2NhbnRleSIsImEiOiJjaWVsdDNubmEwMGU3czNtNDRyNjRpdTVqIn0.yFaW4Ty6VE3GHkrDvdbW6g', {
-        maxZoom: 18,
+        maxZoom: 19,
         minZoom: 6,
         zIndex: 1,
         attribution: 'Basemap data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a>, ' +
@@ -66,7 +66,7 @@ function init () {
                 // alternatively use image icons - i prefer divIcons for styling
                 // var deselectedIcon = L.icon({iconUrl: 'images/pushpin.png'});
                 // var selectedIcon = L.icon({iconUrl:'images/selectedpushpin.png'});
-                deselectedIcon = L.divIcon({className: 'deselected-icon', html: "<div class='divtext'>" + feature.properties.lccmrid + "</div>"});
+                deselectedIcon = L.divIcon({className: 'deselected-icon', html: "<div class='divtext'>" + feature.properties.title + "</div>"});
                 
                 pushPinMarker = L.marker(latlng, {icon: deselectedIcon})
                     .on('click', function (e) {
@@ -79,7 +79,7 @@ function init () {
     }).done( function (e) {  //end $.geoJSON begin leaflet cluster group next
             var clusters = L.markerClusterGroup({
                 spiderfyOnMaxZoom:false,
-                disableClusteringAtZoom: 16,
+                disableClusteringAtZoom: 18,
                 polygonOptions: {
                     color: '#ae4b37',
                     weight: 4,
@@ -138,10 +138,10 @@ function showParcelTable (selection) {
     //console.log(selection);
     for (prop in selection.feature.properties) {
     	//console.log(prop)
-    	if (prop === 'lccmrid') {
+    	if (prop === 'title') {
             html += "<tr><th>" + prop + ": </th><td><a href='http://www.lccmr.leg.mn/LandAcquisitions/Initial_Report_PDFs/" + selection.feature.properties[prop] + ".pdf' target = '_blank'>" + selection.feature.properties[prop] + "</a></td></tr>";
         }
-    	if (prop !== 'memid' && prop !== 'lccmrid') {
+    	if (prop !== 'memid' && prop !== 'title') {
             html += "<tr><th>" + prop + ": </th><td>" + selection.feature.properties[prop] + "</td></tr>";
         }        
     };
@@ -151,15 +151,15 @@ function showParcelTable (selection) {
 
 function showSelectedIcon (selection) {	
     //display the correct id, otherwise displays current selection to previous selection point	
-    previousSelection.push(selection.feature.properties.lccmrid);
+    previousSelection.push(selection.feature.properties.title);
 
     toggleIcon(2);
 
-    selectedIcon = L.divIcon({className: 'selected-icon', html: "<div class='divtext'>" + selection.feature.properties.lccmrid + "</div>"});
+    selectedIcon = L.divIcon({className: 'selected-icon', html: "<div class='divtext'>" + selection.feature.properties.title + "</div>"});
 
     selection.setIcon(selectedIcon);
     //load geojson parcel, make available only at scale below x, zoom to it, if zoom out back to selectedIcon
-    loadParcel(selection.feature.properties.lccmrid)
+    //loadParcel(selection.feature.properties.title)
 }
 
 //common task, requires the last index of array - if a property is selected only once before clearmap(), throws an error
@@ -176,18 +176,18 @@ function toggleIcon (index) {
     });
 }
 
-function loadParcel (id) {
-	var lccmrid = {id:id};
-	$.ajax("php/getParcelData.php", {
-		data: lccmrid,
-		success: function(result){			
-			showParcel(result);
-		}, 
-		error: function(){
-			console.log('error');
-		}
-	});
-}
+// function loadParcel (id) {
+// 	var title = {id:id};
+// 	$.ajax("php/getParcelData.php", {
+// 		data: title,
+// 		success: function(result){			
+// 			showParcel(result);
+// 		}, 
+// 		error: function(){
+// 			console.log('error');
+// 		}
+// 	});
+// }
 
 function showParcel (d) {
     // console.log(d);
