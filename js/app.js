@@ -71,7 +71,7 @@ function init () {
                 pushPinMarker = L.marker(latlng, {icon: deselectedIcon})
                     .on('click', function (e) {
                     	var selectedProperty = e.target;
-                       showParcelTable(selectedProperty);
+                       showResultsTable(selectedProperty);
                     }); //end onclick
                 return pushPinMarker;
             } //end pointToLayer method
@@ -130,7 +130,7 @@ function getCenter(){
     }
 }
 
-function showParcelTable (selection) {
+function showResultsTable (selection) {
     var html = "";
     $('#propertyinfo').show();
     $('#noshow').hide();
@@ -247,14 +247,15 @@ function clearmap () {
 }
 
 function resetLayers() {
-    if (typeof parcelGeoJSON !== "undefined" ){
-        map.removeLayer(parcelGeoJSON);
-        delete parcelGeoJSON;
-    };
-    if (typeof selectionGeoJSON !== "undefined" ){
-        map.removeLayer(selectionGeoJSON);
-        delete selectionGeoJSON;
-    }pushPinMarker
+    // if (typeof parcelGeoJSON !== "undefined" ){
+    //     map.removeLayer(parcelGeoJSON);
+    //     delete parcelGeoJSON;
+    // };
+    // if (typeof selectionGeoJSON !== "undefined" ){
+    //     map.removeLayer(selectionGeoJSON);
+    //     delete selectionGeoJSON;
+    // }
+    // pushPinMarker
     if (typeof pushPinMarker !== "undefined" ){
         map.removeLayer(pushPinMarker);
         delete pushPinMarker;

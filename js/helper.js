@@ -79,15 +79,15 @@ $(function() {
     });
     //END select form helpers
 
-  map.on('zoomend', function (e) {
-    if (typeof parcelGeoJSON !== "undefined" ){
-      if (map.getZoom() < 12){
-        map.removeLayer(parcelGeoJSON);
-      } else {
-        map.addLayer(parcelGeoJSON);
-      }
-    }
-  });
+  // map.on('zoomend', function (e) {
+  //   if (typeof parcelGeoJSON !== "undefined" ){
+  //     if (map.getZoom() < 12){
+  //       map.removeLayer(parcelGeoJSON);
+  //     } else {
+  //       map.addLayer(parcelGeoJSON);
+  //     }
+  //   }
+  // });
 
   //Gray sidebar navigation
  $('.navlist').click(function(e){
