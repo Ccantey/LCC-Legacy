@@ -96,13 +96,13 @@ function init () {
                     if (count <= 10) {
                     	scale = 1;
                     }
-                    if (count > 10 && count <= 33) {
+                    if (count > 10 && count <= 75) {
                     	scale = 2;
                     }
-                    if (count > 33 && count <= 50) {
+                    if (count > 75 && count <= 500) {
                     	scale = 3;
                     }
-                    if (count > 50) {
+                    if (count > 500) {
                     	scale = 4;
                     }
                     // return a new L.DivIcon with our classes so we can
