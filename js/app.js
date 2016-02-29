@@ -71,7 +71,7 @@ function init () {
                 pushPinMarker = L.marker(latlng, {icon: deselectedIcon})
                     .on('click', function (e) {
                     	var selectedProperty = e.target;
-                        showParcelTable(selectedProperty);
+                       showParcelTable(selectedProperty);
                     }); //end onclick
                 return pushPinMarker;
             } //end pointToLayer method
@@ -145,6 +145,7 @@ function showParcelTable (selection) {
             html += "<tr><th>" + prop + ": </th><td>" + selection.feature.properties[prop] + "</td></tr>";
         }        
     };
+    $('#data').show();
     $('#data').append(html);
 	showSelectedIcon(selection);
 }
@@ -189,25 +190,25 @@ function toggleIcon (index) {
 // 	});
 // }
 
-function showParcel (d) {
-    // console.log(d);
-    if (typeof parcelGeoJSON !== "undefined" ){ 
-        map.removeLayer(parcelGeoJSON);			
-    }
-    //parcel polygon overlay styling
-    var myStyle = {
-        "color": "#991a36",
-        "weight": 2,
-        "opacity": 0.65
-    };
-    parcelGeoJSON = L.geoJson(d, {
-        style:myStyle
-    }).addTo(map);
-    //zoom to selection
-    $('#data').show();
-    var parcelBounds = parcelGeoJSON.getBounds();
-    map.fitBounds(parcelBounds, {maxZoom:14});
-}
+// function showParcel (d) {
+//     // console.log(d);
+//     if (typeof parcelGeoJSON !== "undefined" ){ 
+//         map.removeLayer(parcelGeoJSON);			
+//     }
+//     //parcel polygon overlay styling
+//     var myStyle = {
+//         "color": "#991a36",
+//         "weight": 2,
+//         "opacity": 0.65
+//     };
+//     parcelGeoJSON = L.geoJson(d, {
+//         style:myStyle
+//     }).addTo(map);
+//     //zoom to selection
+//     $('#data').show();
+//     var parcelBounds = parcelGeoJSON.getBounds();
+//     map.fitBounds(parcelBounds, {maxZoom:14});
+// }
 
 function navTab (id, tab) {
     $("li.navlist").removeClass("active");
