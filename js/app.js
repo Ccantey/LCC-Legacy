@@ -154,8 +154,9 @@ function showSelectedIcon (selection) {
     //display the correct id, otherwise displays current selection to previous selection point	
     // previousSelection.push(selection.feature.properties.title);
 
+    //remove toggleIcon and just show results
     toggleIcon(2);
-
+    // navTab('results', $("li[data-navlist-id='results']"));
     selectedIcon = L.divIcon({className: 'selected-icon'});
 
     selection.setIcon(selectedIcon);
@@ -167,9 +168,10 @@ function showSelectedIcon (selection) {
 //so index will always be either 1 or 2
 //give a selected appearance to point data
 function toggleIcon (index) {
+    navTab('results', $("li[data-navlist-id='results']"));
 	LandAcquisitions.eachLayer(function (layer) {
         //toggle navigation tab
-        navTab('results', $("li[data-navlist-id='results']"));
+        
         if (layer.options.icon.options.className === "selected-icon") {
             deselectedIcon = L.divIcon({className: 'deselected-icon'});
             layer.setIcon(deselectedIcon);
