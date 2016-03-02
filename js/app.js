@@ -1,13 +1,21 @@
 //core business logic
 var map, bounds, LegacyProject, overlayLayers={}, switchMap = {};
 //map Layers
-var pushPinMarker, grayBasemap, streetsBasemap, satelliteBasemap, selectedIcon;
+var projectMarker, grayBasemap, streetsBasemap, satelliteBasemap, selectedIcon;
 //map overlay layers... called like overlayLayers.CongressionalBoundaryLayer
 var previousSelection = [];
 var geocoder = null;
 
 //address from URL
 var address;
+
+var iconsClassification = {
+    "Parks & Trails Fund": 'parksandtrails',
+    "Arts & Cultural Heritage Fund": 'artsandculture',
+    "Outdoor Heritage Fund": 'outdoorheritage',
+    "Clean Water Fund": 'cleanwater',
+    "Environment & Natural Resources Trust Fund": 'enrtf'
+}
 
 
 //Set initial basemap with init() - called in helper.js
@@ -66,14 +74,15 @@ function init () {
                 // alternatively use image icons - i prefer divIcons for styling
                 // var deselectedIcon = L.icon({iconUrl: 'images/pushpin.png'});
                 // var selectedIcon = L.icon({iconUrl:'images/selectedpushpin.png'});
-                deselectedIcon = L.divIcon({className: 'deselected-icon'});
+                //console.log(iconsClassification[feature.properties.source]);
+                deselectedIcon = L.divIcon({className: iconsClassification[feature.properties.source]});
                 
-                pushPinMarker = L.marker(latlng, {icon: deselectedIcon})
+                projectMarker = L.marker(latlng, {icon: deselectedIcon})
                     .on('click', function (e) {
                     	var selectedProperty = e.target;
                        showResultsTable(selectedProperty);
                     }); //end onclick
-                return pushPinMarker;
+                return projectMarker;
             } //end pointToLayer method
         }) //end LandAcquisition object
     }).done( function (e) {  //end $.geoJSON begin leaflet cluster group next
@@ -152,10 +161,10 @@ function showResultsTable (selection) {
 
 function showSelectedIcon (selection) {	
     //display the correct id, otherwise displays current selection to previous selection point	
-    // previousSelection.push(selection.feature.properties.title);
+    previousSelection.push(selection.feature.properties.source);
 
     //remove toggleIcon and just show results
-    toggleIcon(2);
+    toggleIcon(2, selection.feature.properties.source);
     // navTab('results', $("li[data-navlist-id='results']"));
     selectedIcon = L.divIcon({className: 'selected-icon'});
 
@@ -167,12 +176,13 @@ function showSelectedIcon (selection) {
 //common task, requires the last index of array - if a property is selected only once before clearmap(), throws an error
 //so index will always be either 1 or 2
 //give a selected appearance to point data
-function toggleIcon (index) {
+function toggleIcon (index, source) {
     navTab('results', $("li[data-navlist-id='results']"));
 	LegacyProject.eachLayer(function (layer) {
         //toggle navigation tab        
         if (layer.options.icon.options.className === "selected-icon") {
-            deselectedIcon = L.divIcon({className: 'deselected-icon'});
+            console.log('selected-icon');
+            deselectedIcon = L.divIcon({className: iconsClassification[previousSelection[previousSelection.length - index]]});
             layer.setIcon(deselectedIcon);
         }
     });
@@ -256,10 +266,10 @@ function resetLayers() {
     //     map.removeLayer(selectionGeoJSON);
     //     delete selectionGeoJSON;
     // }
-    // pushPinMarker
-    if (typeof pushPinMarker !== "undefined" ){
-        map.removeLayer(pushPinMarker);
-        delete pushPinMarker;
+    // projectMarker
+    if (typeof projectMarker !== "undefined" ){
+        map.removeLayer(projectMarker);
+        delete projectMarker;
     }
     $('.layernotification').hide();
     //Remove all layers except the basemap -- down here because its an asychronous thead apparently
@@ -518,11 +528,11 @@ function addMarker(e){
     //remove sidebar formatting
 
     //remove old pushpin and previous selected district layers 
-    if (typeof pushPinMarker !== "undefined" ){ 
-        map.removeLayer(pushPinMarker);         
+    if (typeof projectMarker !== "undefined" ){ 
+        map.removeLayer(projectMarker);         
     }
     //add marker
-    pushPinMarker = new L.marker(e.latlng).addTo(map);
+    projectMarker = new L.marker(e.latlng).addTo(map);
 }
 
 //submit search text box - removed button for formatting space
@@ -542,7 +552,7 @@ function getQueryVariable(variable)
 {
        var query = window.location.search.substring(1);
        var vars = query.split("&");
-       console.log(vars);
+       //console.log(vars);
 
        for (var i=0;i<vars.length;i++) {
                var pair = vars[i].split("=");

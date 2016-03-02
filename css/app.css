@@ -350,17 +350,19 @@ a:focus, a:hover{
   color: #fff;
   /* border: 1px solid #ff6600; */
 }
-.deselected-icon {
-    background: #484995;
+
+/*Icon classification*/
+.parksandtrails {
+    background: #58cc6c;
     border-radius: 50%;
     text-align: center;
     color: black;
     font-weight: 700;
-    border: 2px solid #484995;
+    border: 2px solid #58cc6c;
     font-family: monospace;
     text-align: right;
   }
-  .deselected-icon:hover{
+  .parksandtrails:hover{
 /*    -webkit-box-shadow: 0px 0px 15px 3px rgba(109, 109, 170, .75);
        -moz-box-shadow: 0px 0px 15px 3px rgba(109, 109, 170, .75);
             box-shadow: 0px 0px 15px 3px rgba(109, 109, 170, .75);*/
@@ -368,6 +370,79 @@ a:focus, a:hover{
     background: #6d6daa;
   }
 
+  .artsandculture {
+    background: #ae4b37;
+    border-radius: 50%;
+    text-align: center;
+    color: black;
+    font-weight: 700;
+    border: 2px solid #ae4b37;
+    font-family: monospace;
+    text-align: right;
+  }
+  .artsandculture:hover{
+/*    -webkit-box-shadow: 0px 0px 15px 3px rgba(109, 109, 170, .75);
+       -moz-box-shadow: 0px 0px 15px 3px rgba(109, 109, 170, .75);
+            box-shadow: 0px 0px 15px 3px rgba(109, 109, 170, .75);*/
+    border: 2px solid #fc6244;
+    background: #6d6daa;
+  }
+
+  .outdoorheritage {
+    background: #ffd979;
+    border-radius: 50%;
+    text-align: center;
+    color: black;
+    font-weight: 700;
+    border: 2px solid #ffd979;
+    font-family: monospace;
+    text-align: right;
+  }
+  .outdoorheritage:hover{
+/*    -webkit-box-shadow: 0px 0px 15px 3px rgba(109, 109, 170, .75);
+       -moz-box-shadow: 0px 0px 15px 3px rgba(109, 109, 170, .75);
+            box-shadow: 0px 0px 15px 3px rgba(109, 109, 170, .75);*/
+    border: 2px solid #fc6244;
+    background: #6d6daa;
+  }
+
+  .cleanwater {
+    background: #6284d7;
+    border-radius: 50%;
+    text-align: center;
+    color: black;
+    font-weight: 700;
+    border: 2px solid #6284d7;
+    font-family: monospace;
+    text-align: right;
+  }
+  .cleanwater:hover{
+/*    -webkit-box-shadow: 0px 0px 15px 3px rgba(109, 109, 170, .75);
+       -moz-box-shadow: 0px 0px 15px 3px rgba(109, 109, 170, .75);
+            box-shadow: 0px 0px 15px 3px rgba(109, 109, 170, .75);*/
+    border: 2px solid #fc6244;
+    background: #6d6daa;
+  }
+
+  .enrtf {
+    background: #5aafdc;
+    border-radius: 50%;
+    text-align: center;
+    color: black;
+    font-weight: 700;
+    border: 2px solid #5aafdc;
+    font-family: monospace;
+    text-align: right;
+  }
+  .enrtf:hover{
+/*    -webkit-box-shadow: 0px 0px 15px 3px rgba(109, 109, 170, .75);
+       -moz-box-shadow: 0px 0px 15px 3px rgba(109, 109, 170, .75);
+            box-shadow: 0px 0px 15px 3px rgba(109, 109, 170, .75);*/
+    border: 2px solid #fc6244;
+    background: #6d6daa;
+  }
+
+/*selected icon classification*/
   .selected-icon {
     background: #484995;
     border-radius: 50%;
