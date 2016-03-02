@@ -18,7 +18,7 @@
 	<meta property="og:image"              content="http://www.gis.leg.mn/iMaps/Legacy/images/legacy_logo_rgb.jpg" />
     
     <!-- favicon and iPhone icon -->
-    <link rel="apple-touch-icon" href="http://www.gis.leg.mn/iMaps/LCCMR/landAcq/images/enrtf-logo.jpg">
+    <link rel="apple-touch-icon" href="http://www.gis.leg.mn/iMaps/Legacy/images/legacy_logo_rgb.jpg">
     <link rel="icon" href="images/favicon.ico">
 
     <!-- mapping stylesheets -->
@@ -34,7 +34,7 @@
     <link href="css/app.css" rel="stylesheet">
 
     <!-- geocoding api -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzJYWw87EtAx2_U-RYxmkHkm5wC_VRz7I" ></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqo2j28SDRSRhrCJJFvesI8PBTzb0NipA" ></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <!-- <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet"> -->
 
@@ -44,7 +44,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <title>LCCMR</title>
+    <title>Legacy</title>
   </head>
 
   <body>
@@ -617,7 +617,7 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/app.js"></script>
     <script src="js/helper.js"></script>
-<!--     <script type="text/javascript">
+    <script type="text/javascript">
 
 	  var _gaq = _gaq || [];
 	  _gaq.push(['_setAccount', 'UA-40102195-1']);
@@ -629,7 +629,7 @@
 	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 	  })();
 
-	</script> -->
+	</script>
     
     
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->

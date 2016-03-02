@@ -1,5 +1,5 @@
 //core business logic
-var map, bounds, LandAcquisitions, overlayLayers={}, switchMap = {};
+var map, bounds, LegacyProject, overlayLayers={}, switchMap = {};
 //map Layers
 var pushPinMarker, grayBasemap, streetsBasemap, satelliteBasemap, selectedIcon;
 //map overlay layers... called like overlayLayers.CongressionalBoundaryLayer
@@ -48,7 +48,7 @@ function init () {
 
     // Add satellite basemap
     satelliteBasemap = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiY2NhbnRleSIsImEiOiJjaWVsdDNubmEwMGU3czNtNDRyNjRpdTVqIn0.yFaW4Ty6VE3GHkrDvdbW6g', {
-        maxZoom: 19,
+        maxZoom: 18,
         minZoom: 6,
         zIndex: 1,
         attribution: 'Basemap data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a>, ' +
@@ -60,7 +60,7 @@ function init () {
     // Add LandAq data
     $.getJSON("php/getOverlayLayersAsGeoJSON.php", function (data) {
 
-        LandAcquisitions = L.geoJson(data, {
+        LegacyProject = L.geoJson(data, {
             //style:myStyle,
             pointToLayer: function (feature, latlng) {
                 // alternatively use image icons - i prefer divIcons for styling
@@ -115,7 +115,7 @@ function init () {
                     });
                 } //end iconCreateFunction method
             }); //end clusters object
-            clusters.addLayer(LandAcquisitions);
+            clusters.addLayer(LegacyProject);
             clusters.addTo(map);
     }); //getJson
     //toggleBaseLayers($('#graylayeronoffswitch'),grayBasemap,streetsBasemap);
@@ -169,7 +169,7 @@ function showSelectedIcon (selection) {
 //give a selected appearance to point data
 function toggleIcon (index) {
     navTab('results', $("li[data-navlist-id='results']"));
-	LandAcquisitions.eachLayer(function (layer) {
+	LegacyProject.eachLayer(function (layer) {
         //toggle navigation tab        
         if (layer.options.icon.options.className === "selected-icon") {
             deselectedIcon = L.divIcon({className: 'deselected-icon'});
