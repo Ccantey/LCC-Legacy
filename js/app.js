@@ -170,8 +170,7 @@ function showSelectedIcon (selection) {
 function toggleIcon (index) {
     navTab('results', $("li[data-navlist-id='results']"));
 	LandAcquisitions.eachLayer(function (layer) {
-        //toggle navigation tab
-        
+        //toggle navigation tab        
         if (layer.options.icon.options.className === "selected-icon") {
             deselectedIcon = L.divIcon({className: 'deselected-icon'});
             layer.setIcon(deselectedIcon);

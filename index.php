@@ -617,7 +617,7 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/app.js"></script>
     <script src="js/helper.js"></script>
-    <script type="text/javascript">
+<!--     <script type="text/javascript">
 
 	  var _gaq = _gaq || [];
 	  _gaq.push(['_setAccount', 'UA-40102195-1']);
@@ -629,7 +629,7 @@
 	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 	  })();
 
-	</script>
+	</script> -->
     
     
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
