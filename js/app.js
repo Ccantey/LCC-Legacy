@@ -66,7 +66,7 @@ function init () {
                 // alternatively use image icons - i prefer divIcons for styling
                 // var deselectedIcon = L.icon({iconUrl: 'images/pushpin.png'});
                 // var selectedIcon = L.icon({iconUrl:'images/selectedpushpin.png'});
-                deselectedIcon = L.divIcon({className: 'deselected-icon', html: "<div class='divtext'>" + feature.properties.title + "</div>"});
+                deselectedIcon = L.divIcon({className: 'deselected-icon'});
                 
                 pushPinMarker = L.marker(latlng, {icon: deselectedIcon})
                     .on('click', function (e) {
@@ -78,8 +78,8 @@ function init () {
         }) //end LandAcquisition object
     }).done( function (e) {  //end $.geoJSON begin leaflet cluster group next
             var clusters = L.markerClusterGroup({
-                spiderfyOnMaxZoom:false,
-                disableClusteringAtZoom: 18,
+                spiderfyOnMaxZoom:true,
+                // disableClusteringAtZoom: 18,
                 polygonOptions: {
                     color: '#ae4b37',
                     weight: 4,
@@ -152,11 +152,11 @@ function showResultsTable (selection) {
 
 function showSelectedIcon (selection) {	
     //display the correct id, otherwise displays current selection to previous selection point	
-    previousSelection.push(selection.feature.properties.title);
+    // previousSelection.push(selection.feature.properties.title);
 
     toggleIcon(2);
 
-    selectedIcon = L.divIcon({className: 'selected-icon', html: "<div class='divtext'>" + selection.feature.properties.title + "</div>"});
+    selectedIcon = L.divIcon({className: 'selected-icon'});
 
     selection.setIcon(selectedIcon);
     //load geojson parcel, make available only at scale below x, zoom to it, if zoom out back to selectedIcon
@@ -171,7 +171,7 @@ function toggleIcon (index) {
         //toggle navigation tab
         navTab('results', $("li[data-navlist-id='results']"));
         if (layer.options.icon.options.className === "selected-icon") {
-            deselectedIcon = L.divIcon({className: 'deselected-icon', html: "<div class='divtext'>" + previousSelection[previousSelection.length - index] + "</div>"});
+            deselectedIcon = L.divIcon({className: 'deselected-icon'});
             layer.setIcon(deselectedIcon);
         }
     });
