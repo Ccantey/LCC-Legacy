@@ -72,7 +72,9 @@ function init () {
             //style:myStyle,
             pointToLayer: function (feature, latlng) {
                 // alternatively use image icons - i prefer divIcons for styling
-                // var deselectedIcon = L.icon({iconUrl: 'images/pushpin.png'});
+                // var deselectedIcon = L.icon({iconUrl: 'images/'+iconsClassification[feature.properties.source]+'.png',
+                //                              iconAnchor: [10,11] //1/2 the imag size offset
+                //                             });
                 // var selectedIcon = L.icon({iconUrl:'images/selectedpushpin.png'});
                 //console.log(iconsClassification[feature.properties.source]);
                 deselectedIcon = L.divIcon({className: iconsClassification[feature.properties.source]});
@@ -148,7 +150,7 @@ function showResultsTable (selection) {
     for (prop in selection.feature.properties) {
     	//console.log(prop)
     	if (prop === 'title') {
-            html += "<tr><th>" + prop + ": </th><td><a href='http://www.lccmr.leg.mn/LandAcquisitions/Initial_Report_PDFs/" + selection.feature.properties[prop] + ".pdf' target = '_blank'>" + selection.feature.properties[prop] + "</a></td></tr>";
+            html += "<tr><th>" + prop + ": </th><td><a href='http://www.legacy.leg.mn/projects/" + selection.feature.properties[prop] + "' target = '_blank'>" + selection.feature.properties[prop] + "</a></td></tr>";
         }
     	if (prop !== 'memid' && prop !== 'title') {
             html += "<tr><th>" + prop + ": </th><td>" + selection.feature.properties[prop] + "</td></tr>";
@@ -164,10 +166,9 @@ function showSelectedIcon (selection) {
     previousSelection.push(selection.feature.properties.source);
 
     //remove toggleIcon and just show results
-    toggleIcon(2, selection.feature.properties.source);
+    toggleIcon(2, iconsClassification[selection.feature.properties.source]);
     // navTab('results', $("li[data-navlist-id='results']"));
-    selectedIcon = L.divIcon({className: 'selected-icon'});
-
+    selectedIcon = L.divIcon({className: 'selected-icon '+ iconsClassification[selection.feature.properties.source]});
     selection.setIcon(selectedIcon);
     //load geojson parcel, make available only at scale below x, zoom to it, if zoom out back to selectedIcon
     //loadParcel(selection.feature.properties.title)
@@ -177,12 +178,14 @@ function showSelectedIcon (selection) {
 //so index will always be either 1 or 2
 //give a selected appearance to point data
 function toggleIcon (index, source) {
+    var lastIndex = previousSelection[previousSelection.length - index];
+    // console.log(lastIndex)
     navTab('results', $("li[data-navlist-id='results']"));
 	LegacyProject.eachLayer(function (layer) {
         //toggle navigation tab        
-        if (layer.options.icon.options.className === "selected-icon") {
-            console.log('selected-icon');
-            deselectedIcon = L.divIcon({className: iconsClassification[previousSelection[previousSelection.length - index]]});
+        if (layer.options.icon.options.className === "selected-icon " +iconsClassification[lastIndex]) {
+            //console.log('selected-icon');
+            deselectedIcon = L.divIcon({className: iconsClassification[lastIndex]});
             layer.setIcon(deselectedIcon);
         }
     });

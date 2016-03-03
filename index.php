@@ -516,7 +516,7 @@
 			</span>
 		</div>
 
-	 <div id="legend" style="display:none;">
+	 <div id="legend" >
 	  <div class="legendTitle">Legend</div>
 	  <img id="propsymbols" src="images/legend/legend3.png"/>
 	  <ul class="symbolClass">
