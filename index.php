@@ -539,7 +539,7 @@
 			<span data-toggle="modal" data-target="#info" style="cursor:pointer">
 				<a href="#" class="middle" data-toggle="tooltip" data-placement="bottom" title="About" id="helpbutton"><i class="fa fa-info-circle fa-lg"></i></a>
 			</span>
-			<a href="#"  id="legendToggle" data-toggle="tooltip" data-placement="bottom" title="Map Legend"><i class="fa fa-map-signs fa-lg"></i></a>
+			<a href="#"  id="legendToggle" data-toggle="tooltip" data-placement="bottom" title="Toggle Map Legend"><i class="fa fa-map-signs fa-lg"></i></a>
 			<span data-toggle="modal" data-target="#share" style="cursor:pointer">
 			    <a class="last" data-toggle="tooltip" data-placement="bottom" title="Share Map" id="sharebutton"><i class="fa fa-share fa-lg"></i></a>
 			</span>

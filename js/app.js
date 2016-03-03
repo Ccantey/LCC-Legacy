@@ -146,15 +146,22 @@ function showResultsTable (selection) {
     $('#propertyinfo').show();
     $('#noshow').hide();
     $('#data').html(html);
+    var attributeNameMap = {'nid':'node id','title':'TITLE','fiscal_year':'Fiscal Year','fy_funding':'FY Funding','recipient':'recipient','administrator':'Administrator','source':'Source','status':'Status'};
     //console.log(selection);
-    for (prop in selection.feature.properties) {
-    	console.log(selection.feature.properties)
-    	if (prop === 'title') {
-            html += "<tr><th>" + prop + ": </th><td><a href='http://www.legacy.leg.mn/node/" + selection.feature.properties['nid'] + "' target = '_blank'>" + selection.feature.properties[prop] + "</a></td></tr>";
+    for (prop in selection.feature.properties) { 
+    	console.log(prop)
+        if (prop === 'nid') {
+            console.log('nid')
+            html += "";
         }
-    	if (prop !== 'memid' && prop !== 'title') {
-            html += "<tr><th>" + prop + ": </th><td>" + selection.feature.properties[prop] + "</td></tr>";
-        }        
+    	if (prop === 'title') {
+            html += "<tr><th>Project Link: </th><td><a href='http://www.legacy.leg.mn/node/" + selection.feature.properties['nid'] + "' target = '_blank'>" + selection.feature.properties[prop] + "</a></td></tr>";
+        }
+        if (selection.feature.properties[prop] !== null){
+        	if (prop === 'title' || prop === 'fiscal_year' || prop === 'fy_funding' || prop === 'recipient' || prop === 'administrator' || prop === 'source' || prop === 'status') {
+                html += "<tr><th>" +  attributeNameMap[prop] + ": </th><td>" + selection.feature.properties[prop] + "</td></tr>";
+            }  
+        }      
     };
     $('#data').show();
     $('#data').append(html);
