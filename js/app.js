@@ -148,9 +148,9 @@ function showResultsTable (selection) {
     $('#data').html(html);
     //console.log(selection);
     for (prop in selection.feature.properties) {
-    	//console.log(prop)
+    	console.log(selection.feature.properties)
     	if (prop === 'title') {
-            html += "<tr><th>" + prop + ": </th><td><a href='http://www.legacy.leg.mn/projects/" + selection.feature.properties[prop] + "' target = '_blank'>" + selection.feature.properties[prop] + "</a></td></tr>";
+            html += "<tr><th>" + prop + ": </th><td><a href='http://www.legacy.leg.mn/node/" + selection.feature.properties['nid'] + "' target = '_blank'>" + selection.feature.properties[prop] + "</a></td></tr>";
         }
     	if (prop !== 'memid' && prop !== 'title') {
             html += "<tr><th>" + prop + ": </th><td>" + selection.feature.properties[prop] + "</td></tr>";

@@ -49,6 +49,9 @@ select.form-control{
   width:100%;
   margin-top:4px;
 }
+.checkbox{
+    margin-bottom: 20px;
+}
 
 /* RESULTS TAB*/
 thead > tr > th{
@@ -351,6 +354,10 @@ a:focus, a:hover{
   /* border: 1px solid #ff6600; */
 }
 
+.fundlabel{
+  padding-left:25px;
+  position:absolute;
+}
 /*Icon classification*/
 .parksandtrails {
     background: #93dea0;

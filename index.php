@@ -107,6 +107,35 @@
 						 </form>
 					 </div>
 
+					 <div class="selectform">
+						<div class="checkbox">
+						    <label>
+						      <input type="checkbox" checked> 
+                                  <div class="leaflet-marker-icon artsandculture leaflet-zoom-animated leaflet-clickable" style="margin-left:20px;"></div> <span class="fundlabel">Arts & Cultural Heritage Fund</span>
+						    </label>
+						</div>
+						<div class="checkbox">
+						    <label>
+						      <input type="checkbox" checked> <div class="leaflet-marker-icon cleanwater leaflet-zoom-animated leaflet-clickable" style="margin-left:20px;"></div> <span class="fundlabel">Clean Water Fund</span>
+						    </label>
+						</div>
+						<div class="checkbox">
+						    <label>
+						      <input type="checkbox" checked> <div class="leaflet-marker-icon enrtf leaflet-zoom-animated leaflet-clickable" style="margin-left:20px;"></div> <span class="fundlabel">Environment & Natural Resources Trust Fund</span>
+						    </label>
+						</div>
+						<div class="checkbox">
+						    <label>
+						      <input type="checkbox" checked> <div class="leaflet-marker-icon outdoorheritage leaflet-zoom-animated leaflet-clickable" style="margin-left:20px;"></div> <span class="fundlabel">Outdoor Heritage Fund</span>
+						    </label>
+						</div>
+						<div class="checkbox">
+						    <label>
+						      <input type="checkbox" checked> <div class="leaflet-marker-icon parksandtrails leaflet-zoom-animated leaflet-clickable" style="margin-left:20px;"></div> <span class="fundlabel">Parks & Trails Fund</span>
+						    </label>
+						</div>
+					 </div>
+
 					 <div class="logo">
 				          	<a href="http://www.legacy.leg.mn/"><img src="images/logo-new.png" height="105px"/></a>
 				        </div>
