@@ -108,7 +108,7 @@
 					 </div>
 
 					 <div class="logo">
-				          	<img src="images/logo-new.png" height="105px"/>
+				          	<a href="http://www.legacy.leg.mn/"><img src="images/logo-new.png" height="105px"/></a>
 				        </div>
 		        </div> <!-- search -->
 
@@ -353,7 +353,7 @@
 
 	             </div>
 	             <div class="logo">
-		          	<img src="images/logo-new.png" height="105px"/>
+		          	<a href="http://www.legacy.leg.mn/"><img src="images/logo-new.png" height="105px"/></a>
 		        </div>
 	            </div> <!-- end layers tab -->
 
@@ -423,7 +423,7 @@
 					</table>
             	</div> -->
             	<div class="logo">
-		          	<img src="images/logo-new.png" height="105px"/>
+		          	<a href="http://www.legacy.leg.mn/"><img src="images/logo-new.png" height="105px"/></a>
 		        </div>
             </div>
             <!------------------------------------------- Sidebar/LCCMR Div ---------------------------------------------->
@@ -493,7 +493,7 @@
 		          </div>  <!-- END BASEMAP SWITCHES -->
 
                 <div class="logo">
-		          	<img src="images/logo-new.png" height="105px"/>
+		          	<a href="http://www.legacy.leg.mn/"><img src="images/logo-new.png" height="105px"/></a>
 		        </div>
             </div>
 
