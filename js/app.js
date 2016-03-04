@@ -16,8 +16,7 @@ var iconsClassification = {
     "Outdoor Heritage Fund": 'outdoorheritage',
     "Clean Water Fund": 'cleanwater',
     "Environment & Natural Resources Trust Fund": 'enrtf'
-}
-
+};
 
 //Set initial basemap with init() - called in helper.js
 function init () {
@@ -102,7 +101,6 @@ function showClusters(){
             var filters = document.getElementById('layercontrols').filters;
             for (var i = 0; i < filters.length; i++) {
                 if (filters[i].checked) list.push(filters[i].value);
-                console.log(list);
             }
             overlays.clearLayers();
 
@@ -164,7 +162,7 @@ function getCenter(){
 
 function showResultsTable (selection) {
     var html = "";
-    $('#propertyinfo').show();
+    // $('#propertyinfo').show();
     $('#noshow').hide();
     $('#data').html(html);
     var attributeNameMap = {'nid':'node id','title':'TITLE','fiscal_year':'Fiscal Year','fy_funding':'FY Funding','recipient':'recipient','administrator':'Administrator','source':'Source','status':'Status'};
@@ -190,13 +188,14 @@ function showResultsTable (selection) {
 }
 
 function showSelectedIcon (selection) {	
+    var fundingSource = selection.feature.properties.source;
     //display the correct id, otherwise displays current selection to previous selection point	
-    previousSelection.push(selection.feature.properties.source);
+    previousSelection.push(fundingSource);
 
     //remove toggleIcon and just show results
-    toggleIcon(2, iconsClassification[selection.feature.properties.source]);
+    toggleIcon(2, iconsClassification[fundingSource]);
     // navTab('results', $("li[data-navlist-id='results']"));
-    selectedIcon = L.divIcon({className: 'selected-icon '+ iconsClassification[selection.feature.properties.source]});
+    selectedIcon = L.divIcon({className: 'selected-icon '+ iconsClassification[fundingSource]});
     selection.setIcon(selectedIcon);
     //load geojson parcel, make available only at scale below x, zoom to it, if zoom out back to selectedIcon
     //loadParcel(selection.feature.properties.title)
@@ -218,39 +217,6 @@ function toggleIcon (index, source) {
         }
     });
 }
-
-// function loadParcel (id) {
-// 	var title = {id:id};
-// 	$.ajax("php/getParcelData.php", {
-// 		data: title,
-// 		success: function(result){			
-// 			showParcel(result);
-// 		}, 
-// 		error: function(){
-// 			console.log('error');
-// 		}
-// 	});
-// }
-
-// function showParcel (d) {
-//     // console.log(d);
-//     if (typeof parcelGeoJSON !== "undefined" ){ 
-//         map.removeLayer(parcelGeoJSON);			
-//     }
-//     //parcel polygon overlay styling
-//     var myStyle = {
-//         "color": "#991a36",
-//         "weight": 2,
-//         "opacity": 0.65
-//     };
-//     parcelGeoJSON = L.geoJson(d, {
-//         style:myStyle
-//     }).addTo(map);
-//     //zoom to selection
-//     $('#data').show();
-//     var parcelBounds = parcelGeoJSON.getBounds();
-//     map.fitBounds(parcelBounds, {maxZoom:14});
-// }
 
 function navTab (id, tab) {
     $("li.navlist").removeClass("active");
@@ -274,7 +240,7 @@ function navTab (id, tab) {
     }
 }
 function clearmap () {
-    $('#propertyinfo').hide();
+    // $('#propertyinfo').hide();
     $('#noshow').show();
     $('#data').hide();	
 	map.fitBounds(bounds).setZoom(7);
@@ -289,15 +255,7 @@ function clearmap () {
 }
 
 function resetLayers() {
-    // if (typeof parcelGeoJSON !== "undefined" ){
-    //     map.removeLayer(parcelGeoJSON);
-    //     delete parcelGeoJSON;
-    // };
-    // if (typeof selectionGeoJSON !== "undefined" ){
-    //     map.removeLayer(selectionGeoJSON);
-    //     delete selectionGeoJSON;
-    // }
-    // projectMarker
+
     if (typeof projectMarker !== "undefined" ){
         map.removeLayer(projectMarker);
         delete projectMarker;
@@ -352,8 +310,8 @@ function toggleBaseLayers(el, gray, street, sat){
         $('#graylayeronoffswitch').prop('checked', true).attr("disabled", false);
         break;
     }
-
 }
+
 //fetch the overlay layers from WMS, published through FOSS mapserver (mapserver.org) - much faster than fetching large vector datasets through PGIS
 function getOverlayLayers(el, switchId){
     $('#loading').show();
@@ -550,9 +508,7 @@ function geocodeFeedback(precision, components){
         message = "Approximate location! Center of " + componentMap[components[0].types[0]];
         $('#geocodeFeedback').html(message).css('color', '#ae4b37');
         $('#geocodeFeedback').show();
-    }
-    
-    
+    }   
 }
 
 function addMarker(e){

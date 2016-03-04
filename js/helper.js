@@ -1,14 +1,14 @@
-$(function() {
-  
+$(function() { 
   
   //initial 'active' states
-  // $("#layers, #results, #lccmr").hide();
+
   $("#physicalSwitches, #naturalSwitches, #basemap").hide();
   $("#sidebarHelp, #mapToolsHelp").hide();
-  $('.layernotification, #propertyinfo').hide();
+  $('.layernotification').hide();
+
   //activate tooltips
   $('[data-toggle="tooltip"]').tooltip();
-  // $('#legend').hide();
+
   //reset toggles if someone hits refresh
   $('#laonoffswitch,#sponoffswitch,#sflayeronoffswitch,#wmalayeronoffswitch,#wmdlayeronoffswitch,' +
      '#snalayeronoffswitch,#wmdlayeronoffswitch,#bwcalayeronoffswitch,#nflayeronoffswitch,#nwrlayeronoffswitch,#countylayeronoffswitch,' +
@@ -17,11 +17,16 @@ $(function() {
   //set basemap toggle/notification
   $('#graylayeronoffswitch').prop('checked', false);
   addNotifications($('[data-layerlist-id="basemap"]'));
+
   //load map layers
   init();
+
+  //filter layers on checkboxes
   $('#layercontrols input').click(function(){
-    showClusters()
+    //addd spinner
+    showClusters();
   });
+
   // both key and enter fire geoCodeAddress
     $('#addressSearchButton').click(function(e){
       e.preventDefault();
@@ -35,7 +40,6 @@ $(function() {
       items = "<option value='' selected>County</option>"
       for (i in data.features) {
         var option = data.features[i].properties.name;
-        //console.log(data.features[i].properties.name);
         items+="<option value='"+option+"'>"+option+"</option>";
       }
       $("#cty2010").html(items); 
@@ -46,7 +50,6 @@ $(function() {
       items = "<option value='' selected>Senate District</option>"
       for (i in data.features) {
         var option = data.features[i].properties.district;
-        //console.log(data.features[i].properties.name);
         items+="<option value='"+option+"'>"+option+"</option>";
       }
       $("#sen2012").html(items); 
@@ -63,6 +66,7 @@ $(function() {
       $("#hse2012_1").html(items); 
     });
 
+    // select form helpers
     $('.locationzoom').change(function (e){
       var targetId = "#" + this.id;
       var selections = ['#cty2010', '#hse2012_1', '#sen2012'];
@@ -81,15 +85,6 @@ $(function() {
     });
     //END select form helpers
 
-  // map.on('zoomend', function (e) {
-  //   if (typeof parcelGeoJSON !== "undefined" ){
-  //     if (map.getZoom() < 12){
-  //       map.removeLayer(parcelGeoJSON);
-  //     } else {
-  //       map.addLayer(parcelGeoJSON);
-  //     }
-  //   }
-  // });
 
   //Gray sidebar navigation
  $('.navlist').click(function(e){
@@ -114,12 +109,6 @@ $(function() {
     $("li.helpli").removeClass("active");
     $( this ).addClass( "active" );
   });
-  
-  // $( "[data-layerlist-id]" ).click(function(){
-  //     // console.log($(this));
-  //    // addNotifications(this);
-
-  // });
 
   $('.first').click(function(){
     clearmap();
@@ -140,21 +129,19 @@ $(function() {
         //console.log(two[0].id)
         addNotifications($('[data-layerlist-id='+mapLayersTab[0].id+']'));
   });
+     
      $('#graylayeronoffswitch, #streetslayeronoffswitch, #satlayeronoffswitch').click(function(){
         //getBasemapLayer($(this), $(this).attr('id'));
         toggleBaseLayers($(this), grayBasemap, streetsBasemap, satelliteBasemap);
-
-     })
+     });
   
   $('.closetab').click(function(){
-    closeSidebar()
-     // $('.sidebar').css('left','-100%');
-     //$('.leaflet-left').css('left', '50px');
-      // $('.sidebar').animate({ 'left': '10px' }, 500, 'easeOutQuad');
+    closeSidebar();
   });
+
   $('#legendToggle').click(function(){
     $('#legend').toggle();
-  })
+  });
 
-  console.log("Welcome to the 'LCCMR Land Acquisitions' Mapping Application, developed by the MN State Legislative Coordinating Commission GIS. The application's responsive web design(RWD), open-source code can be found at 'https://github.com/Ccantey/LCC-LCCMR'.")
+  console.log("Welcome to the 'Legacy Ammendment Projects' Mapping Application, developed by the MN State Legislative Coordinating Commission GIS. The application's responsive web design(RWD), open-source code can be found at 'https://github.com/LegislativeCoordinatingCommissionGIS'.")
 });

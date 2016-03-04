@@ -68,14 +68,8 @@
 	          <div id="search">
 	          <div class='closetab'><i class="fa fa-caret-square-o-left fa-lg"></i></div>
 	            <div class="navtitle">Search Projects</div>
-		       <!--    <ul class="nav navbar-nav searchul">
-		            <li class="active searchli rightline "><a class="navtext" href="#">Address</a></li>
-		            <li class="searchli rightline"><a class="navtext" href="#">Purchase Date</a></li>
-		            <li class="searchli rightline "><a class="navtext" href="#">Owner</a></li>
-		            <li class="searchli "><a class="navtext" href="#">ID</a></li>
-		          </ul> -->
 		            <div class="searchform">
-						<form id='mainsearchform' onsubmit="geoCodeAddress()">
+						<form id='mainsearchform' onsubmit="geoCodeAddress();">
 						  <div class="form-group">
 						    <label for="addressSearch">Search by Address</label>
 						    <input type="text" class="form-control" id="addressSearch" placeholder="Address"><button id="addressSearchButton"type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
@@ -83,6 +77,7 @@
 						  </div>
 						 </form>
 					 </div>
+
 					  <div class="selectform">
 						<form>
 						  <div class="form-group">
@@ -121,8 +116,7 @@
 						</div>
 						<div class="checkbox">
 						    <label>
-						      <input type="checkbox" name='filters' value='Environment & Natural Resources Trust Fund
-' checked> <div class="leaflet-marker-icon enrtf leaflet-zoom-animated leaflet-clickable" style="margin-left:20px;"></div> <span class="fundlabel">Environment & Natural Resources Trust Fund</span>
+						      <input type="checkbox" name='filters' value='Environment & Natural Resources Trust Fund' checked> <div class="leaflet-marker-icon enrtf leaflet-zoom-animated leaflet-clickable" style="margin-left:20px;"></div> <span class="fundlabel">Environment & Natural Resources Trust Fund</span>
 						    </label>
 						</div>
 						<div class="checkbox">
@@ -313,7 +307,7 @@
 					  <div class='layersswitchLabel'>Wetland Management Areas</div>
 		              <!-- END COUNTY SWITCH -->
 
-		              <div id="nwrLayerdiv"class="onoffswitch">
+		              <div id="nwrLayerdiv" class="onoffswitch">
 				      <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox overlay" id="nwrlayeronoffswitch" checked>
 					    <!-- <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked> -->
 					    <label class="onoffswitch-label" for="nwrlayeronoffswitch">
@@ -404,11 +398,7 @@
 							<th><span class="detailsText">No Property Selected</span></th>
 						</tr>
 					</thead>
-            		<thead id="propertyinfo">
-						<tr>
-							<th>Property Information</th>
-						</tr>
-					</thead>
+
 					<tbody id="data">
 					</tbody>
 
@@ -416,42 +406,6 @@
             		</table>
 
             	</div>
-
-<!--             	<div class="multipleResultsTable">
-	            	<table class="table table-hover ">
-					  <thead>
-						<tr>
-							<th>LCCMR ID</th>
-							
-							<th>TITLE</th>
-							
-							<th>ACRES</th>
-							
-							<th>CONTACT</th>						
-						</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>06-021-001</td>
-								<td>Brainerd Lakes Forest Legacy Phase 2</td>
-								<td>1635</td>
-								<td>Richard Peterson</td>
-							</tr>
-							<tr>
-								<td>11-001-001</td>
-								<td>Rabit Lake (sp)</td>
-								<td>171</td>
-								<td>John Brosnan</td>
-							<tr>
-							<tr>
-								<td>11-097001</td>
-								<td>Lake Alexander Scientific & Natural Area</td>
-								<td>39.8</td>
-								<td>Larissa Mottl</td>
-							<tr>
-						</tbody>
-					</table>
-            	</div> -->
             	<div class="logo">
 		          	<a href="http://www.legacy.leg.mn/"><img src="images/logo-new.png" height="105px"/></a>
 		        </div>
