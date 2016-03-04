@@ -5,6 +5,7 @@ var projectMarker, grayBasemap, streetsBasemap, satelliteBasemap, selectedIcon;
 //map overlay layers... called like overlayLayers.CongressionalBoundaryLayer
 var previousSelection = [];
 var geocoder = null;
+var clusters, overlays;
 
 //address from URL
 var address;
@@ -31,7 +32,6 @@ function init () {
         zoom: 7
     });
     
-
     // Add gray basemap
     grayBasemap = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiY2NhbnRleSIsImEiOiJjaWVsdDNubmEwMGU3czNtNDRyNjRpdTVqIn0.yFaW4Ty6VE3GHkrDvdbW6g', {
         maxZoom: 18,
@@ -65,30 +65,48 @@ function init () {
         id: 'mapbox.streets-satellite'
     });
 
-    // Add LandAq data
-    $.getJSON("php/getOverlayLayersAsGeoJSON.php", function (data) {
+    // Add Legacy data
+    getMarkerData();
 
+} //end init()
+
+function getMarkerData(){
+    overlays = L.layerGroup().addTo(map);
+
+    $.getJSON("php/getOverlayLayersAsGeoJSON.php", function (data) {
         LegacyProject = L.geoJson(data, {
             //style:myStyle,
             pointToLayer: function (feature, latlng) {
                 // alternatively use image icons - i prefer divIcons for styling
-                // var deselectedIcon = L.icon({iconUrl: 'images/'+iconsClassification[feature.properties.source]+'.png',
-                //                              iconAnchor: [10,11] //1/2 the imag size offset
-                //                             });
+                // var deselectedIcon = L.icon({iconUrl: 'images/'+iconsClassification[feature.properties.source]+'.png',iconAnchor: [10,11] //1/2 the imag size offset});
                 // var selectedIcon = L.icon({iconUrl:'images/selectedpushpin.png'});
-                //console.log(iconsClassification[feature.properties.source]);
+                
                 deselectedIcon = L.divIcon({className: iconsClassification[feature.properties.source]});
                 
                 projectMarker = L.marker(latlng, {icon: deselectedIcon})
                     .on('click', function (e) {
-                    	var selectedProperty = e.target;
+                        var selectedProperty = e.target;
                        showResultsTable(selectedProperty);
                     }); //end onclick
                 return projectMarker;
             } //end pointToLayer method
         }) //end LandAcquisition object
-    }).done( function (e) {  //end $.geoJSON begin leaflet cluster group next
-            var clusters = L.markerClusterGroup({
+    }).done( function (e) {  //end $.geoJSON begin leaflet cluster group next            
+            // clusters.addLayer(LegacyProject);            
+            showClusters();
+    }); //getJson
+}
+
+function showClusters(){
+            var list = [];
+            var filters = document.getElementById('layercontrols').filters;
+            for (var i = 0; i < filters.length; i++) {
+                if (filters[i].checked) list.push(filters[i].value);
+                console.log(list);
+            }
+            overlays.clearLayers();
+
+            clusters = new L.markerClusterGroup({
                 spiderfyOnMaxZoom:true,
                 // disableClusteringAtZoom: 18,
                 polygonOptions: {
@@ -105,16 +123,16 @@ function init () {
                     var scale;
                     // Set graduated symbol scaling
                     if (count <= 10) {
-                    	scale = 1;
+                        scale = 1;
                     }
                     if (count > 10 && count <= 75) {
-                    	scale = 2;
+                        scale = 2;
                     }
                     if (count > 75 && count <= 500) {
-                    	scale = 3;
+                        scale = 3;
                     }
                     if (count > 500) {
-                    	scale = 4;
+                        scale = 4;
                     }
                     // return a new L.DivIcon with our classes so we can
                     // style them with CSS. You have to set iconSize to null
@@ -125,13 +143,16 @@ function init () {
                         iconSize: null
                     });
                 } //end iconCreateFunction method
-            }); //end clusters object
-            clusters.addLayer(LegacyProject);
-            clusters.addTo(map);
-    }); //getJson
-    //toggleBaseLayers($('#graylayeronoffswitch'),grayBasemap,streetsBasemap);
-} //end init()
+            }).addTo(overlays);; //end clusters object
 
+            LegacyProject.eachLayer(function(layer) {
+                // console.log(layer.feature.properties.source)
+                if (list.indexOf(layer.feature.properties.source) !== -1) {
+                    clusters.addLayer(layer);
+                }
+            });
+
+}
 function getCenter(){
     if (getQueryVariable('address')){
          getQueryVariable('address');
@@ -558,8 +579,7 @@ function keypressInBox(e) {
 
 //call getQueryVariable('district' or 'address', whatever variable you want to pass through url)
 //example: http://ww2.commissions.leg.state.mn.us/gis/iMaps/Legacy/index.php?address=1414 Skyline Rd, Eagan
-function getQueryVariable(variable)
-{
+function getQueryVariable(variable){
        var query = window.location.search.substring(1);
        var vars = query.split("&");
        //console.log(vars);
@@ -574,5 +594,5 @@ function getQueryVariable(variable)
             }
        }
        return(false);
-
 }
+

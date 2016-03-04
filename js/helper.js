@@ -19,7 +19,9 @@ $(function() {
   addNotifications($('[data-layerlist-id="basemap"]'));
   //load map layers
   init();
-
+  $('#layercontrols input').click(function(){
+    showClusters()
+  });
   // both key and enter fire geoCodeAddress
     $('#addressSearchButton').click(function(e){
       e.preventDefault();

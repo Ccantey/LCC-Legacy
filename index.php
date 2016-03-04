@@ -22,7 +22,7 @@
     <link rel="icon" href="images/favicon.ico">
 
     <!-- mapping stylesheets -->
-    <link href='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.css' rel='stylesheet' />
+    <link href='https://api.mapbox.com/mapbox.js/v2.3.0/mapbox.css' rel='stylesheet' />
     <link rel="stylesheet" href="css/MarkerCluster.css"/>
 
     <!-- Bootstrap, fontawesome, google fonts core CSS -->
@@ -107,34 +107,35 @@
 						 </form>
 					 </div>
 
-					 <div class="selectform">
+					 <form id = "layercontrols" class="selectform">
 						<div class="checkbox">
 						    <label>
-						      <input type="checkbox" checked> 
+						      <input type="checkbox" name='filters' value='Arts & Cultural Heritage Fund' onclick='showClusters()' checked> 
                                   <div class="leaflet-marker-icon artsandculture leaflet-zoom-animated leaflet-clickable" style="margin-left:20px;"></div> <span class="fundlabel">Arts & Cultural Heritage Fund</span>
 						    </label>
 						</div>
 						<div class="checkbox">
 						    <label>
-						      <input type="checkbox" checked> <div class="leaflet-marker-icon cleanwater leaflet-zoom-animated leaflet-clickable" style="margin-left:20px;"></div> <span class="fundlabel">Clean Water Fund</span>
+						      <input type="checkbox" name='filters' value='Clean Water Fund' checked> <div class="leaflet-marker-icon cleanwater leaflet-zoom-animated leaflet-clickable" style="margin-left:20px;"></div> <span class="fundlabel">Clean Water Fund</span>
 						    </label>
 						</div>
 						<div class="checkbox">
 						    <label>
-						      <input type="checkbox" checked> <div class="leaflet-marker-icon enrtf leaflet-zoom-animated leaflet-clickable" style="margin-left:20px;"></div> <span class="fundlabel">Environment & Natural Resources Trust Fund</span>
+						      <input type="checkbox" name='filters' value='Environment & Natural Resources Trust Fund
+' checked> <div class="leaflet-marker-icon enrtf leaflet-zoom-animated leaflet-clickable" style="margin-left:20px;"></div> <span class="fundlabel">Environment & Natural Resources Trust Fund</span>
 						    </label>
 						</div>
 						<div class="checkbox">
 						    <label>
-						      <input type="checkbox" checked> <div class="leaflet-marker-icon outdoorheritage leaflet-zoom-animated leaflet-clickable" style="margin-left:20px;"></div> <span class="fundlabel">Outdoor Heritage Fund</span>
+						      <input type="checkbox" name='filters' value='Outdoor Heritage Fund' checked> <div class="leaflet-marker-icon outdoorheritage leaflet-zoom-animated leaflet-clickable" style="margin-left:20px;"></div> <span class="fundlabel">Outdoor Heritage Fund</span>
 						    </label>
 						</div>
 						<div class="checkbox">
 						    <label>
-						      <input type="checkbox" checked> <div class="leaflet-marker-icon parksandtrails leaflet-zoom-animated leaflet-clickable" style="margin-left:20px;"></div> <span class="fundlabel">Parks & Trails Fund</span>
+						      <input type="checkbox" name='filters' value='Parks & Trails Fund' checked> <div class="leaflet-marker-icon parksandtrails leaflet-zoom-animated leaflet-clickable" style="margin-left:20px;"></div> <span class="fundlabel">Parks & Trails Fund</span>
 						    </label>
 						</div>
-					 </div>
+					 </form>
 
 					 <div class="logo">
 				          	<a href="http://www.legacy.leg.mn/"><img src="images/logo-new.png" height="105px"/></a>
@@ -641,7 +642,7 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.js'></script>
+    <script src='https://api.mapbox.com/mapbox.js/v2.3.0/mapbox.js'></script>
     <script src="js/plugins/leaflet.markercluster.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/app.js"></script>
