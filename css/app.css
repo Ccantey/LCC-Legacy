@@ -148,10 +148,10 @@ table{
     max-height: 90%;
 }
 .legendTitle{
-  margin-top: 25px;
+  /*margin-top: 25px;*/
 }
 .symbolClass{
-  margin-left: -24px;
+  margin-left: -28px;
 }
 .symbolClass li{
   display: inline;
@@ -165,31 +165,29 @@ table{
 .legendHelper{
     color: #727d86;
     font-size: 12px;
-    margin-left: 12px;
+    text-align: center;
     /*width: 129%;*/
 }
 .legendlabel{
-  margin-left: 10px;
+  text-align: center;
 }
-#parcel{
-    background: #484995 none repeat scroll 0 0;
-    border: 2px solid #484995;
-    border-radius: 50%;
-    height: 12px;
-    margin-left: -16px;
-    margin-top: 8px;
-    position: absolute;
-    width: 12px;
+.legendicons{
+    margin-top: 25px;
+
 }
-.individualProp{
+/*.individualProp{
   margin-top: 35px;
     color: #727d86;
     font-family: monospace;
     font-weight: 700;
-    /*text-align: right;*/
+
 }
 .individualProp li{
   display:inline;
+}*/
+.legendiconsLi{
+  padding-right: 5px;
+  display:inline-block;
 }
 .textExample{
   font-family: "Open Sans",sans-serif;

@@ -106,27 +106,27 @@
 						<div class="checkbox">
 						    <label>
 						      <input type="checkbox" name='filters' value='Arts & Cultural Heritage Fund' onclick='showClusters()' checked> 
-                                  <div class="leaflet-marker-icon artsandculture leaflet-zoom-animated leaflet-clickable" style="margin-left:20px;"></div> <span class="fundlabel">Arts & Cultural Heritage Fund</span>
+                                  <div class="leaflet-marker-icon artsandculture" style="margin-left:20px;"></div> <span class="fundlabel">Arts & Cultural Heritage Fund</span>
 						    </label>
 						</div>
 						<div class="checkbox">
 						    <label>
-						      <input type="checkbox" name='filters' value='Clean Water Fund' checked> <div class="leaflet-marker-icon cleanwater leaflet-zoom-animated leaflet-clickable" style="margin-left:20px;"></div> <span class="fundlabel">Clean Water Fund</span>
+						      <input type="checkbox" name='filters' value='Clean Water Fund' checked> <div class="leaflet-marker-icon cleanwater" style="margin-left:20px;"></div> <span class="fundlabel">Clean Water Fund</span>
 						    </label>
 						</div>
 						<div class="checkbox">
 						    <label>
-						      <input type="checkbox" name='filters' value='Environment & Natural Resources Trust Fund' checked> <div class="leaflet-marker-icon enrtf leaflet-zoom-animated leaflet-clickable" style="margin-left:20px;"></div> <span class="fundlabel">Environment & Natural Resources Trust Fund</span>
+						      <input type="checkbox" name='filters' value='Environment & Natural Resources Trust Fund' checked> <div class="leaflet-marker-icon enrtf" style="margin-left:20px;"></div> <span class="fundlabel">Environment & Natural Resources Trust Fund</span>
 						    </label>
 						</div>
 						<div class="checkbox">
 						    <label>
-						      <input type="checkbox" name='filters' value='Outdoor Heritage Fund' checked> <div class="leaflet-marker-icon outdoorheritage leaflet-zoom-animated leaflet-clickable" style="margin-left:20px;"></div> <span class="fundlabel">Outdoor Heritage Fund</span>
+						      <input type="checkbox" name='filters' value='Outdoor Heritage Fund' checked> <div class="leaflet-marker-icon outdoorheritage" style="margin-left:20px;"></div> <span class="fundlabel">Outdoor Heritage Fund</span>
 						    </label>
 						</div>
 						<div class="checkbox">
 						    <label>
-						      <input type="checkbox" name='filters' value='Parks & Trails Fund' checked> <div class="leaflet-marker-icon parksandtrails leaflet-zoom-animated leaflet-clickable" style="margin-left:20px;"></div> <span class="fundlabel">Parks & Trails Fund</span>
+						      <input type="checkbox" name='filters' value='Parks & Trails Fund' checked> <div class="leaflet-marker-icon parksandtrails" style="margin-left:20px;"></div> <span class="fundlabel">Parks & Trails Fund</span>
 						    </label>
 						</div>
 					 </form>
@@ -504,20 +504,25 @@
 	  <div class="legendTitle">Legend</div>
 	  <img id="propsymbols" src="images/legend/legend3.png"/>
 	  <ul class="symbolClass">
-		  <li style="padding-right:10px;">0-9</li>
-		  <li style="padding-right:15px;">10-33</li>
-		  <li style="padding-right:35px;">34-49</li>
-		  <li >50+</li>
+		  <li style="padding-right:6px;">1-10</li>
+		  <li style="padding-right:12px;">11-75</li>
+		  <li style="padding-right:24px;">75-500</li>
+		  <li >500+</li>
 		</ul>
 		<div class="legendlabel">Properties: Grouped by location</div>
 		<div class="legendHelper">* Actual count displayed in symbol *</div>
 		<!-- <hr> -->
-		<ul class="individualProp">
-		   <li><div id="parcel"></div> </li>
-		   <li>11-117-001</li>
-		   <li class="textExample">(Example)</li>
+		<ul class="legendicons">
+		<!-- <div id="legendicons"> -->
+		   <li class="legendiconsLi"><div class="leaflet-marker-icon artsandculture legendhover" style="position:relative"></div> </li>
+		   <li class="legendiconsLi"><div class="leaflet-marker-icon cleanwater legendhover" style="position:relative"></div></li>
+		   <li class="legendiconsLi"><div class="leaflet-marker-icon enrtf legendhover" style="position:relative"></div></li>
+		   <li class="legendiconsLi"><div class="leaflet-marker-icon outdoorheritage legendhover" style="position:relative"></div></li>
+		   <li class="legendiconsLi"><div class="leaflet-marker-icon parksandtrails legendhover" style="position:relative"></div></li>
+		   <!-- </div> -->
 		</ul>
-		<div class="legendlabel">Properties: Land acquisition parcel</div>
+		<div class="legendlabel">Legacy funded projects</div>
+		<div class="legendHelper">* See Search tab checkboxes *</div>
 	 </div>
 
     <!-- Add js if success - use the data attributes to fire modal -->
