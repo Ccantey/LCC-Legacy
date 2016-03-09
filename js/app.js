@@ -260,6 +260,10 @@ function resetLayers() {
         map.removeLayer(projectMarker);
         delete projectMarker;
     }
+    if (typeof selectionGeoJSON !== "undefined" ){
+        map.removeLayer(selectionGeoJSON);
+        delete selectionGeoJSON;
+    }
     $('.layernotification').hide();
     //Remove all layers except the basemap -- down here because its an asychronous thead apparently
     map.eachLayer(function(layer){
