@@ -50,12 +50,13 @@
   <body>
 
     <div class="container">
+
         <div class="row">
-        <div class="loader">Loading...</div> 
-        <!------------------------------------------- sideNav ---------------------------------------------->
+         
+        <!--sideNav -->
 	        <div id="navtabs">
 	        	<ul class="nav nav-sidebar">
-	            <li class="navlist active" data-navlist-id="search"><a class="navtext"><i class="fa fa-search fa-lg"></i>Search</a> </a></li>
+	            <li class="navlist active" data-navlist-id="search"><a class="navtext"><i class="fa fa-search fa-lg"></i>Search</a></li>
 	            <li class="navlist" data-navlist-id="layers"><a class="navtext"><i class="fa fa-map fa-lg"></i>Layers</a></li>
 	            <li class="navlist" data-navlist-id="results"><a class="navtext"><i class="fa fa-database fa-lg"></i>Results</a></li>
 	            <li class="navlist" data-navlist-id="lccmr"><a class="navtext"><i class="fa fa-question-circle fa-2x"></i> Help </a></li>
@@ -65,7 +66,7 @@
             <!-- begin sidebar -->
 	        <div class="col-sm-3 col-md-2 sidebar">
 
-			<!------------------------------------------- Sidebar/Search Div ---------------------------------------------->
+			<!-- - - - - - - - - - - - - Sidebar/Search Div - - - - - - - - - - - - -->
 	          <div id="search">
 	          <div class='closetab'><i class="fa fa-caret-square-o-left fa-lg"></i></div>
 	            <div class="navtitle">Search Projects</div>
@@ -73,7 +74,7 @@
 						<form id='mainsearchform' onsubmit="geoCodeAddress();">
 						  <div class="form-group">
 						    <label for="addressSearch">Search by Address</label>
-						    <input type="text" class="form-control" id="addressSearch" placeholder="Address"><button id="addressSearchButton"type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+						    <input type="text" class="form-control" id="addressSearch" placeholder="Address"><button id="addressSearchButton" type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
 						    <p id="geocodeFeedback"></p>
 						  </div>
 						 </form>
@@ -105,39 +106,48 @@
 
 					 <form id = "layercontrols" class="selectform">
 						<div class="checkbox">
+						<div class="leaflet-marker-icon artsandculture" style="margin-left:20px;"></div>
 						    <label>
-						      <input type="checkbox" name='filters' value='Arts & Cultural Heritage Fund' onclick='showClusters()' checked> 
-                                  <div class="leaflet-marker-icon artsandculture" style="margin-left:20px;"></div> <span class="fundlabel">Arts & Cultural Heritage Fund</span>
+						        <input type="checkbox" name='filters' value='Arts & Cultural Heritage Fund' onclick='showClusters()' checked>
+                                <span class="fundlabel">Arts & Cultural Heritage Fund</span>
 						    </label>
 						</div>
 						<div class="checkbox">
+						<div class="leaflet-marker-icon cleanwater" style="margin-left:20px;"></div>
 						    <label>
-						      <input type="checkbox" name='filters' value='Clean Water Fund' checked> <div class="leaflet-marker-icon cleanwater" style="margin-left:20px;"></div> <span class="fundlabel">Clean Water Fund</span>
+						        <input type="checkbox" name='filters' value='Clean Water Fund' checked>
+						        <span class="fundlabel">Clean Water Fund</span>
 						    </label>
 						</div>
 						<div class="checkbox">
+						<div class="leaflet-marker-icon enrtf" style="margin-left:20px;"></div>
 						    <label>
-						      <input type="checkbox" name='filters' value='Environment & Natural Resources Trust Fund' checked> <div class="leaflet-marker-icon enrtf" style="margin-left:20px;"></div> <span class="fundlabel">Environment & Natural Resources Trust Fund</span>
+						        <input type="checkbox" name='filters' value='Environment & Natural Resources Trust Fund' checked>
+						        <span class="fundlabel">Environment & Natural Resources Trust Fund</span>
 						    </label>
 						</div>
 						<div class="checkbox">
+						<div class="leaflet-marker-icon outdoorheritage" style="margin-left:20px;"></div>
 						    <label>
-						      <input type="checkbox" name='filters' value='Outdoor Heritage Fund' checked> <div class="leaflet-marker-icon outdoorheritage" style="margin-left:20px;"></div> <span class="fundlabel">Outdoor Heritage Fund</span>
+						        <input type="checkbox" name='filters' value='Outdoor Heritage Fund' checked>
+						        <span class="fundlabel">Outdoor Heritage Fund</span>
 						    </label>
 						</div>
 						<div class="checkbox">
+						<div class="leaflet-marker-icon parksandtrails" style="margin-left:20px;"></div>
 						    <label>
-						      <input type="checkbox" name='filters' value='Parks & Trails Fund' checked> <div class="leaflet-marker-icon parksandtrails" style="margin-left:20px;"></div> <span class="fundlabel">Parks & Trails Fund</span>
+						      <input type="checkbox" name='filters' value='Parks & Trails Fund' checked>
+						      <span class="fundlabel">Parks & Trails Fund</span>
 						    </label>
 						</div>
 					 </form>
 
 					 <div class="logo">
-				          	<a href="http://www.legacy.leg.mn/"><img src="images/logo-new.png" height="105px"/></a>
+				          	<a href="http://www.legacy.leg.mn/"><img src="images/logo-new.png" alt='logo'/></a>
 				        </div>
 		        </div> <!-- search -->
 
-                <!------------------------------------------- Sidebar/Layers tab Div ---------------------------------------------->
+                <!-- - - - - - - - - - - - - Sidebar/Layers tab Div - - - - - - - - - - - - - -->
 	            <div id="layers" style="display: none">
 	            <div class='closetab'><i class="fa fa-caret-square-o-left fa-lg"></i></div>
 	            	<div class="navtitle">Map Layers</div>
@@ -158,7 +168,7 @@
 
 		            <div id="politicalSwitches">
 			          <!-- switches -->
-				      <div id="cityLayerdiv"class="onoffswitch">
+				      <div id="cityLayerdiv" class="onoffswitch">
 				      <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox overlay" id="citylayeronoffswitch" checked>
 					    <!-- <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked> -->
 					    <label class="onoffswitch-label" for="citylayeronoffswitch">
@@ -172,7 +182,7 @@
 					  <div class='layersswitchLabel'>Municipal Boundaries</div>
 		              <!-- END CITY SWITCH -->
 
-					  <div id="countyLayerdiv"class="onoffswitch">
+					  <div id="countyLayerdiv" class="onoffswitch">
 				      <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox overlay" id="countylayeronoffswitch" checked>
 					    <!-- <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked> -->
 					    <label class="onoffswitch-label" for="countylayeronoffswitch">
@@ -186,7 +196,7 @@
 					  <div class='layersswitchLabel'>County Boundaries</div>
 		              <!-- END COUNTY SWITCH -->
 
-		              <div id="houseLayerdiv"class="onoffswitch">
+		              <div id="houseLayerdiv" class="onoffswitch">
 				      <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox overlay" id="houselayeronoffswitch" checked>
 					    <!-- <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked> -->
 					    <label class="onoffswitch-label" for="houselayeronoffswitch">
@@ -200,7 +210,7 @@
 					  <div class='layersswitchLabel'>MN House Districts</div>
 		              <!-- END CITY SWITCH -->
 
-					  <div id="senateLayerdiv"class="onoffswitch">
+					  <div id="senateLayerdiv" class="onoffswitch">
 				      <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox overlay" id="senatelayeronoffswitch" checked>
 					    <!-- <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked> -->
 					    <label class="onoffswitch-label" for="senatelayeronoffswitch">
@@ -219,7 +229,7 @@
 
 		            <div id="physicalSwitches">
 			          <!-- switches -->
-				      <div id="snaLayerdiv"class="onoffswitch">
+				      <div id="snaLayerdiv" class="onoffswitch">
 				      <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox overlay" id="snalayeronoffswitch" checked>
 					    <!-- <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked> -->
 					    <label class="onoffswitch-label" for="snalayeronoffswitch">
@@ -233,7 +243,7 @@
 					  <div class='layersswitchLabel'>Scientific Natural Areas</div>
 		              <!-- END CITY SWITCH -->
 
-					  <div id="bwcaLayerdiv"class="onoffswitch">
+					  <div id="bwcaLayerdiv" class="onoffswitch">
 				      <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox overlay" id="bwcalayeronoffswitch" checked>
 					    <!-- <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked> -->
 					    <label class="onoffswitch-label" for="bwcalayeronoffswitch">
@@ -247,7 +257,7 @@
 					  <div class='layersswitchLabel'>Boundary Waters Canoe Area</div>
 		              <!-- END COUNTY SWITCH -->
 
-		              <div id="sfLayerdiv"class="onoffswitch">
+		              <div id="sfLayerdiv" class="onoffswitch">
 				      <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox overlay" id="sflayeronoffswitch" checked>
 					    <!-- <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked> -->
 					    <label class="onoffswitch-label" for="sflayeronoffswitch">
@@ -261,7 +271,7 @@
 					  <div class='layersswitchLabel'>State Forest</div>
 		              <!-- END CITY SWITCH -->
 
-					  <div id="nfLayerdiv"class="onoffswitch">
+					  <div id="nfLayerdiv" class="onoffswitch">
 				      <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox overlay" id="nflayeronoffswitch" checked>
 					    <!-- <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked> -->
 					    <label class="onoffswitch-label" for="nflayeronoffswitch">
@@ -280,7 +290,7 @@
 
 		            <div id="naturalSwitches">
 			          <!-- switches -->
-				      <div id="wmaLayerdiv"class="onoffswitch">
+				      <div id="wmaLayerdiv" class="onoffswitch">
 				      <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox overlay" id="wmalayeronoffswitch" checked>
 					    <!-- <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked> -->
 					    <label class="onoffswitch-label" for="wmalayeronoffswitch">
@@ -294,7 +304,7 @@
 					  <div class='layersswitchLabel'>Wildlife Management Areas</div>
 		              <!-- END CITY SWITCH -->
 
-					  <div id="wmdLayerdiv"class="onoffswitch">
+					  <div id="wmdLayerdiv" class="onoffswitch">
 				      <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox overlay" id="wmdlayeronoffswitch" checked>
 					    <!-- <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked> -->
 					    <label class="onoffswitch-label" for="wmdlayeronoffswitch">
@@ -328,7 +338,7 @@
 
 		            <div id="basemap">
 			          <!-- switches -->
-				      <div id="grayLayerdiv"class="onoffswitch">
+				      <div id="grayLayerdiv" class="onoffswitch">
 				      <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox basemap" id="graylayeronoffswitch" checked>
 					    <!-- <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked> -->
 					    <label class="onoffswitch-label" for="graylayeronoffswitch">
@@ -342,7 +352,7 @@
 					  <div class='layersswitchLabel'>Light Gray Basemap</div>
 		              <!-- END CITY SWITCH -->
 
-					  <div id="streetsLayerdiv"class="onoffswitch">
+					  <div id="streetsLayerdiv" class="onoffswitch">
 				      <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox basemap" id="streetslayeronoffswitch" checked>
 					    <!-- <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked> -->
 					    <label class="onoffswitch-label" for="streetslayeronoffswitch">
@@ -356,7 +366,7 @@
 					  <div class='layersswitchLabel'>Streets Basemap</div>
 		              <!-- END COUNTY SWITCH -->
 
-		              <div id="satLayerdiv"class="onoffswitch">
+		              <div id="satLayerdiv" class="onoffswitch">
 				      <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox basemap" id="satlayeronoffswitch" checked>
 					    <!-- <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked> -->
 					    <label class="onoffswitch-label" for="satlayeronoffswitch">
@@ -370,19 +380,15 @@
 					  <div class='layersswitchLabel'>Satellite Basemap</div>
 		              <!-- END COUNTY SWITCH -->
 
-
-
-
 		          </div>  <!-- END BASEMAP SWITCHES -->
-
 
 	             </div>
 	             <div class="logo">
-		          	<a href="http://www.legacy.leg.mn/"><img src="images/logo-new.png" height="105px"/></a>
+		          	<a href="http://www.legacy.leg.mn/"><img src="images/logo-new.png" alt="logo"/></a>
 		        </div>
 	            </div> <!-- end layers tab -->
 
-            <!------------------------------------------- Sidebar/Results Div ---------------------------------------------->
+            <!-- - - - - - - - - - - - - - - - Sidebar/Results Div - - - - - - - - - - - - - - -->
             <div id="results" style="display: none">
             <div class='closetab'><i class="fa fa-caret-square-o-left fa-lg"></i></div>
             	<div class="navtitle">Results</div>
@@ -408,10 +414,10 @@
 
             	</div>
             	<div class="logo">
-		          	<a href="http://www.legacy.leg.mn/"><img src="images/logo-new.png" height="105px"/></a>
+		          	<a href="http://www.legacy.leg.mn/"><img src="images/logo-new.png" alt='logo'/></a>
 		        </div>
             </div>
-            <!------------------------------------------- Sidebar/LCCMR Div ---------------------------------------------->
+            <!-- - - - - - - - - - - - - - - - Sidebar/LCCMR Div - - - - - - - - - - - - - -->
             <div id="lccmr" style="display: none">
             <div class='closetab'><i class="fa fa-caret-square-o-left fa-lg"></i></div>
             	<div class="navtitle">Documentation</div>
@@ -431,7 +437,7 @@
 
 		            <div id="help">
 			          <!-- switches -->
-				      <div id="mapNavHelp"class="helpMenu">
+				      <div id="mapNavHelp" class="helpMenu">
 					      <ul>
 					      	<li class="helpListHeader">Basic map navigation</li>
 					      	<li>The red circle symbols size are proportional to the number of land acquisition properties found at the symbol location.</li>
@@ -443,7 +449,7 @@
 					  <!-- <div class='layersswitchLabel'>Light Gray Basemap</div> -->
 		              <!-- END CITY SWITCH -->
 
-					  <div id="sidebarHelp"class="helpMenu">
+					  <div id="sidebarHelp" class="helpMenu">
 					      <ul>
 					      	<li class="helpListHeader">Search Tab</li>
 					      	<li>Search for properties near an address using the "Search by Address" form.</li>
@@ -462,7 +468,7 @@
 					  <!-- <div class='layersswitchLabel'>Streets Basemap</div> -->
 		              <!-- END COUNTY SWITCH -->
 
-		              <div id="mapToolsHelp"class="helpMenu">
+		              <div id="mapToolsHelp" class="helpMenu">
 				      <ul>
 				      	<li class="helpListHeader">Map Tools <br><span class="detailsText">(upper right-hand corner)</span></li>
 
@@ -478,7 +484,7 @@
 		          </div>  <!-- END BASEMAP SWITCHES -->
 
                 <div class="logo">
-		          	<a href="http://www.legacy.leg.mn/"><img src="images/logo-new.png" height="105px"/></a>
+		          	<a href="http://www.legacy.leg.mn/"><img src="images/logo-new.png" alt='logo'/></a>
 		        </div>
             </div>
 
@@ -486,10 +492,11 @@
         
         </div>
 
-        <!------------------------------------------- map -------------------------------------->
+        <!-- - - - - - - - - - - - - - - map - - - - - - - - - - - - - - -->
         <div class="col-sm-9  col-md-10 ">
+        
            <div id="map">
-           	     
+           	     <div class="loader">Loading...</div>
            </div>
         </div>
         <div id="map-tools">
@@ -505,7 +512,7 @@
 
 	 <div id="legend" >
 	  <div class="legendTitle">Legend</div>
-	  <img id="propsymbols" src="images/legend/legend3.png"/>
+	  <img id="propsymbols" src="images/legend/legend3.png" alt='legend'/>
 	  <ul class="symbolClass">
 		  <li style="padding-right:6px;">1-10</li>
 		  <li style="padding-right:12px;">11-75</li>
@@ -566,19 +573,19 @@
 
 
 <!-- share modal -->
-<div class="modal fade" id="share" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="share" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
 			<div class="modal-dialog share">
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-						<h4 class="modal-title" id="myModalLabel">Share this map on social media!</h4>
+						<h4 class="modal-title" id="myModalLabel2">Share this map on social media!</h4>
 					</div>
 				<div class="modal-body">
 					<a id="FB" title="Share on Facebook" target="_blank" 
 					href="https://www.facebook.com/dialog/share?app_id=944707115597875&redirect_uri=http%3A%2F%2Fwww.gis.leg.mn%2FiMaps%2FLCCMR%2FlandAcq%2Findex.html&display=popup&href=http%3A%2F%2Fwww.gis.leg.mn%2FiMaps%2FLCCMR%2FlandAcq%2F%23">
 					
 					<div id="facebookshare">										    
-                            <i class="fa fa-facebook fa-lg fb"></i></span> 
+                            <i class="fa fa-facebook fa-lg fb"></i>
 		                <strong>Share on Facebook</strong>
 					</div>
 					</a>

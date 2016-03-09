@@ -137,7 +137,7 @@ table{
 }
 
 .loader {
-  margin: 30% 0 0 40%;
+  margin: 30% 0 0 50%;
   font-size: 10px;
   position: absolute;
   z-index: 1005;
@@ -324,6 +324,9 @@ a:focus, a:hover{
 	bottom:10px;
   padding: 3px 3px 2px 0;
   /*box-shadow: 0 0 2px 2px #343434;*/
+}
+.logo img{
+  height: 105px;
 }
 .closetab {
     display:visible;
