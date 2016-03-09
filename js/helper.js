@@ -23,8 +23,13 @@ $(function() {
 
   //filter layers on checkboxes
   $('#layercontrols input').click(function(){
-    //addd spinner
-    showClusters();
+    overlays.clearLayers();
+    $( document ).ajaxStart(function() {
+     $('.loader').show();
+   });
+    
+    getMarkerData();
+    
   });
 
   // both key and enter fire geoCodeAddress

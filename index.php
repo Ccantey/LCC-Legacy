@@ -51,6 +51,7 @@
 
     <div class="container">
         <div class="row">
+        <div class="loader">Loading...</div> 
         <!------------------------------------------- sideNav ---------------------------------------------->
 	        <div id="navtabs">
 	        	<ul class="nav nav-sidebar">
@@ -487,7 +488,9 @@
 
         <!------------------------------------------- map -------------------------------------->
         <div class="col-sm-9  col-md-10 ">
-           <div id="map"></div>
+           <div id="map">
+           	     
+           </div>
         </div>
         <div id="map-tools">
 			<a href="#" class="first" data-toggle="tooltip" data-placement="bottom" title="Reset Map"><i class="fa fa-refresh fa-lg"></i></a>

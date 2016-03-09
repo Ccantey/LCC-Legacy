@@ -70,8 +70,9 @@ function init () {
 } //end init()
 
 function getMarkerData(){
+    
     overlays = L.layerGroup().addTo(map);
-
+    
     $.getJSON("php/getOverlayLayersAsGeoJSON.php", function (data) {
         LegacyProject = L.geoJson(data, {
             //style:myStyle,
@@ -103,7 +104,7 @@ function showClusters(){
                 if (filters[i].checked) list.push(filters[i].value);
             }
             overlays.clearLayers();
-
+            $('.loader').hide();
             clusters = new L.markerClusterGroup({
                 spiderfyOnMaxZoom:true,
                 // disableClusteringAtZoom: 18,
@@ -132,6 +133,7 @@ function showClusters(){
                     if (count > 500) {
                         scale = 4;
                     }
+
                     // return a new L.DivIcon with our classes so we can
                     // style them with CSS. You have to set iconSize to null
                     // if you want to use CSS to set the width and height.
@@ -142,7 +144,7 @@ function showClusters(){
                     });
                 } //end iconCreateFunction method
             }).addTo(overlays);; //end clusters object
-
+            
             LegacyProject.eachLayer(function(layer) {
                 // console.log(layer.feature.properties.source)
                 if (list.indexOf(layer.feature.properties.source) !== -1) {
@@ -318,7 +320,7 @@ function toggleBaseLayers(el, gray, street, sat){
 
 //fetch the overlay layers from WMS, published through FOSS mapserver (mapserver.org) - much faster than fetching large vector datasets through PGIS
 function getOverlayLayers(el, switchId){
-    $('#loading').show();
+    $('.loader').show();
 
     switchMap = {"laonoffswitch": "polygon",
                  "sponoffswitch": "StateParks",
@@ -339,7 +341,7 @@ function getOverlayLayers(el, switchId){
     if(el.is(':checked')){
     	map.removeLayer(overlayLayers[switchMap[switchId]]);
         $('.leaflet-marker-icon.'+switchMap[switchId]).hide();
-		$('#loading').hide();
+		$('.loader').hide();
     } else {
     	$('.leaflet-marker-icon.'+switchMap[switchId]).show();
         //console.log(switchMap[switchId]);
@@ -358,11 +360,11 @@ function getOverlayLayers(el, switchId){
                 crs:L.CRS.EPSG4326,
 			    layers: switchMap[switchId]
 			}).addTo(map);
-			$('#loading').hide();
+			$('.loader').hide();
             }
 		} else {
 			overlayLayers[switchMap[switchId]].addTo(map);
-			$('#loading').hide();
+			$('.loader').hide();
 		}
     }
 }
@@ -466,7 +468,7 @@ function addNotifications(el){
 
 function geoCodeAddress(geocoder, resultsMap, address) {
   //var address = document.getElementById('addressSearch').value;
-  $("#loading").show();
+  $(".loader").show();
 
   //clear searchboxes
   var selections = ['#cty2010', '#hse2012_1', '#sen2012'];
@@ -494,7 +496,7 @@ function geoCodeAddress(geocoder, resultsMap, address) {
       geocodeFeedback(precision, components);
     } else {
       alert('Geocode was not successful for the following reason: ' + status);
-      $('#loading').hide();
+      $('.loader').hide();
     }
   });
 }
