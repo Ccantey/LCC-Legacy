@@ -1,11 +1,20 @@
 //core business logic
-var map, bounds, LegacyProject, overlayLayers={}, switchMap = {};
+var map;
+var bounds;
+var LegacyProject;
+var overlayLayers={};
+var switchMap = {};
 //map Layers
-var projectMarker, grayBasemap, streetsBasemap, satelliteBasemap, selectedIcon;
+var projectMarker;
+var grayBasemap;
+var streetsBasemap;
+var satelliteBasemap;
+var selectedIcon;
 //map overlay layers... called like overlayLayers.CongressionalBoundaryLayer
 var previousSelection = [];
 var geocoder = null;
-var clusters, overlays;
+var clusters;
+var overlays;
 
 //address from URL
 var address;
@@ -24,13 +33,13 @@ function init () {
     var southWest = L.latLng(41.86956, -105.7140625),
         northEast = L.latLng(50.1487464, -84.202832);
     bounds = L.latLngBounds(southWest, northEast);
-    geocoder = new google.maps.Geocoder;
+    geocoder = new google.maps.Geocoder();
     map = L.map("map", {
         center: getCenter(),//L.latLng(46.1706, -94.9678),
         maxBounds: bounds,
         zoom: 7
     });
-    
+
     // Add gray basemap
     grayBasemap = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiY2NhbnRleSIsImEiOiJjaWVsdDNubmEwMGU3czNtNDRyNjRpdTVqIn0.yFaW4Ty6VE3GHkrDvdbW6g', {
         maxZoom: 18,
@@ -86,13 +95,12 @@ function getMarkerData(){
                 projectMarker = L.marker(latlng, {icon: deselectedIcon})
                     .on('click', function (e) {
                         var selectedProperty = e.target;
-                       showResultsTable(selectedProperty);
+                        showResultsTable(selectedProperty);
                     }); //end onclick
                 return projectMarker;
             } //end pointToLayer method
-        }) //end LandAcquisition object
-    }).done( function (e) {  //end $.geoJSON begin leaflet cluster group next            
-            // clusters.addLayer(LegacyProject);            
+        }); //end LandAcquisition object
+    }).done( function (e) {  //end $.geoJSON begin leaflet cluster group next
             showClusters();
     }); //getJson
 }
@@ -100,6 +108,7 @@ function getMarkerData(){
 function showClusters(){
             var list = [];
             var filters = document.getElementById('layercontrols').filters;
+
             for (var i = 0; i < filters.length; i++) {
                 if (filters[i].checked) list.push(filters[i].value);
             }
@@ -117,6 +126,7 @@ function showClusters(){
                 // this method defines how the graduated symbol clusters are created
                 iconCreateFunction: function (cluster) {
                     // get the number of items in the cluster
+
                     var count = cluster.getChildCount();
                     // figure out how many digits long the number is
                     var scale;
@@ -143,18 +153,30 @@ function showClusters(){
                         iconSize: null
                     });
                 } //end iconCreateFunction method
-            }).addTo(overlays);; //end clusters object
-            
-            LegacyProject.eachLayer(function(layer) {
-                // console.log(layer.feature.properties.source)
-                if (list.indexOf(layer.feature.properties.source) !== -1) {
-                    clusters.addLayer(layer);
-                }
-            });
+            }).addTo(overlays); //end clusters object
+
+
+
+            console.log(list);
+            // for (i in LegacyProject._layers){
+            //     //console.log(LegacyProject._layers[i].feature.properties.source)
+            //     if (list.indexOf(LegacyProject._layers[i].feature.properties.source) !== -1) {                    
+            //         clusters.addLayer(LegacyProject);
+            //     }
+            // }
+
+
+            clusters.addLayer(LegacyProject);
+            // LegacyProject.eachLayer(function(layer) {
+            //     // console.log(layer.feature.properties.source)
+            //     if (list.indexOf(layer.feature.properties.source) !== -1) {                    
+            //         clusters.addLayer(layer);
+            //     } else {}
+            // });
 
 }
 function getCenter(){
-    if (getQueryVariable('address')){
+    if (getQueryVariable('address') === true){
          getQueryVariable('address');
     } else {
         var center = L.latLng(46.1706, -94.9678);
@@ -170,20 +192,20 @@ function showResultsTable (selection) {
     var attributeNameMap = {'nid':'node id','title':'TITLE','fiscal_year':'Fiscal Year','fy_funding':'FY Funding','recipient':'recipient','administrator':'Administrator','source':'Source','status':'Status'};
     //console.log(selection);
     for (prop in selection.feature.properties) { 
-    	console.log(prop)
+    	// console.log(prop);
         if (prop === 'nid') {
-            console.log('nid')
+            // console.log('nid');
             html += "";
         }
     	if (prop === 'title') {
-            html += "<tr><th>Project Link: </th><td><a href='http://www.legacy.leg.mn/node/" + selection.feature.properties['nid'] + "' target = '_blank'>" + selection.feature.properties[prop] + "</a></td></tr>";
+            html += "<tr><th>Project Link: </th><td><a href='http://www.legacy.leg.mn/node/" + selection.feature.properties.nid + "' target = '_blank'>" + selection.feature.properties[prop] + "</a></td></tr>";
         }
         if (selection.feature.properties[prop] !== null){
         	if (prop === 'title' || prop === 'fiscal_year' || prop === 'fy_funding' || prop === 'recipient' || prop === 'administrator' || prop === 'source' || prop === 'status') {
                 html += "<tr><th>" +  attributeNameMap[prop] + ": </th><td>" + selection.feature.properties[prop] + "</td></tr>";
             }  
         }      
-    };
+    }
     $('#data').show();
     $('#data').append(html);
 	showSelectedIcon(selection);
@@ -272,7 +294,7 @@ function resetLayers() {
         //Remove map layers except mapbox
         if (typeof layer.defaultWmsParams !== "undefined"){
             map.removeLayer(layer);             
-        };  
+        }  
     });
 }
 function toggleLayerSwitches (){
@@ -335,7 +357,7 @@ function getOverlayLayers(el, switchId){
                  "citylayeronoffswitch":"mcd2010", 
                  "cononoffswitch":"cng2012", 
                  "senatelayeronoffswitch":"sen2012", 
-                 "houselayeronoffswitch":"hse2012_1"}
+                 "houselayeronoffswitch":"hse2012_1"};
     // console.log(typeof switchMap[switchId]);
    
     if(el.is(':checked')){
@@ -390,7 +412,7 @@ function zoomToSelection(d, db) {
     //console.log(d);
     toggleLayerSwitches();
     resetLayers();
-    $('.layernotification').hide()
+    $('.layernotification').hide();
     //parcel polygon overlay styling
     var myStyle = {
         "clickable":false,
@@ -409,7 +431,7 @@ function zoomToSelection(d, db) {
     //delete all lines below to remove layer/switch toggle on search by:
     var reverseSwitchMap = { "cty2010": "countylayeronoffswitch", 
                              "sen2012": "senatelayeronoffswitch", 
-                             "hse2012_1": "houselayeronoffswitch"}
+                             "hse2012_1": "houselayeronoffswitch"};
 
     //check the switch box
     if ($('#'+reverseSwitchMap[db]).is(':checked')===true){
@@ -421,7 +443,7 @@ function zoomToSelection(d, db) {
     addNotifications($('[data-layerlist-id='+mapLayersTab[0].id+']'));
 
     //turn on layers
-    getOverlayLayers($(reverseSwitchMap[db]), reverseSwitchMap[db])
+    getOverlayLayers($(reverseSwitchMap[db]), reverseSwitchMap[db]);
 }
 
 function openSidebar(){
@@ -492,7 +514,7 @@ function geoCodeAddress(geocoder, resultsMap, address) {
       toggleLayerSwitches();
       resetLayers();
       addMarker(pos);
-      
+      $(".loader").hide();
       geocodeFeedback(precision, components);
     } else {
       alert('Geocode was not successful for the following reason: ' + status);
@@ -529,15 +551,15 @@ function addMarker(e){
 }
 
 //submit search text box - removed button for formatting space
-function keypressInBox(e) {
-    var code = (e.keyCode ? e.keyCode : e.which);
-    if (code == 13) { //Enter keycode                        
-        e.preventDefault();
-        dataLayer.push({'event': 'enterKeyGeocode'});
-        address = document.getElementById('addressSearch').value;
-        geoCodeAddress(geocoder, map, address);
-    }
-};
+// function keypressInBox(e) {
+//     var code = (e.keyCode ? e.keyCode : e.which);
+//     if (code == 13) { //Enter keycode                        
+//         e.preventDefault();
+//         dataLayer.push({'event': 'enterKeyGeocode'});
+//         address = document.getElementById('addressSearch').value;
+//         geoCodeAddress(geocoder, map, address);
+//     }
+// }
 
 //call getQueryVariable('district' or 'address', whatever variable you want to pass through url)
 //example: http://ww2.commissions.leg.state.mn.us/gis/iMaps/Legacy/index.php?address=1414 Skyline Rd, Eagan
@@ -545,7 +567,7 @@ function getQueryVariable(variable){
        var query = window.location.search.substring(1);
        var vars = query.split("&");
        //console.log(vars);
-
+       console.log(vars);
        for (var i=0;i<vars.length;i++) {
                var pair = vars[i].split("=");
                if(pair[0] == variable){
@@ -555,6 +577,7 @@ function getQueryVariable(variable){
                 return address;
             }
        }
+
        return(false);
 }
 

@@ -37,12 +37,12 @@ $(function() {
       e.preventDefault();
       address = document.getElementById('addressSearch').value;
       geoCodeAddress(geocoder, map, address);
-    })
+    });
 
   //Populate Search Select Boxes 
   $.getJSON("php/getCounty.php",function(data){
       var items="";
-      items = "<option value='' selected>County</option>"
+      items = "<option value='' selected>County</option>";
       for (i in data.features) {
         var option = data.features[i].properties.name;
         items+="<option value='"+option+"'>"+option+"</option>";
@@ -52,7 +52,7 @@ $(function() {
 
     $.getJSON("php/getSenate.php",function(data){
       var items="";
-      items = "<option value='' selected>Senate District</option>"
+      items = "<option value='' selected>Senate District</option>";
       for (i in data.features) {
         var option = data.features[i].properties.district;
         items+="<option value='"+option+"'>"+option+"</option>";
@@ -62,7 +62,7 @@ $(function() {
 
     $.getJSON("php/getHouse.php",function(data){
       var items="";
-      items = "<option value='' selected>House District</option>"
+      items = "<option value='' selected>House District</option>";
       for (i in data.features) {
         var option = data.features[i].properties.district;
         //console.log(data.features[i].properties.name);
