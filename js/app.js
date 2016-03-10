@@ -84,9 +84,9 @@ function queryLayersCheckboxes(){
     var filters = document.getElementById('layercontrols').filters;
 
     for (var i = 0; i < filters.length; i++) {
-        if (filters[i].checked) list.push(filters[i].value);
+        if (filters[i].checked === false) list.push(filters[i].value);
     }
-    
+    console.log(list);
     getMarkerData(list);
 }
 
@@ -287,6 +287,7 @@ function resetLayers() {
         }  
     });
 }
+
 function toggleLayerSwitches (){
     var inputs = $(".onoffswitch-checkbox.overlay");
     for (var i = 0, il = inputs.length; i < il; i++) {
@@ -295,6 +296,15 @@ function toggleLayerSwitches (){
         	$(inputsID).prop('checked', true);
         }
     }
+
+    inputs = $(".onoffswitch-checkbox.legacy");
+    for (var i = 0, il = inputs.length; i < il; i++) {
+        var inputsID = '#'+ inputs[i].id;
+        if($(inputsID).is(':checked')){
+            $(inputsID).prop('checked', false);
+        }
+    }
+    refreshLegacy();
 }
 
 //toggle basemap layers
@@ -327,6 +337,14 @@ function toggleBaseLayers(el, gray, street, sat){
         $('#graylayeronoffswitch').prop('checked', true).attr("disabled", false);
         break;
     }
+}
+
+function refreshLegacy(){
+    overlays.clearLayers();
+      $( document ).ajaxStart(function() {
+          $('.loader').show();
+       });
+    queryLayersCheckboxes(); 
 }
 
 //fetch the overlay layers from WMS, published through FOSS mapserver (mapserver.org) - much faster than fetching large vector datasets through PGIS

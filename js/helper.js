@@ -22,11 +22,7 @@ $(function() {
 
   //filter layers on checkboxes
   $('#layercontrols input').click(function(){
-      overlays.clearLayers();
-      $( document ).ajaxStart(function() {
-          $('.loader').show();
-       });
-    queryLayersCheckboxes();    
+      refreshLegacy();
   });
 
   // both key and enter fire geoCodeAddress

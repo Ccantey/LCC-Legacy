@@ -103,17 +103,87 @@
 						  </div>
 						 </form>
 					 </div>
-
+                      
 					 <form id = "layercontrols" class="selectform">
-						<div class="checkbox">
+                        <div style="font-weight: 600;">Filter by funding type:</div>
+                         
+                      <div class="legacygroup">Legacy Ammendment</div>
+                      <div id="artsdiv" class="onoffswitch filter">
+				      <input type="checkbox" name='filters'  class="onoffswitch-checkbox legacy" id="artslayeronoffswitch" value="Arts & Cultural Heritage Fund">
+					    <!-- <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked> -->
+					    <label class="onoffswitch-label" for="artslayeronoffswitch">
+					    <!-- <label class="onoffswitch-label" for="myonoffswitch"> -->
+					        <span class="onoffswitch-inner"></span>
+					        <!-- <span class="onoffswitch-inner"></span> -->
+					        <span class="onoffswitch-switch"></span>
+					        <!-- <span class="onoffswitch-switch"></span> -->
+					    </label>
+					  </div>
+					  <div class='layersswitchLabel'><div class="leaflet-marker-icon artsandculture" style="margin-left:-22px;"></div>Arts & Cultural Heritage Fund</div>
+
+					    <div id="cleanwaterdiv" class="onoffswitch filter">
+				      <input type="checkbox" name="filters" class="onoffswitch-checkbox legacy" id="cleanwaterlayeronoffswitch" value="Clean Water Fund">
+					    <!-- <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked> -->
+					    <label class="onoffswitch-label" for="cleanwaterlayeronoffswitch">
+					    <!-- <label class="onoffswitch-label" for="myonoffswitch"> -->
+					        <span class="onoffswitch-inner"></span>
+					        <!-- <span class="onoffswitch-inner"></span> -->
+					        <span class="onoffswitch-switch"></span>
+					        <!-- <span class="onoffswitch-switch"></span> -->
+					    </label>
+					  </div>
+					  <div class='layersswitchLabel'><div class="leaflet-marker-icon cleanwater" style="margin-left:-22px;"></div>Clean Water Fund</div>
+
+					    <div id="outdoordiv" class="onoffswitch filter">
+				      <input type="checkbox" name="filters" class="onoffswitch-checkbox legacy" id="outdoorlayeronoffswitch" value="Outdoor Heritage Fund">
+					    <!-- <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked> -->
+					    <label class="onoffswitch-label" for="outdoorlayeronoffswitch">
+					    <!-- <label class="onoffswitch-label" for="myonoffswitch"> -->
+					        <span class="onoffswitch-inner"></span>
+					        <!-- <span class="onoffswitch-inner"></span> -->
+					        <span class="onoffswitch-switch"></span>
+					        <!-- <span class="onoffswitch-switch"></span> -->
+					    </label>
+					  </div>
+					  <div class='layersswitchLabel'><div class="leaflet-marker-icon outdoorheritage" style="margin-left:-22px;"></div>Outdoor Heritage Fund</div>
+
+					    <div id="parksdiv" class="onoffswitch filter">
+				      <input type="checkbox" name="filters" class="onoffswitch-checkbox legacy" id="parkslayeronoffswitch" value="Parks & Trails Fund">
+					    <!-- <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked> -->
+					    <label class="onoffswitch-label" for="parkslayeronoffswitch">
+					    <!-- <label class="onoffswitch-label" for="myonoffswitch"> -->
+					        <span class="onoffswitch-inner"></span>
+					        <!-- <span class="onoffswitch-inner"></span> -->
+					        <span class="onoffswitch-switch"></span>
+					        <!-- <span class="onoffswitch-switch"></span> -->
+					    </label>
+					  </div>
+					  <div class='layersswitchLabel'><div class="leaflet-marker-icon parksandtrails" style="margin-left:-22px;"></div>Parks & Trails Fund</div>
+                    <div class="legacygroup">Trust Fund Ammendment</div>
+					<div id="enrtfdiv" class="onoffswitch filter">
+				      <input type="checkbox" name="filters" class="onoffswitch-checkbox legacy" id="enrtflayeronoffswitch" value="Environment & Natural Resources Trust Fund">
+					    <!-- <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked> -->
+					    <label class="onoffswitch-label" for="enrtflayeronoffswitch">
+					    <!-- <label class="onoffswitch-label" for="myonoffswitch"> -->
+					        <span class="onoffswitch-inner"></span>
+					        <!-- <span class="onoffswitch-inner"></span> -->
+					        <span class="onoffswitch-switch"></span>
+					        <!-- <span class="onoffswitch-switch"></span> -->
+					    </label>
+					  </div>
+                      <div class='layersswitchLabel'><div class="leaflet-marker-icon enrtf" style="margin-left:-22px;"></div>Environment & Natural <br>Resources Trust Fund</div>
+
+<!-- 						<div class="checkbox">
 						<div class="leaflet-marker-icon artsandculture" style="margin-left:20px;"></div>
 						    <label>
 						        <input type="checkbox" name='filters' value='Arts & Cultural Heritage Fund' onclick='showClusters()' checked>
                                 <span class="fundlabel">Arts & Cultural Heritage Fund</span>
 						    </label>
 						</div>
-						<div class="checkbox">
-						<div class="leaflet-marker-icon cleanwater" style="margin-left:20px;"></div>
+						<div class="checkbox"> -->
+
+
+<!-- 						<div class="leaflet-marker-icon cleanwater" style="margin-left:20px;"></div>
 						    <label>
 						        <input type="checkbox" name='filters' value='Clean Water Fund' checked>
 						        <span class="fundlabel">Clean Water Fund</span>
@@ -139,7 +209,7 @@
 						      <input type="checkbox" name='filters' value='Parks & Trails Fund' checked>
 						      <span class="fundlabel">Parks & Trails Fund</span>
 						    </label>
-						</div>
+						</div> -->
 					 </form>
 
 					 <div class="logo">
@@ -402,7 +472,7 @@
             		<table id="singleResultTable" class="table">
             		<thead id="noshow">
 						<tr>
-							<th><span class="detailsText">No Property Selected</span></th>
+							<th><span class="detailsText">No Project Selected</span></th>
 						</tr>
 					</thead>
 
@@ -417,7 +487,7 @@
 		          	<a href="http://www.legacy.leg.mn/"><img src="images/logo-new.png" alt='logo'/></a>
 		        </div>
             </div>
-            
+
             <!-- - - - - - - - - - - - - - - - Sidebar/LCCMR Div - - - - - - - - - - - - - -->
             <div id="lccmr" style="display: none">
             <div class='closetab'><i class="fa fa-caret-square-o-left fa-lg"></i></div>
@@ -441,10 +511,10 @@
 				      <div id="mapNavHelp" class="helpMenu">
 					      <ul>
 					      	<li class="helpListHeader">Basic map navigation</li>
-					      	<li>The red circle symbols size are proportional to the number of land acquisition properties found at the symbol location.</li>
-					      	<li>Select the symbols to view individual properties.</li>
-					      	<li>Selecting an individual property will reveal parcel geometry on the map and the property attributes in the sidebar navigation "Results" tab.</li>
-					      	<li>Select the LCCMRID link to display the full ENRTF report.</li>
+					      	<li>The red circle symbols size are proportional to the number of Legacy and Trust Fund projects found within the symbol boundary.</li>
+					      	<li>Select the symbols to drill down to individual projects.</li>
+					      	<li>Selecting an individual project will reveal the project attributes in the sidebar navigation "Results" tab.</li>
+					      	<li>Select the project link to display the full project report.</li>
 					      </ul>
 					  </div>
 					  <!-- <div class='layersswitchLabel'>Light Gray Basemap</div> -->
@@ -453,8 +523,8 @@
 					  <div id="sidebarHelp" class="helpMenu">
 					      <ul>
 					      	<li class="helpListHeader">Search Tab</li>
-					      	<li>Search for properties near an address using the "Search by Address" form.</li>
-					      	<li>Search for land acquisitions by County, House District, or Senate District using the "Search by" select forms. This will zoom the map to the respective selection.</li>
+					      	<li>Search for projects near an address using the "Search by Address" form.</li>
+					      	<li>Search for projects by County, House District, or Senate District using the "Search by" select forms. This will zoom the map to the respective selection.</li>
 					 
 					      </ul>
 					      <ul>
@@ -463,7 +533,7 @@
 					      </ul>
 					      <ul>
 					      	<li class="helpListHeader">Results Tab</li>
-					      	<li>Selected property attribute information.</li>
+					      	<li>Selected project attribute information.</li>
 					      </ul>
 					  </div>
 					  <!-- <div class='layersswitchLabel'>Streets Basemap</div> -->
@@ -474,7 +544,7 @@
 				      	<li class="helpListHeader">Map Tools <br><span class="detailsText">(upper right-hand corner)</span></li>
 
 				      	<li>Reset map.</li>
-				      	<li>Information about LCCMR.</li>
+				      	<li>Information about the Legacy and Trust Fund Ammendments.</li>
 				      	<li>Add legend to map.</li>
 				      	<li>Share the map on Facebook or Twitter.</li>
 				      </ul>
@@ -487,10 +557,7 @@
                 <div class="logo">
 		          	<a href="http://www.legacy.leg.mn/"><img src="images/logo-new.png" alt='logo'/></a>
 		        </div>
-            </div>
-
-
-        
+            </div>        
         </div>
 
         <!-- - - - - - - - - - - - - - - map - - - - - - - - - - - - - - -->
@@ -515,24 +582,24 @@
 	  <div class="legendTitle">Legend</div>
 	  <img id="propsymbols" src="images/legend/legend3.png" alt='legend'/>
 	  <ul class="symbolClass">
-		  <li style="padding-right:6px;">1-10</li>
+		  <li style="padding-right:6px;">2-10</li>
 		  <li style="padding-right:12px;">11-75</li>
 		  <li style="padding-right:24px;">75-500</li>
 		  <li >500+</li>
 		</ul>
-		<div class="legendlabel">Properties: Grouped by location</div>
+		<div class="legendlabel">Projects: Grouped by location</div>
 		<div class="legendHelper">* Actual count displayed in symbol *</div>
 		<!-- <hr> -->
 		<ul class="legendicons">
 		<!-- <div id="legendicons"> -->
 		   <li class="legendiconsLi"><div class="leaflet-marker-icon artsandculture legendhover" style="position:relative"></div> </li>
-		   <li class="legendiconsLi"><div class="leaflet-marker-icon cleanwater legendhover" style="position:relative"></div></li>
-		   <li class="legendiconsLi"><div class="leaflet-marker-icon enrtf legendhover" style="position:relative"></div></li>
+		   <li class="legendiconsLi"><div class="leaflet-marker-icon cleanwater legendhover" style="position:relative"></div></li>		   
 		   <li class="legendiconsLi"><div class="leaflet-marker-icon outdoorheritage legendhover" style="position:relative"></div></li>
 		   <li class="legendiconsLi"><div class="leaflet-marker-icon parksandtrails legendhover" style="position:relative"></div></li>
+		   <li class="legendiconsLi"><div class="leaflet-marker-icon enrtf legendhover" style="position:relative"></div></li>
 		   <!-- </div> -->
 		</ul>
-		<div class="legendlabel">Legacy funded projects</div>
+		<div class="legendlabel">Legacy and Trust Fund projects</div>
 		<div class="legendHelper">* See Search tab checkboxes *</div>
 	 </div>
 
@@ -549,17 +616,24 @@
         <div class="modal-content">
             <div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title" id="myModalLabel">About LCCMR</h4>
+				<h4 class="modal-title" id="myModalLabel">The Legacy and Trust Fund Ammendments</h4>
 			</div>
 			<div class="aboutLCCMR">
-		            <p><strong><a href="http://www.lccmr.leg.mn/" target="_blank" style="color: #50667f;">Legislative-Citizen Commission on Minnesota Resources (LCCMR)</a></strong></p>
-		            <p>The function of the LCCMR is to make funding recommendations to the legislature for special environment and natural resource projects, primarily from the Environment and Natural Resources Trust Fund (ENRTF). These projects help maintain and enhance Minnesota's environment and natural resources.</p>
+			    <div class="infodivs">
+		            <div class="pull-left"><a href="http://www.legacy.leg.mn/" target="_blank"><img src='images/legacy_logo_rgb.jpg' alt='legacy logo'style="height:150px;padding-right: 10px;"/></a></div>
+		            <p><strong><a href="http://www.legacy.leg.mn/" target="_blank" style="color: #50667f;">Legacy Ammendment</a></strong></p>
+		            <p>In 2008, Minnesota's voters passed the Clean Water, Land and Legacy Amendment (Legacy Amendment) to the Minnesota Constitution to: protect drinking water sources; to protect, enhance, and restore wetlands, prairies, forests, and fish, game, and wildlife habitat; to preserve arts and cultural heritage; to support parks and trails; and to protect, enhance, and restore lakes, rivers, streams, and groundwater.</p>
 
-		            <p style="color: #7a7a7a;"><strong>Land Acquisitions Mapping Tool</strong></p>
+					<p>The Legacy Amendment increases the state sales tax by three-eighths of one percent beginning on July 1, 2009 and continuing until 2034. The additional sales tax revenue is distributed into four funds as follows: 33 percent to the clean water fund; 33 percent to the outdoor heritage fund; 19.75 percent to the arts and cultural heritage fund; and 14.25 percent to the parks and trails fund.</p>
+				</div>
+				<div class="infodivs">
+		            <div class="pull-left"><a href="http://www.lccmr.leg.mn/" target="_blank"><img src='images/enrtf-logo.jpg' alt='legacy logo' style="height:100px;padding-right: 10px;"/></a></div><p><strong><a href="http://www.lccmr.leg.mn/" target="_blank" style="color: #50667f;">Environmental and Natural Resources Trust Fund</a></strong></p>
 
-		            <p>Interactive mapping tool for Environment and Natural Resources Trust Fund funded fee title and conservation easement land acquisitions going back to calendar year 2005. The map can be used to locate parcels and get parcel details.</p>
+		            <p>In 1988, Minnesota's voters approved a constitutional amendment establishing the Environment and Natural Resources Trust Fund (Trust Fund). The purpose of the Trust Fund is to provide a long-term, consistent, and stable source of funding for activities that protect and enhance Minnesota's environment and natural resources for the benefit of current citizens and future generations.</p>
 
+					<p>The money in the Trust Fund originates from a combination of contributions and investment income. Forty percent of the net proceeds from the Minnesota State Lottery are deposited to the Trust Fund each year; this contribution is guaranteed by the Minnesota Constitution until December 31, 2024. The Trust Fund may also receive contributions from other sources such as private donations.</p>
                 </div>
+            </div>
         </div>
     </div>
 </div>
@@ -575,7 +649,7 @@
 					</div>
 				<div class="modal-body">
 					<a id="FB" title="Share on Facebook" target="_blank" 
-					href="https://www.facebook.com/dialog/share?app_id=944707115597875&redirect_uri=http%3A%2F%2Fwww.gis.leg.mn%2FiMaps%2FLCCMR%2FlandAcq%2Findex.html&display=popup&href=http%3A%2F%2Fwww.gis.leg.mn%2FiMaps%2FLCCMR%2FlandAcq%2F%23">
+					href="https://www.facebook.com/dialog/share?app_id=944707115597875&redirect_uri=http%3A%2F%2Fwww.gis.leg.mn%2FiMaps%2FLegacy%2Findex.html&display=popup&href=http%3A%2F%2Fwww.gis.leg.mn%2FiMaps%2FLegacy%2F%23">
 					
 					<div id="facebookshare">										    
                             <i class="fa fa-facebook fa-lg fb"></i>
@@ -583,7 +657,7 @@
 					</div>
 					</a>
 
-				    <a id="TW" target="_blank" title="Share on Twitter" href="http://twitter.com/intent/tweet?url=http%3A%2F%2Fwww.gis.leg.mn%2FiMaps%2FLCCMR%2FlandAcq%2Findex.html&text=Land%20acquisitions%20mapping%20application%20from%20@mnenrtf&hashtags=LCCMR, ENRTF">
+				    <a id="TW" target="_blank" title="Share on Twitter" href="http://twitter.com/intent/tweet?url=http%3A%2F%2Fwww.gis.leg.mn%2FiMaps%2FLCCMR%2FlandAcq%2Findex.html&text=Legacy%20project%20mapping%20application&hashtags=LCCMR, Legacy, ENRTF">
 					<div id="twittershare">
 				            <i class="fa fa-twitter fa-lg tw"></i>
 		                <strong>Share on Twitter</strong>
