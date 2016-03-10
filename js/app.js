@@ -86,7 +86,7 @@ function queryLayersCheckboxes(){
     for (var i = 0; i < filters.length; i++) {
         if (filters[i].checked) list.push(filters[i].value);
     }
-    console.log(list);
+    
     getMarkerData(list);
 }
 
@@ -99,9 +99,6 @@ function getMarkerData(querylist){
         LegacyProject = L.geoJson(data, {
             //style:myStyle,
             pointToLayer: function (feature, latlng) {
-                // alternatively use image icons - i prefer divIcons for styling
-                // var deselectedIcon = L.icon({iconUrl: 'images/'+iconsClassification[feature.properties.source]+'.png',iconAnchor: [10,11] //1/2 the imag size offset});
-                // var selectedIcon = L.icon({iconUrl:'images/selectedpushpin.png'});
                 
                 deselectedIcon = L.divIcon({className: iconsClassification[feature.properties.source]});
                 
@@ -112,84 +109,66 @@ function getMarkerData(querylist){
                     }); //end onclick
                 return projectMarker;
             } //end pointToLayer method
-        }); //end LandAcquisition object
+        }); //end LegacyProject object
     }).done( function (e) {  //end $.geoJSON begin leaflet cluster group next
             showClusters();
     }); //getJson
 }
 
 function showClusters(){
-            var list = [];
-            var filters = document.getElementById('layercontrols').filters;
+    //read checkboxes
+    var list = [];
+    var filters = document.getElementById('layercontrols').filters;
+    for (var i = 0; i < filters.length; i++) {
+        if (filters[i].checked) list.push(filters[i].value);
+    }
 
-            for (var i = 0; i < filters.length; i++) {
-                if (filters[i].checked) list.push(filters[i].value);
+    $('.loader').hide();
+    clusters = new L.markerClusterGroup({
+        spiderfyOnMaxZoom:true,
+        // disableClusteringAtZoom: 18,
+        polygonOptions: {
+            color: '#ae4b37',
+            weight: 4,
+            opacity: 1,
+            fillOpacity: 0.5
+    },
+        // this method defines how the graduated symbol clusters are created
+        iconCreateFunction: function (cluster) {
+            // get the number of items in the cluster
+            var count = cluster.getChildCount();
+            // figure out how many digits long the number is
+            var scale;
+            // Set graduated symbol scaling
+            if (count <= 10) {
+                scale = 1;
             }
-            overlays.clearLayers();
-            $('.loader').hide();
-            clusters = new L.markerClusterGroup({
-                spiderfyOnMaxZoom:true,
-                // disableClusteringAtZoom: 18,
-                polygonOptions: {
-                    color: '#ae4b37',
-                    weight: 4,
-                    opacity: 1,
-                    fillOpacity: 0.5
-            },
-                // this method defines how the graduated symbol clusters are created
-                iconCreateFunction: function (cluster) {
-                    // get the number of items in the cluster
+            if (count > 10 && count <= 75) {
+                scale = 2;
+            }
+            if (count > 75 && count <= 500) {
+                scale = 3;
+            }
+            if (count > 500) {
+                scale = 4;
+            }
 
-                    var count = cluster.getChildCount();
-                    // figure out how many digits long the number is
-                    var scale;
-                    // Set graduated symbol scaling
-                    if (count <= 10) {
-                        scale = 1;
-                    }
-                    if (count > 10 && count <= 75) {
-                        scale = 2;
-                    }
-                    if (count > 75 && count <= 500) {
-                        scale = 3;
-                    }
-                    if (count > 500) {
-                        scale = 4;
-                    }
-
-                    // return a new L.DivIcon with our classes so we can
-                    // style them with CSS. You have to set iconSize to null
-                    // if you want to use CSS to set the width and height.
-                    return new L.divIcon({
-                        html: count,
-                        className:'cluster scale-' + scale,
-                        iconSize: null
-                    });
-                } //end iconCreateFunction method
-            }).addTo(overlays); //end clusters object
-
-
-
-            //console.log(list);
-            // for (i in LegacyProject._layers){
-            //     //console.log(LegacyProject._layers[i].feature.properties.source)
-            //     if (list.indexOf(LegacyProject._layers[i].feature.properties.source) !== -1) {                    
-            //         clusters.addLayer(LegacyProject);
-            //     }
-            // }
-
-
-            clusters.addLayer(LegacyProject);
-            // LegacyProject.eachLayer(function(layer) {
-            //     // console.log(layer.feature.properties.source)
-            //     if (list.indexOf(layer.feature.properties.source) !== -1) {                    
-            //         clusters.addLayer(layer);
-            //     } else {}
-            // });
-
+            // return a new L.DivIcon with our classes so we can
+            // style them with CSS. You have to set iconSize to null
+            // if you want to use CSS to set the width and height.
+            return new L.divIcon({
+                html: count,
+                className:'cluster scale-' + scale,
+                iconSize: null
+            });
+        } //end iconCreateFunction method
+    }).addTo(overlays); //end clusters object
+    //add points to clusters markergroup
+    clusters.addLayer(LegacyProject);
 }
+
 function getCenter(){
-    if (getQueryVariable('address') === true){
+    if (getQueryVariable('address')){
          getQueryVariable('address');
     } else {
         var center = L.latLng(46.1706, -94.9678);
@@ -199,9 +178,9 @@ function getCenter(){
 
 function showResultsTable (selection) {
     var html = "";
-    // $('#propertyinfo').show();
     $('#noshow').hide();
     $('#data').html(html);
+
     var attributeNameMap = {'nid':'node id','title':'TITLE','fiscal_year':'Fiscal Year','fy_funding':'FY Funding','recipient':'recipient','administrator':'Administrator','source':'Source','status':'Status'};
     //console.log(selection);
     for (prop in selection.feature.properties) { 
@@ -234,8 +213,6 @@ function showSelectedIcon (selection) {
     // navTab('results', $("li[data-navlist-id='results']"));
     selectedIcon = L.divIcon({className: 'selected-icon '+ iconsClassification[fundingSource]});
     selection.setIcon(selectedIcon);
-    //load geojson parcel, make available only at scale below x, zoom to it, if zoom out back to selectedIcon
-    //loadParcel(selection.feature.properties.title)
 }
 
 //common task, requires the last index of array - if a property is selected only once before clearmap(), throws an error
@@ -316,9 +293,8 @@ function toggleLayerSwitches (){
     	var inputsID = '#'+ inputs[i].id;
         if($(inputsID).not(':checked')){
         	$(inputsID).prop('checked', true);
-        }         
-    }	
-    //except 
+        }
+    }
 }
 
 //toggle basemap layers
@@ -478,7 +454,6 @@ function closeSidebar(){
     }
 }
 
-
 function addNotifications(el){
       //console.log(el);
       var notificationCount = 0;
@@ -509,8 +484,7 @@ function geoCodeAddress(geocoder, resultsMap, address) {
   var selections = ['#cty2010', '#hse2012_1', '#sen2012'];
    for (var i = 0, il = selections.length; i < il; i++) {        
           $(selections[i]).prop('selectedIndex', 0);
-    }      
-      
+    }
 
   geocoder.geocode({'address': address}, function(results, status) {
     if (status === google.maps.GeocoderStatus.OK) {
@@ -549,12 +523,10 @@ function geocodeFeedback(precision, components){
         message = "Approximate location! Center of " + componentMap[components[0].types[0]];
         $('#geocodeFeedback').html(message).css('color', '#ae4b37');
         $('#geocodeFeedback').show();
-    }   
+    }
 }
 
 function addMarker(e){
-    //remove sidebar formatting
-
     //remove old pushpin and previous selected district layers 
     if (typeof projectMarker !== "undefined" ){ 
         map.removeLayer(projectMarker);         
@@ -580,7 +552,6 @@ function getQueryVariable(variable){
        var query = window.location.search.substring(1);
        var vars = query.split("&");
        //console.log(vars);
-       console.log(vars);
        for (var i=0;i<vars.length;i++) {
                var pair = vars[i].split("=");
                if(pair[0] == variable){
@@ -590,7 +561,5 @@ function getQueryVariable(variable){
                 return address;
             }
        }
-
        return(false);
 }
-

@@ -417,6 +417,7 @@
 		          	<a href="http://www.legacy.leg.mn/"><img src="images/logo-new.png" alt='logo'/></a>
 		        </div>
             </div>
+            
             <!-- - - - - - - - - - - - - - - - Sidebar/LCCMR Div - - - - - - - - - - - - - -->
             <div id="lccmr" style="display: none">
             <div class='closetab'><i class="fa fa-caret-square-o-left fa-lg"></i></div>
@@ -494,7 +495,7 @@
 
         <!-- - - - - - - - - - - - - - - map - - - - - - - - - - - - - - -->
         <div class="col-sm-9  col-md-10 ">
-        
+
            <div id="map">
            	     <div class="loader">Loading...</div>
            </div>
@@ -559,14 +560,6 @@
 		            <p>Interactive mapping tool for Environment and Natural Resources Trust Fund funded fee title and conservation easement land acquisitions going back to calendar year 2005. The map can be used to locate parcels and get parcel details.</p>
 
                 </div>
-<!--             <div class="modal-body">
-                <iframe src="http://www.youtube.com/embed/Zrrp6-2M2aQ?html5=1"></iframe>
-                <ul>
-                    <li> Basic Navigation</li>
-                    <li> Search by Address</li>
-                    <li> Search by County/Legislative District</li>
-                </ul>
-            </div> -->
         </div>
     </div>
 </div>
