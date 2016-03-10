@@ -4,9 +4,12 @@
 # Connect to PostgreSQL database
 $conn = new PDO('pgsql:host=####;dbname=####','####','####'); 
 
+$q = implode($_GET['list'],"','");
+
 $sql = "SELECT nid,title,fiscal_year, fy_funding, recipient, administrator, 
        source, status, public.ST_AsGeoJSON(public.ST_Transform(the_geom,4326),6) AS geojson 
-        FROM legacy_pts_mar2016";
+        FROM legacy_pts_mar2016
+        WHERE source IN ('$q')";
 
 $rs = $conn->query($sql);
 if (!$rs) {

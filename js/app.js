@@ -74,15 +74,28 @@ function init () {
     });
 
     // Add Legacy data
-    getMarkerData();
+    queryLayersCheckboxes();
+    
 
 } //end init()
 
-function getMarkerData(){
+function queryLayersCheckboxes(){
+    var list = [];
+    var filters = document.getElementById('layercontrols').filters;
+
+    for (var i = 0; i < filters.length; i++) {
+        if (filters[i].checked) list.push(filters[i].value);
+    }
+    console.log(list);
+    getMarkerData(list);
+}
+
+function getMarkerData(querylist){
     
     overlays = L.layerGroup().addTo(map);
-    
-    $.getJSON("php/getOverlayLayersAsGeoJSON.php", function (data) {
+    var data = {list:querylist};
+
+    $.getJSON("php/getOverlayLayersAsGeoJSON.php", data, function (data) {
         LegacyProject = L.geoJson(data, {
             //style:myStyle,
             pointToLayer: function (feature, latlng) {
@@ -157,7 +170,7 @@ function showClusters(){
 
 
 
-            console.log(list);
+            //console.log(list);
             // for (i in LegacyProject._layers){
             //     //console.log(LegacyProject._layers[i].feature.properties.source)
             //     if (list.indexOf(LegacyProject._layers[i].feature.properties.source) !== -1) {                    

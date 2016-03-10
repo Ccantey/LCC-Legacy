@@ -28,7 +28,8 @@ $(function() {
      $('.loader').show();
    });
     
-    getMarkerData();
+    queryLayersCheckboxes();
+    //getMarkerData();
     
   });
 
