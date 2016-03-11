@@ -270,7 +270,6 @@ function resetLayers() {
         map.removeLayer(pushPinPMarker);
         delete pushPinPMarker;
     }
-
     if (typeof projectMarker !== "undefined" ){
         map.removeLayer(projectMarker);
         delete projectMarker;
@@ -279,7 +278,6 @@ function resetLayers() {
         map.removeLayer(selectionGeoJSON);
         delete selectionGeoJSON;
     }
-
 
     $('.layernotification').hide();
     //Remove all layers except the basemap -- down here because its an asychronous thead apparently
@@ -384,7 +382,7 @@ function getOverlayLayers(el, switchId){
 				overlayLayers[switchMap[switchId]].addTo(map);
             } else {
 
-    		overlayLayers[switchMap[switchId]] = L.tileLayer.wms('/cgi-bin/mapserv?map=/web/gis/iMaps/LCCMR/landAcq/data/mapserver.map', {
+    		overlayLayers[switchMap[switchId]] = L.tileLayer.wms('/cgi-bin/mapserv?map=/web/gis/iMaps/Legacy/data/mapserver.map', {
 			    format: 'image/png',
 			    transparent: false,
 			    minZoom: 6,
@@ -429,9 +427,11 @@ function zoomToSelection(d, db) {
         "weight": 2,
         "opacity": 0.65
     };
+
     selectionGeoJSON = L.geoJson(d, {
         style:myStyle
     }).addTo(map);
+    
     //zoom to selection
     $('#data').show();
     var parcelBounds = selectionGeoJSON.getBounds();

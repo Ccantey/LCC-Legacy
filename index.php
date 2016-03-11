@@ -34,7 +34,7 @@
     <link href="css/app.css" rel="stylesheet">
 
     <!-- geocoding api -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqo2j28SDRSRhrCJJFvesI8PBTzb0NipA" ></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzJYWw87EtAx2_U-RYxmkHkm5wC_VRz7I" ></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <!-- <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet"> -->
 
