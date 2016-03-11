@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, minimal-ui, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="description" content="Interactive mapping tool for Environment and Natural Resources Trust Fund funded fee Legacy Ammendment projects.">
+    <meta name="description" content="Interactive mapping tool for Environment and Natural Resources Trust Fund funded fee Legacy Amendment projects.">
 	<meta name="author" content="Leg. Coordinating Commission GIS">
 	<meta name="keywords" content="Legacy, LCCMR, LCC, ENRTF, MNDNR">
     <!--Facebook Share customization open graph meta tags. https://developers.facebook.com/tools/debug/og/object/-->
     <meta property="fb:app_id" content="944707115597875" />
 	<meta property="og:url"                content="http://www.gis.leg.mn/iMaps/Legacy/" />
 	<meta property="og:type"               content="website" />
-	<meta property="og:title"              content="Legacy Ammendment Projects Map" />
+	<meta property="og:title"              content="Legacy Amendment Projects Map" />
 	<meta property="og:description"        content="Interactive mapping tool for Environment and Natural Resources Trust Fund funded fee title and conservation easement land acquisitions." />
 	<meta property="og:image"              content="http://www.gis.leg.mn/iMaps/Legacy/images/legacy_logo_rgb.jpg" />
     
@@ -107,7 +107,7 @@
 					 <form id = "layercontrols" class="selectform">
                         <div style="font-weight: 600;">Filter by funding type:</div>
                          
-                      <div class="legacygroup">Legacy Ammendment</div>
+                      <div class="legacygroup">Legacy Amendment</div>
                       <div id="artsdiv" class="onoffswitch filter">
 				      <input type="checkbox" name='filters'  class="onoffswitch-checkbox legacy" id="artslayeronoffswitch" value="Arts & Cultural Heritage Fund">
 					    <!-- <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked> -->
@@ -159,7 +159,7 @@
 					    </label>
 					  </div>
 					  <div class='layersswitchLabel'><div class="leaflet-marker-icon parksandtrails" style="margin-left:-22px;"></div>Parks & Trails Fund</div>
-                    <div class="legacygroup">Trust Fund Ammendment</div>
+                    <div class="legacygroup">Trust Fund Amendment</div>
 					<div id="enrtfdiv" class="onoffswitch filter">
 				      <input type="checkbox" name="filters" class="onoffswitch-checkbox legacy" id="enrtflayeronoffswitch" value="Environment & Natural Resources Trust Fund">
 					    <!-- <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked> -->
@@ -211,10 +211,10 @@
 						    </label>
 						</div> -->
 					 </form>
-
-					 <div class="logo">
-				          	<a href="http://www.legacy.leg.mn/"><img src="images/logo-new.png" alt='logo'/></a>
-				        </div>
+	             <div class="logo">
+		          	<a href="http://www.legacy.leg.mn/"><img src="images/logo-new.png" alt="logo"/></a>
+		        </div>
+					 
 		        </div> <!-- search -->
 
                 <!-- - - - - - - - - - - - - Sidebar/Layers tab Div - - - - - - - - - - - - - -->
@@ -544,7 +544,7 @@
 				      	<li class="helpListHeader">Map Tools <br><span class="detailsText">(upper right-hand corner)</span></li>
 
 				      	<li>Reset map.</li>
-				      	<li>Information about the Legacy and Trust Fund Ammendments.</li>
+				      	<li>Information about the Legacy and Trust Fund Amendments.</li>
 				      	<li>Add legend to map.</li>
 				      	<li>Share the map on Facebook or Twitter.</li>
 				      </ul>
@@ -557,7 +557,10 @@
                 <div class="logo">
 		          	<a href="http://www.legacy.leg.mn/"><img src="images/logo-new.png" alt='logo'/></a>
 		        </div>
-            </div>        
+            </div> 
+         <!--    <div class="logo">
+			  	<a href="http://www.legacy.leg.mn/"><img src="images/logo-new.png" alt='logo'/></a>
+		    </div>  -->   
         </div>
 
         <!-- - - - - - - - - - - - - - - map - - - - - - - - - - - - - - -->
@@ -616,12 +619,12 @@
         <div class="modal-content">
             <div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title" id="myModalLabel">The Legacy and Trust Fund Ammendments</h4>
+				<h4 class="modal-title" id="myModalLabel">The Legacy and Trust Fund Amendments</h4>
 			</div>
 			<div class="aboutLCCMR">
 			    <div class="infodivs">
 		            <div class="pull-left"><a href="http://www.legacy.leg.mn/" target="_blank"><img src='images/legacy_logo_rgb.jpg' alt='legacy logo'style="height:150px;padding-right: 10px;"/></a></div>
-		            <p><strong><a href="http://www.legacy.leg.mn/" target="_blank" style="color: #50667f;">Legacy Ammendment</a></strong></p>
+		            <p><strong><a href="http://www.legacy.leg.mn/" target="_blank" style="color: #50667f;">Legacy Amendment</a></strong></p>
 		            <p>In 2008, Minnesota's voters passed the Clean Water, Land and Legacy Amendment (Legacy Amendment) to the Minnesota Constitution to: protect drinking water sources; to protect, enhance, and restore wetlands, prairies, forests, and fish, game, and wildlife habitat; to preserve arts and cultural heritage; to support parks and trails; and to protect, enhance, and restore lakes, rivers, streams, and groundwater.</p>
 
 					<p>The Legacy Amendment increases the state sales tax by three-eighths of one percent beginning on July 1, 2009 and continuing until 2034. The additional sales tax revenue is distributed into four funds as follows: 33 percent to the clean water fund; 33 percent to the outdoor heritage fund; 19.75 percent to the arts and cultural heritage fund; and 14.25 percent to the parks and trails fund.</p>

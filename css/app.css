@@ -1,5 +1,6 @@
 /*-------------------------- bootstrap overrides ---------------------------------*/
 body {
+  height:100%;
   /*padding-top: 50px;*/
   font-family: 'Open Sans', sans-serif;
 }
@@ -88,6 +89,28 @@ table{
 }
 
 /*----------------------------------------------APPLICATION CSS----------------------------------------------------*/
+::-webkit-scrollbar {
+      width: 15px;
+} /* this targets the default scrollbar (compulsory) */
+::-webkit-scrollbar-track {
+      background-color: #333
+} /* the new scrollbar will have a flat appearance with the set background color */
+ 
+::-webkit-scrollbar-thumb {
+      background-color: #646c72
+} /* this will style the thumb, ignoring the track */
+ 
+::-webkit-scrollbar-button {
+      background-color: #ae4b37;
+} /* optionally, you can style the top and the bottom buttons (left and right for horizontal bars) */
+
+#search, #layers, #results, #lccmr{
+  /*box-sizing:border-box;*/
+  position:relative;
+  min-height: 100%;
+  padding: 0 0 125px;
+}
+
 .aboutLCCMR{
   margin-left: 14px;
 
@@ -256,11 +279,12 @@ table{
     left: 48px;
     z-index: 1001;
     display: block;
-    padding: 20px;
+    /*padding: 20px 20px 100px 20px;*/
+    margin-top: auto;
     overflow-x: hidden;
     overflow-y: auto; 
     background-color: #404040;
-    /*min-height:700px;*/
+    height:100%;
 
   }
 
@@ -329,11 +353,16 @@ a:focus, a:hover{
 
 .logo{
 	position:absolute;
-	left: 27%;
+	left: 68px;
 	bottom:10px;
-  padding: 3px 3px 2px 0;
+  padding: 40px 3px 2px 0;
   /*box-shadow: 0 0 2px 2px #343434;*/
 }
+/*#search .logo{
+  position:absolute;
+  bottom:10px;
+}*/
+
 .logo img{
   height: 105px;
 }
@@ -636,8 +665,8 @@ a:focus, a:hover{
 
 
 .selectform{
-  margin-top:40px;
-  padding-bottom: 40px;
+  margin-top:25px;
+  padding-bottom: 25px;
   border-bottom: 1px solid #727d86;
 }
 
@@ -653,7 +682,7 @@ a:focus, a:hover{
   color:#727d86;
   font-style: italic;
   margin-top: 10px;
-  margin-left:40px;
+  /*margin-left:40px;*/
 }
 
 #replink{
