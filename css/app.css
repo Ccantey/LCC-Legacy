@@ -108,7 +108,7 @@ table{
   /*box-sizing:border-box;*/
   position:relative;
   min-height: 100%;
-  padding: 0 0 125px;
+  padding: 20px 0 125px;
 }
 
 .aboutLCCMR{
@@ -352,9 +352,9 @@ a:focus, a:hover{
 }
 
 .logo{
-	position:absolute;
-	left: 68px;
-	bottom:10px;
+  position:absolute;
+  left: 68px;
+  bottom:10px;
   padding: 40px 3px 2px 0;
   /*box-shadow: 0 0 2px 2px #343434;*/
 }
@@ -370,7 +370,7 @@ a:focus, a:hover{
     display:visible;
     color: #727d86;
     position: absolute;
-    right: 10px;
+    right: 0;
     top: 10px;
   }
     .closetab:hover {
@@ -379,11 +379,11 @@ a:focus, a:hover{
   }
 
 #map{
-	position:fixed;
-	top:0;
-	bottom:0;
-	left:0;
-	width:100%;
+  position:fixed;
+  top:0;
+  bottom:0;
+  left:0;
+  width:100%;
 }
 .leaflet-left {
     left: 330px; /*add media querries*/
@@ -618,9 +618,9 @@ a:focus, a:hover{
   width:34%;
 }*/
 .searchul, .layersul, .helpul{
-  width:100%;
+  width:284px;
   position:absolute;
-  left:0;
+  left:-15px;
   border-top: 2px solid #727d86;
   border-bottom: 2px solid #727d86;
 }
@@ -749,7 +749,7 @@ a:focus, a:hover{
     line-height: 28px;
     margin-top: -14px;
     margin-left: -14px;
-     padding-top: 	1px;
+     padding-top:   1px;
   }
 
   .scale-1:before {
@@ -764,7 +764,7 @@ a:focus, a:hover{
     line-height: 35px;
     margin-top: -17px;
     margin-left: -17px;
-    padding-top: 	4px;
+    padding-top:  4px;
   }
 
   .scale-2:before {
@@ -860,61 +860,6 @@ a:focus, a:hover{
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
     right: 0px; 
 }
-/*SECOND SET OF CHECKBOXES with 'checked' correct*/
-.layersswitchLabel2{
-    position:   relative;   
-    left: 75px;
-    top:37px;
-    font-size: 13px;
-}
-.onoffswitch2 {
-    position: relative; width: 47px;
-    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
-    left:15px;
-    top:60px;
-
-}
-.onoffswitch2-checkbox {
-    display: none;
-}
-.onoffswitch2-label {
-    display: block; overflow: hidden; cursor: pointer;
-    border: 2px solid #3B3B3B; border-radius: 2px;
-}
-.onoffswitch2-inner {
-    display: block; width: 200%; margin-left: -100%;
-    transition: margin 0.3s ease-in 0s;
-}
-.onoffswitch2-inner:before, .onoffswitch2-inner:after {
-    display: block; float: left; width: 50%; height: 13px; padding: 0; line-height: 13px;
-    font-size: 11px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
-    box-sizing: border-box;
-}
-.onoffswitch2-inner:before {
-    content: "OFF";
-    padding-left: 3px;
-    background-color: #888c8e; color: #FFFFFF;
-}
-.onoffswitch2-inner:after {
-    content: "ON";
-    padding-right: 4px;
-    background-color: #90ad8c; color: #FFFFFF;
-    text-align: right;
-}
-.onoffswitch2-switch {
-    display: block; width: 19px; margin: -2px;
-    background: #FFFFFF;
-    position: absolute; top: 0; bottom: 0;
-    right: 31px;
-    border: 2px solid #3B3B3B; border-radius: 2px;
-    transition: all 0.3s ease-in 0s; 
-}
-.onoffswitch2-checkbox:checked + .onoffswitch2-label .onoffswitch2-inner {
-    margin-left: 0;
-}
-.onoffswitch2-checkbox:checked + .onoffswitch2-label .onoffswitch2-switch {
-    right: 0px; 
-}
 
 /*------------------------------------------- media queries -----------------------------------------*/
 @media (max-width:414px){
@@ -928,14 +873,14 @@ a:focus, a:hover{
     /* Standard */
     width: calc(100% - 48px);
   }  
-  .logo{
+  #legend{
     display:none;
   }
 
 }
 
 @media (max-height:414px){
-  .logo{
+  #legend{
     display:none;
   }
 
