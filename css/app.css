@@ -108,7 +108,7 @@ table{
   /*box-sizing:border-box;*/
   position:relative;
   min-height: 100%;
-  padding: 20px 0 125px;
+  padding: 24px 0 125px;
 }
 
 .aboutLCCMR{
@@ -147,13 +147,12 @@ table{
 }
 #facebookshare:hover{
   background-color: #4e69a2;
-
 }
 
 #twittershare:hover{
-  background-color: #32bcf0;
-  
+  background-color: #32bcf0;  
 }
+
 #FB,#TW{
   color:none;
 }
@@ -162,6 +161,7 @@ table{
   text-decoration:none;
   color:steelblue;
 }
+
 #facebookshare i, #twittershare i {
     color: #000;
     padding-right: 15px;
@@ -184,6 +184,7 @@ table{
   -webkit-animation: load8 0.8s infinite linear;
   animation: load8 0.8s infinite linear;
 }
+
 .loader,
 .loader:after {
   border-radius: 50%;
@@ -223,53 +224,51 @@ table{
     border: 1px solid #101010;
     max-height: 90%;
 }
+
 .legendTitle{
   /*margin-top: 25px;*/
 }
+
 .symbolClass{
   margin-left: -28px;
 }
+
 .symbolClass li{
   display: inline;
 }
+
 #propsymbols{
   height: 76px;
   margin-top: 10px;
   margin-left:10px;
   width: 215px; 
 }
+
 .legendHelper{
     color: #727d86;
     font-size: 12px;
     text-align: center;
-    /*width: 129%;*/
 }
+
 .legendlabel{
   text-align: center;
 }
+
 .legendicons{
     margin-top: 25px;
-
 }
-/*.individualProp{
-  margin-top: 35px;
-    color: #727d86;
-    font-family: monospace;
-    font-weight: 700;
 
-}
-.individualProp li{
-  display:inline;
-}*/
 .legendiconsLi{
   padding-right: 5px;
   display:inline-block;
 }
+
 .textExample{
   font-family: "Open Sans",sans-serif;
   font-style: italic;
   font-weight: normal;
 }
+
 .sidebar {
     color:#fff;
     position: fixed;
@@ -279,7 +278,6 @@ table{
     left: 48px;
     z-index: 1001;
     display: block;
-    /*padding: 20px 20px 100px 20px;*/
     margin-top: auto;
     overflow-x: hidden;
     overflow-y: auto; 
@@ -308,13 +306,10 @@ table{
   color: #fff;
   background-color:#646c72;
   outline-color: #646c72;
-/*  border-left: 4px solid #142736;
-  margin-left: -4px;*/
 }
 #navtabs {
     background-color: #333;
     border-right:1px solid #000;
-    /*border-left: 4px solid #727d86;*/
     height: 100%;
     width:48px;
     left: 0;
@@ -330,6 +325,7 @@ table{
   text-align: center;
   border-left: 4px solid #727d86;
 }
+
 a:focus, a:hover{
   color: #ae4b37;
 }
@@ -356,27 +352,25 @@ a:focus, a:hover{
   left: 68px;
   bottom:10px;
   padding: 40px 3px 2px 0;
-  /*box-shadow: 0 0 2px 2px #343434;*/
+
 }
-/*#search .logo{
-  position:absolute;
-  bottom:10px;
-}*/
 
 .logo img{
   height: 105px;
 }
+
 .closetab {
     display:visible;
     color: #727d86;
     position: absolute;
     right: 0;
     top: 10px;
-  }
-    .closetab:hover {
-      cursor:pointer;
-      color: #fff;
-  }
+}
+
+.closetab:hover {
+  cursor:pointer;
+  color: #fff;
+}
 
 #map{
   position:fixed;
@@ -386,7 +380,7 @@ a:focus, a:hover{
   width:100%;
 }
 .leaflet-left {
-    left: 330px; /*add media querries*/
+    left: 330px;
 }
 
 /* Map tools */
@@ -396,6 +390,7 @@ a:focus, a:hover{
   top: 10px;
   right: 10px;
 }
+
 #map-tools a {
   background-color: #333;
   color: #808080;
@@ -407,6 +402,7 @@ a:focus, a:hover{
   border-left: 1px solid #101010;
   border-right: 1px solid #101010;
 }
+
 #map-tools a.first {
   -webkit-border-top-left-radius: 4px;
   -webkit-border-bottom-left-radius: 4px;
@@ -417,6 +413,7 @@ a:focus, a:hover{
   padding: 0 12px 0 16px;
   border-left: none;
 }
+
 #map-tools a.last {
   -webkit-border-top-right-radius: 4px;
   -webkit-border-bottom-right-radius: 4px;
@@ -427,9 +424,7 @@ a:focus, a:hover{
   padding: 0 16px 0 12px;
   border-right: none;
 }
-#map-tools a i {
-  /* text-shadow: 1px 1px 1px #333; */
-}
+
 #map-tools a:hover, #map-tools a.active {
   background-color: #646c72;
   text-decoration: none;
@@ -441,6 +436,7 @@ a:focus, a:hover{
   padding-left:25px;
   position:absolute;
 }
+
 /*Icon classification*/
 .parksandtrails {
     background: #93dea0;
@@ -508,6 +504,7 @@ a:focus, a:hover{
     height:20px !important;
     border:4px solid #99cee9;
   }
+
   .enrtf:hover{
      background:#fff;
   }
@@ -521,10 +518,8 @@ a:focus, a:hover{
     border-radius:20px;
     width:20px !important;
     height:20px !important;
-    /*border:4px solid #ae4b37;*/
-/*    margin-left: -8px !important;
-    margin-top: -28px !important;*/
   }
+
     .selected-icon .parksandtrails{
       border:4px solid #58cc6c;
     }
@@ -540,7 +535,6 @@ a:focus, a:hover{
     .selected-icon .enrtf{
       border:4px solid #99cee9;
     }
-
 
   .divtext{
     position: absolute;
@@ -563,6 +557,7 @@ a:focus, a:hover{
     border: 1px solid #fff;
     font-family: monospace;
   }
+
     .layernotificationConstant{
     position: absolute;
     top:-11px;
@@ -578,24 +573,24 @@ a:focus, a:hover{
     font-family: monospace;
   }
 
-
 .navtitle{
   text-align:center;
   padding:17px 0;
   font-size:18px;
   font-weight: bold;
 }
+
 /* search tab*/
 .verticlealign{
   /*margin-top:5px;*/
 }
-
 
 .searchli{
   width:25%;
   height:34px;
   text-align: center;
 }
+
 .active.searchli, .active.layersli,.active.helpli{ 
   background-color:#646c72;
 }
@@ -614,9 +609,7 @@ a:focus, a:hover{
   height:34px;
   text-align: center;  
 }
-/*.helpli.active{
-  width:34%;
-}*/
+
 .searchul, .layersul, .helpul{
   width:284px;
   position:absolute;
@@ -624,23 +617,28 @@ a:focus, a:hover{
   border-top: 2px solid #727d86;
   border-bottom: 2px solid #727d86;
 }
+
 #help{
   margin-top:60px;
   margin-left:-30px;
 }
+
 #help li{
   margin-bottom:7px;
 }
+
 .helpListHeader{
   list-style: none;
   font-weight: 600;
   color: #727d86;
 }
+
 .detailsText{
   font-weight:normal;
   font-style:italic;
   font-size:12px;
   color:#808080;
+  margin-left:27%;
 }
 
 .rightline{
@@ -663,7 +661,6 @@ a:focus, a:hover{
   border-color:#646c72;
 }
 
-
 .selectform{
   margin-top:25px;
   padding-bottom: 25px;
@@ -682,7 +679,6 @@ a:focus, a:hover{
   color:#727d86;
   font-style: italic;
   margin-top: 10px;
-  /*margin-left:40px;*/
 }
 
 #replink{
@@ -695,7 +691,6 @@ a:focus, a:hover{
 }
 
 /*Layers tab*/
-
 #switchLabel{
     position:relative;
     top: 60px;
@@ -703,7 +698,6 @@ a:focus, a:hover{
 }
 
 /*RESULTS TAB*/
-
 .multipleResultsTable {
     margin-left: -15px;
     width: 150px;
@@ -802,8 +796,6 @@ a:focus, a:hover{
     border-width: 4px;
   }
 
-
-
 /*----------------------Layer toggle switches-------------------------------*/
 
 .layersswitchLabel{
@@ -812,40 +804,47 @@ a:focus, a:hover{
     top:37px;
     font-size: 13px;
 }
+
 .onoffswitch {
     position: relative; width: 47px;
     -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
     left:15px;
     top:60px;
-
 }
+
 .onoffswitch-checkbox {
     display: none;
 }
+
 .onoffswitch-label {
     display: block; overflow: hidden; cursor: pointer;
     border: 2px solid #3B3B3B; border-radius: 2px;
 }
+
 .onoffswitch-inner {
     display: block; width: 200%; margin-left: -100%;
     transition: margin 0.3s ease-in 0s;
 }
+
 .onoffswitch-inner:before, .onoffswitch-inner:after {
     display: block; float: left; width: 50%; height: 13px; padding: 0; line-height: 13px;
     font-size: 11px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
     box-sizing: border-box;
 }
+
 .onoffswitch-inner:before {
     content: "OFF";
     padding-left: 3px;
     background-color: #888c8e; color: #FFFFFF;
 }
+
 .onoffswitch-inner:after {
     content: "ON";
     padding-right: 4px;
     background-color: #90ad8c; color: #FFFFFF;
     text-align: right;
 }
+
 .onoffswitch-switch {
     display: block; width: 19px; margin: -2px;
     background: #FFFFFF;
@@ -854,9 +853,11 @@ a:focus, a:hover{
     border: 2px solid #3B3B3B; border-radius: 2px;
     transition: all 0.3s ease-in 0s; 
 }
+
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
     margin-left: 0;
 }
+
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
     right: 0px; 
 }
@@ -883,10 +884,4 @@ a:focus, a:hover{
   #legend{
     display:none;
   }
-
 }
-
-
-
-
-

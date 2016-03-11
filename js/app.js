@@ -1,24 +1,25 @@
 //core business logic
 var map;
 var bounds;
-var LegacyProject;
-var overlayLayers={};
+var previousSelection = [];
 var switchMap = {};
+var geocoder = null;
+//address from URL
+var address;
+var pushPinPMarker;
 //map Layers
-var projectMarker;
 var grayBasemap;
 var streetsBasemap;
 var satelliteBasemap;
-var selectedIcon;
 //map overlay layers... called like overlayLayers.CongressionalBoundaryLayer
-var previousSelection = [];
-var geocoder = null;
+var overlayLayers={};
+
+//project symbology logic
+var selectedIcon;
+var projectMarker;
+var LegacyProject;
 var clusters;
 var overlays;
-
-//address from URL
-var address;
-
 var iconsClassification = {
     "Parks & Trails Fund": 'parksandtrails',
     "Arts & Cultural Heritage Fund": 'artsandculture',
@@ -35,7 +36,7 @@ function init () {
     bounds = L.latLngBounds(southWest, northEast);
     geocoder = new google.maps.Geocoder();
     map = L.map("map", {
-        center: getCenter(),//L.latLng(46.1706, -94.9678),
+        center: getCenter(), //L.latLng(46.1706, -94.9678),
         maxBounds: bounds,
         zoom: 7
     });
@@ -74,11 +75,11 @@ function init () {
     });
 
     // Add Legacy data
-    queryLayersCheckboxes();
-    
+    queryLayersCheckboxes();    
 
 } //end init()
 
+//check switchboxes for data layers
 function queryLayersCheckboxes(){
     var list = [];
     var filters = document.getElementById('layercontrols').filters;
@@ -86,10 +87,11 @@ function queryLayersCheckboxes(){
     for (var i = 0; i < filters.length; i++) {
         if (filters[i].checked === false) list.push(filters[i].value);
     }
-    console.log(list);
+    // console.log(list);
     getMarkerData(list);
 }
 
+//load data
 function getMarkerData(querylist){
     
     overlays = L.layerGroup().addTo(map);
@@ -97,14 +99,13 @@ function getMarkerData(querylist){
 
     $.getJSON("php/getOverlayLayersAsGeoJSON.php", data, function (data) {
         LegacyProject = L.geoJson(data, {
-            //style:myStyle,
-            pointToLayer: function (feature, latlng) {
-                
-                deselectedIcon = L.divIcon({className: iconsClassification[feature.properties.source]});
+            pointToLayer: function (feature, latlng) {                
+                deselectedIcon = L.divIcon({className: iconsClassification[feature.properties.source]});                
                 
                 projectMarker = L.marker(latlng, {icon: deselectedIcon})
                     .on('click', function (e) {
                         var selectedProperty = e.target;
+                        //show results in sidebar table
                         showResultsTable(selectedProperty);
                     }); //end onclick
                 return projectMarker;
@@ -115,15 +116,10 @@ function getMarkerData(querylist){
     }); //getJson
 }
 
+//create graduated symbols
 function showClusters(){
-    //read checkboxes
-    var list = [];
-    var filters = document.getElementById('layercontrols').filters;
-    for (var i = 0; i < filters.length; i++) {
-        if (filters[i].checked) list.push(filters[i].value);
-    }
-
     $('.loader').hide();
+
     clusters = new L.markerClusterGroup({
         spiderfyOnMaxZoom:true,
         // disableClusteringAtZoom: 18,
@@ -167,6 +163,7 @@ function showClusters(){
     clusters.addLayer(LegacyProject);
 }
 
+//get the center of the map on load, from URL or default
 function getCenter(){
     if (getQueryVariable('address')){
          getQueryVariable('address');
@@ -253,8 +250,8 @@ function navTab (id, tab) {
         break;
     }
 }
+
 function clearmap () {
-    // $('#propertyinfo').hide();
     $('#noshow').show();
     $('#data').hide();	
 	map.fitBounds(bounds).setZoom(7);
@@ -265,10 +262,14 @@ function clearmap () {
 	$('.layernotification').hide();// hide notificaions and set their values = 0
     $('#geocodeFeedback').hide();
     $('#addressSearch').val('');
-
 }
 
 function resetLayers() {
+
+    if (typeof pushPinPMarker !== "undefined" ){
+        map.removeLayer(pushPinPMarker);
+        delete pushPinPMarker;
+    }
 
     if (typeof projectMarker !== "undefined" ){
         map.removeLayer(projectMarker);
@@ -278,6 +279,8 @@ function resetLayers() {
         map.removeLayer(selectionGeoJSON);
         delete selectionGeoJSON;
     }
+
+
     $('.layernotification').hide();
     //Remove all layers except the basemap -- down here because its an asychronous thead apparently
     map.eachLayer(function(layer){
@@ -341,9 +344,10 @@ function toggleBaseLayers(el, gray, street, sat){
 
 function refreshLegacy(){
     overlays.clearLayers();
-      $( document ).ajaxStart(function() {
-          $('.loader').show();
-       });
+      //smooth css spinner
+    $( document ).ajaxStart(function() {
+        $('.loader').show();
+    });
     queryLayersCheckboxes(); 
 }
 
@@ -374,11 +378,10 @@ function getOverlayLayers(el, switchId){
     } else {
     	$('.leaflet-marker-icon.'+switchMap[switchId]).show();
         //console.log(switchMap[switchId]);
-    	if(typeof overlayLayers[switchMap[switchId]] === 'undefined'){
-            if (switchMap[switchId] === 'polygon'){
-            	
-				overlayLayers[switchMap[switchId]].addTo(map);
 
+    	if(typeof overlayLayers[switchMap[switchId]] === 'undefined'){
+            if (switchMap[switchId] === 'polygon'){            	
+				overlayLayers[switchMap[switchId]].addTo(map);
             } else {
 
     		overlayLayers[switchMap[switchId]] = L.tileLayer.wms('/cgi-bin/mapserv?map=/web/gis/iMaps/LCCMR/landAcq/data/mapserver.map', {
@@ -399,7 +402,6 @@ function getOverlayLayers(el, switchId){
 }
 
 //select form queries
-//could pass this in from 3rd party as: http://ww2.commissions.leg.state.mn.us/gis/iMaps/LCCMR-LA/php/getSelectionData.php?db=hse2012_1&val=08A&col=district
 function getSelectLayer(val, db) {
     //console.log(val, db);
     var columnMap = {"cty2010":"name","hse2012_1":"district", "sen2012":"district"};
@@ -518,7 +520,7 @@ function geoCodeAddress(geocoder, resultsMap, address) {
       map.setView(L.latLng(pos.lat,pos.lng),13);
       toggleLayerSwitches();
       resetLayers();
-      addMarker(pos);
+      addPushpinMarker(pos);
       $(".loader").hide();
       geocodeFeedback(precision, components);
     } else {
@@ -551,6 +553,15 @@ function addMarker(e){
     }
     //add marker
     projectMarker = new L.marker(e.latlng).addTo(map);
+}
+
+function addPushpinMarker(e){
+    //remove old pushpin and previous selected district layers 
+    if (typeof pushPinPMarker !== "undefined" ){ 
+        map.removeLayer(pushPinPMarker);         
+    }
+    //add marker
+    pushPinPMarker = new L.marker(e.latlng).addTo(map);
 }
 
 //submit search text box - removed button for formatting space

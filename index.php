@@ -71,7 +71,7 @@
 	          <div class='closetab'><i class="fa fa-caret-square-o-left fa-lg"></i></div>
 	            <div class="navtitle">Search Projects</div>
 		            <div class="searchform">
-						<form id='mainsearchform' onsubmit="geoCodeAddress();">
+						<form id='mainsearchform' class="form-inline" onsubmit="geoCodeAddress();">
 						  <div class="form-group">
 						    <label for="addressSearch">Search by Address</label>
 						    <input type="text" class="form-control" id="addressSearch" placeholder="Address"><button id="addressSearchButton" type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
