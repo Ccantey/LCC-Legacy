@@ -46,6 +46,10 @@ form label{
   margin-bottom:5px;
 }
 
+input.form-control{
+  width:85% !important;
+}
+
 select.form-control{
   background-color:#646c72;
   color:#fff;
@@ -108,7 +112,7 @@ table{
   /*box-sizing:border-box;*/
   position:relative;
   min-height: 100%;
-  padding: 24px 0 125px;
+  padding: 24px 15px 125px 15px;
 }
 
 .aboutLCCMR{
@@ -219,7 +223,7 @@ table{
     position: absolute;
     right: 0;
     z-index: 1001;
-    padding:10px 10px 50px;
+    padding:5px 10px 15px;
     border-top-left-radius: 5px;
     border: 1px solid #101010;
     max-height: 90%;
@@ -270,6 +274,8 @@ table{
 }
 
 .sidebar {
+    padding-right: 0;
+    padding-left: 0;
     color:#fff;
     position: fixed;
     width:284px;
@@ -349,7 +355,7 @@ a:focus, a:hover{
 
 .logo{
   position:absolute;
-  left: 68px;
+  left: 75px;
   bottom:10px;
   padding: 40px 3px 2px 0;
 
@@ -363,7 +369,7 @@ a:focus, a:hover{
     display:visible;
     color: #727d86;
     position: absolute;
-    right: 0;
+    right: 10px;
     top: 10px;
 }
 
@@ -611,9 +617,9 @@ a:focus, a:hover{
 }
 
 .searchul, .layersul, .helpul{
-  width:284px;
+  width:100%;
   position:absolute;
-  left:-15px;
+  left: 0;
   border-top: 2px solid #727d86;
   border-bottom: 2px solid #727d86;
 }
@@ -876,6 +882,12 @@ a:focus, a:hover{
   }  
   #legend{
     display:none;
+  }
+  .logo{
+    left:32%;
+  }
+  .fa-lg{
+    font-size: 2em;
   }
 
 }
