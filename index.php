@@ -10,12 +10,12 @@
 	<meta name="author" content="Leg. Coordinating Commission GIS">
 	<meta name="keywords" content="Legacy, LCCMR, LCC, ENRTF, MNDNR">
     <!--Facebook Share customization open graph meta tags. https://developers.facebook.com/tools/debug/og/object/-->
-    <meta property="fb:app_id" content="944707115597875" />
+    <meta property="fb:app_id" content="192382917808790" />
 	<meta property="og:url"                content="http://www.gis.leg.mn/iMaps/Legacy/" />
 	<meta property="og:type"               content="website" />
 	<meta property="og:title"              content="Legacy Amendment Projects Map" />
-	<meta property="og:description"        content="Interactive mapping tool for Environment and Natural Resources Trust Fund funded fee title and conservation easement land acquisitions." />
-	<meta property="og:image"              content="http://www.gis.leg.mn/iMaps/Legacy/images/legacy_logo_rgb.jpg" />
+	<meta property="og:description"        content="Interactive mapping tool for Environment and Natural Resources Trust Fund funded fee Legacy Amendment projects." />
+	<meta property="og:image"              content="http://www.gis.leg.mn/iMaps/Legacy/images/legacy_logo_social.jpg" />
     
     <!-- favicon and iPhone icon -->
     <link rel="apple-touch-icon" href="http://www.gis.leg.mn/iMaps/Legacy/images/legacy_logo_rgb.jpg">
@@ -652,7 +652,7 @@
 					</div>
 				<div class="modal-body">
 					<a id="FB" title="Share on Facebook" target="_blank" 
-					href="https://www.facebook.com/dialog/share?app_id=944707115597875&redirect_uri=http%3A%2F%2Fwww.gis.leg.mn%2FiMaps%2FLegacy%2Findex.html&display=popup&href=http%3A%2F%2Fwww.gis.leg.mn%2FiMaps%2FLegacy%2F%23">
+					href="https://www.facebook.com/dialog/share?app_id=192382917808790&redirect_uri=http%3A%2F%2Fwww.gis.leg.mn%2FiMaps%2FLegacy%2Findex.php&display=popup&href=http%3A%2F%2Fwww.gis.leg.mn%2FiMaps%2FLegacy%2F%23">
 					
 					<div id="facebookshare">										    
                             <i class="fa fa-facebook fa-lg fb"></i>
@@ -660,7 +660,7 @@
 					</div>
 					</a>
 
-				    <a id="TW" target="_blank" title="Share on Twitter" href="http://twitter.com/intent/tweet?url=http%3A%2F%2Fwww.gis.leg.mn%2FiMaps%2FLCCMR%2FlandAcq%2Findex.html&text=Legacy%20project%20mapping%20application&hashtags=LCCMR, Legacy, ENRTF">
+				    <a id="TW" target="_blank" title="Share on Twitter" href="http://twitter.com/intent/tweet?url=http%3A%2F%2Fwww.gis.leg.mn%2FiMaps%2FLegacy%2F&text=Legacy%20project%20mapping%20application&hashtags=LCCMR, Legacy, ENRTF">
 					<div id="twittershare">
 				            <i class="fa fa-twitter fa-lg tw"></i>
 		                <strong>Share on Twitter</strong>
