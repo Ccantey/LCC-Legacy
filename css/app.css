@@ -167,7 +167,7 @@ table{
 }
 
 #facebookshare i, #twittershare i {
-    color: #000;
+    color: #fff;
     padding-right: 15px;
     margin-top: 8px;
 }
@@ -886,8 +886,14 @@ a:focus, a:hover{
   .logo{
     left:32%;
   }
-  .fa-lg{
-    font-size: 2em;
+  .closetab{
+    font-size: 1.75em;
+  }
+  #legend{
+    bottom:40px;
+  }
+  #twittershare, #facebookshare{
+    width:100%;
   }
 
 }
