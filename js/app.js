@@ -576,7 +576,7 @@ function addPushpinMarker(e){
 // }
 
 //call getQueryVariable('district' or 'address', whatever variable you want to pass through url)
-//example: http://ww2.commissions.leg.state.mn.us/gis/iMaps/Legacy/index.php?address=1414 Skyline Rd, Eagan
+//example: http://www.gis.leg.mn/iMaps/Legacy/index.php?address=1414 Skyline Rd, Eagan
 function getQueryVariable(variable){
        var query = window.location.search.substring(1);
        var vars = query.split("&");
@@ -591,4 +591,12 @@ function getQueryVariable(variable){
             }
        }
        return(false);
+}
+
+// we want something like this form onsubmit
+// we want this address opened in new window: http://www.gis.leg.mn/iMaps/Legacy/index.php?address=1414 Skyline Rd, Eagan
+// no parenethesis in address
+function openMap(){
+   var formvalue = document.getElementById('address_input').value
+   window.open("http://www.gis.leg.mn/iMaps/Legacy/index.php?" + formvalue);
 }

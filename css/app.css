@@ -47,7 +47,7 @@ form label{
 }
 
 input.form-control{
-  width:85% !important;
+  width: calc(100% - 40px) !important;
 }
 
 select.form-control{
