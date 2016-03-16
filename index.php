@@ -78,6 +78,9 @@
 						    <p id="geocodeFeedback"></p>
 						  </div>
 						 </form>
+						 <div class="disclaimerlink">
+						 <a  data-toggle="modal" data-target="#disclaimer" >Disclaimer!</a>
+						 </div>
 					 </div>
 
 					  <div class="selectform">
@@ -97,7 +100,7 @@
 							</select>
 
 
-							<div id="replink">
+							<div class="replink">
 							   <a  href="http://www.gis.leg.mn/OpenLayers/districts/" target="_blank">Who Represents Me?</a>
 							</div>
 						  </div>
@@ -630,12 +633,35 @@
 					<p>The Legacy Amendment increases the state sales tax by three-eighths of one percent beginning on July 1, 2009 and continuing until 2034. The additional sales tax revenue is distributed into four funds as follows: 33 percent to the clean water fund; 33 percent to the outdoor heritage fund; 19.75 percent to the arts and cultural heritage fund; and 14.25 percent to the parks and trails fund.</p>
 				</div>
 				<div class="infodivs">
-		            <div class="pull-left"><a href="http://www.lccmr.leg.mn/" target="_blank"><img src='images/enrtf-logo.jpg' alt='legacy logo' style="height:100px;padding-right: 10px;"/></a></div><p><strong><a href="http://www.lccmr.leg.mn/" target="_blank" style="color: #50667f;">Environmental and Natural Resources Trust Fund</a></strong></p>
+		            <div class="pull-left"><a href="http://www.legacy.leg.mn/funds/environment-natural-resources-trust-fund" target="_blank"><img src='images/enrtf-logo.jpg' alt='legacy logo' style="height:100px;padding-right: 10px;"/></a></div><p><strong><a href="http://www.legacy.leg.mn/funds/environment-natural-resources-trust-fund" target="_blank" style="color: #50667f;">Environmental and Natural Resources Trust Fund</a></strong></p>
 
 		            <p>In 1988, Minnesota's voters approved a constitutional amendment establishing the Environment and Natural Resources Trust Fund (Trust Fund). The purpose of the Trust Fund is to provide a long-term, consistent, and stable source of funding for activities that protect and enhance Minnesota's environment and natural resources for the benefit of current citizens and future generations.</p>
 
 					<p>The money in the Trust Fund originates from a combination of contributions and investment income. Forty percent of the net proceeds from the Minnesota State Lottery are deposited to the Trust Fund each year; this contribution is guaranteed by the Minnesota Constitution until December 31, 2024. The Trust Fund may also receive contributions from other sources such as private donations.</p>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- disclaimer modal -->
+<div id="disclaimer" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="myModalLabel"><strong>Disclaimer</strong></h4>
+			</div>
+			<div class="aboutLCCMR">
+			    <div class="infodivs">
+		            
+		            <p><strong>Note:</strong> Location data was recently added to the site. Projects will be added to the map as data is collected.</p>
+                    <p>
+					Map only shows projects with specific location data. It may not show projects that report a <a href="http://www.legacy.leg.mn/projects/project/all/all/all/488" target ="_blank">statewide </a> impact.  Not all projects report geographic data.
+                    </p>
+                    <p>
+					The Minnesota Legislature and the Legislative Coordinating Commission make no representations or warranties expressed or implied, with respect to the use of maps or geographic data provided on this website. There is no guarantee or representation to the user as to the accuracy, currency, suitability, or reliability of this data for any purpose. The Minnesota Legislature assumes no responsibility for loss or damage incurred as a result of any user reliance on this data.</p>
+				</div>
             </div>
         </div>
     </div>

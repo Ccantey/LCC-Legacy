@@ -44,6 +44,7 @@ form label{
   padding:0 5px;
   height:36px;
   margin-bottom:5px;
+  border: 1px solid #727d86;
 }
 
 input.form-control{
@@ -652,8 +653,12 @@ a:focus, a:hover{
 }
 .searchform{
   margin-top: 15px;
-  padding-bottom: 40px;
+  padding-bottom: 16px;
   border-bottom: 1px solid #727d86;
+  height:118px;
+}
+#geocodeFeedback{
+  /*position: absolute;*/
 }
 
 #addressSearchButton{
@@ -661,15 +666,29 @@ a:focus, a:hover{
   border-radius: 0;
   background-color: #646c72;
   color:#fff;
-  margin-bottom:3px;
+  margin-bottom:5px;
   margin-left:5px;
+  padding:8px 9px 6px; 
+  border-color:#727d86;
+}
+
+#disclaimerButton{
+    padding:0;
+  border-radius: 0;
+  background-color: #646c72;
+  color:#fff;
+  margin-bottom:0;
+  margin-left:28%;
   padding:7px 9px;
-  border-color:#646c72;
+  border-color: #727d86;
+}
+#addressSearchButton:hover, #disclaimerButton:hover{
+  border-color:#ccc;
 }
 
 .selectform{
   margin-top:25px;
-  padding-bottom: 25px;
+  /*padding-bottom: 25px;*/
   border-bottom: 1px solid #727d86;
 }
 
@@ -687,13 +706,27 @@ a:focus, a:hover{
   margin-top: 10px;
 }
 
-#replink{
+.replink{
+
   text-align: center;
   font-style: italic;
-  margin-top: 5px;
+  margin-top: 18px;
 }
-#replink a{
+.replink a{
   color:#7a8288;
+}
+.disclaimerlink{
+  position:absolute;
+  /*text-align: center;*/
+  font-style: italic;
+  top: 184px;
+  left:36%;
+}
+.disclaimerlink a{
+  color:#7a8288;
+}
+.disclaimerlink a:hover{
+  cursor:pointer;
 }
 
 /*Layers tab*/
