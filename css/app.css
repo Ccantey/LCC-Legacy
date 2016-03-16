@@ -113,7 +113,7 @@ table{
   /*box-sizing:border-box;*/
   position:relative;
   min-height: 100%;
-  padding: 24px 15px 125px 15px;
+  padding: 24px 15px 140px 15px;
 }
 
 .aboutLCCMR{
@@ -356,14 +356,14 @@ a:focus, a:hover{
 
 .logo{
   position:absolute;
-  left: 75px;
+  left: 65px;
   bottom:10px;
   padding: 40px 3px 2px 0;
 
 }
 
 .logo img{
-  height: 105px;
+  height: 125px;
 }
 
 .closetab {
@@ -713,7 +713,7 @@ a:focus, a:hover{
   margin-top: 18px;
 }
 .replink a{
-  color:#7a8288;
+  color:#9fb4e7;
 }
 .disclaimerlink{
   position:absolute;
@@ -723,7 +723,7 @@ a:focus, a:hover{
   left:36%;
 }
 .disclaimerlink a{
-  color:#7a8288;
+  color:#9fb4e7;
 }
 .disclaimerlink a:hover{
   cursor:pointer;
@@ -857,7 +857,8 @@ a:focus, a:hover{
 
 .onoffswitch-label {
     display: block; overflow: hidden; cursor: pointer;
-    border: 2px solid #3B3B3B; border-radius: 2px;
+    border: 1px solid #727d86; 
+    /*border-radius: 2px;*/
 }
 
 .onoffswitch-inner {
@@ -867,20 +868,21 @@ a:focus, a:hover{
 
 .onoffswitch-inner:before, .onoffswitch-inner:after {
     display: block; float: left; width: 50%; height: 13px; padding: 0; line-height: 13px;
-    font-size: 11px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+    font-size: 11px; color: white; 
+    /*font-family: Trebuchet, Arial, sans-serif; font-weight: bold;*/
     box-sizing: border-box;
 }
 
 .onoffswitch-inner:before {
     content: "OFF";
-    padding-left: 3px;
-    background-color: #888c8e; color: #FFFFFF;
+    padding-left: 5px;
+    background-color: #646c72; color: #c7cfd5;
 }
 
 .onoffswitch-inner:after {
     content: "ON";
-    padding-right: 4px;
-    background-color: #90ad8c; color: #FFFFFF;
+    padding-right: 5px;
+    background-color: #a6bf94; color: #FFFFFF;
     text-align: right;
 }
 
@@ -889,7 +891,7 @@ a:focus, a:hover{
     background: #FFFFFF;
     position: absolute; top: 0; bottom: 0;
     right: 31px;
-    border: 2px solid #3B3B3B; border-radius: 2px;
+    border: 1px solid #727d86; border-radius: 2px;
     transition: all 0.3s ease-in 0s; 
 }
 
