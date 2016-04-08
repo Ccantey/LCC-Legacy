@@ -550,6 +550,9 @@ a:focus, a:hover{
     white-space: nowrap;
   }
 
+  .countnotice{
+    color: #cc6a43 !important;
+  }
   .layernotification{
     position: absolute;
     top:-11px;

@@ -178,7 +178,7 @@ function showResultsTable (selection) {
     $('#noshow').hide();
     $('#data').html(html);
 
-    var attributeNameMap = {'nid':'node id','title':'TITLE','fiscal_year':'Fiscal Year','fy_funding':'FY Funding','recipient':'recipient','administrator':'Administrator','source':'Source','status':'Status'};
+    var attributeNameMap = {'nid':'node id','title':'TITLE','count':'Notice','fiscal_year':'Fiscal Year','fy_funding':'FY Funding','recipient':'recipient','administrator':'Administrator','source':'Source','status':'Status'};
     //console.log(selection);
     for (prop in selection.feature.properties) { 
     	// console.log(prop);
@@ -189,10 +189,24 @@ function showResultsTable (selection) {
     	if (prop === 'title') {
             html += "<tr><th>Project Link: </th><td><a href='http://www.legacy.leg.mn/node/" + selection.feature.properties.nid + "' target = '_blank'>" + selection.feature.properties[prop] + "</a></td></tr>";
         }
+        if (prop === 'count') {
+            
+            if(selection.feature.properties[prop] > 1){
+            html += "<tr ><th class='countnotice'>" +  attributeNameMap[prop] + ": </th><td class='countnotice'> This project has " + selection.feature.properties[prop] + " related locations on the map. See project link for details.</td></tr>";
+            }
+        }
         if (selection.feature.properties[prop] !== null){
-        	if (prop === 'title' || prop === 'fiscal_year' || prop === 'fy_funding' || prop === 'recipient' || prop === 'administrator' || prop === 'source' || prop === 'status') {
-                html += "<tr><th>" +  attributeNameMap[prop] + ": </th><td>" + selection.feature.properties[prop] + "</td></tr>";
-            }  
+            console.log(selection.feature.properties['fiscal_year'], typeof selection.feature.properties['fiscal_year'])
+            if(selection.feature.properties['fiscal_year'] > 2100){
+            	if (prop === 'title'  || prop === 'recipient' || prop === 'administrator' || prop === 'source' || prop === 'status') {
+                    html += "<tr><th>" +  attributeNameMap[prop] + ": </th><td>" + selection.feature.properties[prop] + "</td></tr>";
+                } 
+            } else {
+                if (prop === 'title' || prop === 'fiscal_year' || prop === 'fy_funding' || prop === 'recipient' || prop === 'administrator' || prop === 'source' || prop === 'status') {
+                    html += "<tr><th>" +  attributeNameMap[prop] + ": </th><td>" + selection.feature.properties[prop] + "</td></tr>";
+                } 
+
+            }
         }      
     }
     $('#data').show();
