@@ -598,11 +598,25 @@
 		<!-- <hr> -->
 		<ul class="legendicons">
 		<!-- <div id="legendicons"> -->
-		   <li class="legendiconsLi"><div class="leaflet-marker-icon artsandculture legendhover" style="position:relative"></div> </li>
-		   <li class="legendiconsLi"><div class="leaflet-marker-icon cleanwater legendhover" style="position:relative"></div></li>		   
-		   <li class="legendiconsLi"><div class="leaflet-marker-icon outdoorheritage legendhover" style="position:relative"></div></li>
-		   <li class="legendiconsLi"><div class="leaflet-marker-icon parksandtrails legendhover" style="position:relative"></div></li>
-		   <li class="legendiconsLi"><div class="leaflet-marker-icon enrtf legendhover" style="position:relative"></div></li>
+		   <li class="legendiconsLi" >
+		       <div class="leaflet-marker-icon legendhover artsandculture" data-toggle="tooltip" data-placement="top" title="Arts & Culture"style="position:relative"></div> 
+		    </li>
+
+		   <li class="legendiconsLi" >
+		      <div class="leaflet-marker-icon legendhover cleanwater" data-toggle="tooltip" data-placement="top" title="Clean Water" style="position:relative"></div>
+		    </li>	
+
+		   <li class="legendiconsLi">
+		       <div class="leaflet-marker-icon legendhover outdoorheritage" data-toggle="tooltip" data-placement="top" title="Outdoor Heritage" style="position:relative"></div>
+		   </li>
+
+		   <li class="legendiconsLi">
+		       <div class="leaflet-marker-icon legendhover parksandtrails" data-toggle="tooltip" data-placement="top" title="Parks & Trails" style="position:relative"></div>
+		    </li>
+
+		   <li class="legendiconsLi" >
+		       <div class="leaflet-marker-icon legendhover enrtf" data-toggle="tooltip" data-placement="top" title="Environment & Natural Resources" style="position:relative"></div>
+		   </li>
 		   <!-- </div> -->
 		</ul>
 		<div class="legendlabel">Legacy and Trust Fund projects</div>

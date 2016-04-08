@@ -138,6 +138,11 @@ $(function() {
   $('#legendToggle').click(function(){
     $('#legend').toggle();
   });
+  // $('.legendhover').hover(function(e){
+  //   var popupMap = {'artsandculture':'Arts & Cultural Heritage Fund', 'cleanwater':'Clean Water Fund', 'outdoorheritage':'Outdoor Heritage Fund','parksandtrails':'Parks & Trails Fund','enrtf':'Environment & Natural Resources Trust Fund'}
+  //   var classList = $(this).attr('class').split(/\s+/);
+  //   console.log(classList[2])
+  // });
 
   console.log("Welcome to the 'Legacy Ammendment Projects' Mapping Application, developed by the MN State Legislative Coordinating Commission GIS. The application's responsive web design(RWD), open-source code can be found at 'https://github.com/LegislativeCoordinatingCommissionGIS'.")
 });

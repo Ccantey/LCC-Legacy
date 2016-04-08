@@ -196,7 +196,7 @@ function showResultsTable (selection) {
             }
         }
         if (selection.feature.properties[prop] !== null){
-            console.log(selection.feature.properties['fiscal_year'], typeof selection.feature.properties['fiscal_year'])
+            // console.log(selection.feature.properties['fiscal_year'], typeof selection.feature.properties['fiscal_year'])
             if(selection.feature.properties['fiscal_year'] > 2100){
             	if (prop === 'title'  || prop === 'recipient' || prop === 'administrator' || prop === 'source' || prop === 'status') {
                     html += "<tr><th>" +  attributeNameMap[prop] + ": </th><td>" + selection.feature.properties[prop] + "</td></tr>";
