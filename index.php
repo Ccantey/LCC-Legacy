@@ -110,7 +110,7 @@
 					 <form id = "layercontrols" class="selectform">
                         <div style="font-weight: 600;">Filter by funding type:</div>
                          
-                      <div class="legacygroup">Legacy Amendment</div>
+                      <div class="legacygroup">Legacy Fund</div>
                       <div id="artsdiv" class="onoffswitch filter">
 				      <input type="checkbox" name='filters'  class="onoffswitch-checkbox legacy" id="artslayeronoffswitch" value="Arts & Cultural Heritage Fund">
 					    <!-- <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked> -->
@@ -162,7 +162,7 @@
 					    </label>
 					  </div>
 					  <div class='layersswitchLabel'><div class="leaflet-marker-icon parksandtrails" style="margin-left:-22px;"></div>Parks & Trails Fund</div>
-                    <div class="legacygroup">Trust Fund Amendment</div>
+                    <div class="legacygroup">Trust Fund</div>
 					<div id="enrtfdiv" class="onoffswitch filter">
 				      <input type="checkbox" name="filters" class="onoffswitch-checkbox legacy" id="enrtflayeronoffswitch" value="Environment & Natural Resources Trust Fund">
 					    <!-- <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked> -->
@@ -700,7 +700,7 @@
 					</div>
 					</a>
 
-				    <a id="TW" target="_blank" title="Share on Twitter" href="http://twitter.com/intent/tweet?url=http%3A%2F%2Fwww.gis.leg.mn%2FiMaps%2FLegacy%2F&text=Legacy%20project%20mapping%20application&hashtags=LCCMR, Legacy, ENRTF">
+				    <a id="TW" target="_blank" title="Share on Twitter" href="http://twitter.com/intent/tweet?url=http%3A%2F%2Fwww.gis.leg.mn%2FiMaps%2FLegacy%2F&text=Legacy%20project%20mapping%20application&hashtags=MNLegacy, LCCMR, ENRTF, mnleg,">
 					<div id="twittershare">
 				            <i class="fa fa-twitter fa-lg tw"></i>
 		                <strong>Share on Twitter</strong>
