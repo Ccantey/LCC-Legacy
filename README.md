@@ -3,7 +3,7 @@
 
 The **Legacy Ammendment Map** application is a completely open-source full-stack, responsive (RWD) application, built with PostGIS, Leaflet, and a little TLC.
 
-See it in the wild at [http://www.legacy.leg.mn/](http://www.legacy.leg.mn//)
+See it in the wild at [http://www.legacy.leg.mn/](http://www.gis.leg.mn/iMaps/Legacy/)
 
 ### What's included?
 - Code
