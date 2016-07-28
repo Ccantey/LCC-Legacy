@@ -1,4 +1,4 @@
-## Minnesota Legislative Coordinating Commission (In Progress - Forked from LCCMR app)
+## Minnesota Legislative Coordinating Commission 
 ### Minnesota Legacy Ammendment project mapping application User Interface
 
 <p align="center">
