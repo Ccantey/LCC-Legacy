@@ -1,6 +1,10 @@
 ## Minnesota Legislative Coordinating Commission (In Progress - Forked from LCCMR app)
 ### Minnesota Legacy Ammendment project mapping application User Interface
 
+<p align="center">
+  <img src="data/Legacy.jpg" alt="Legacy App" width="80%"/>
+</p>
+
 The **Legacy Ammendment Map** application is a completely open-source full-stack, responsive (RWD) application, built with PostGIS, Leaflet, and a little TLC.
 
 See it in the wild at [http://www.legacy.leg.mn/](http://www.gis.leg.mn/iMaps/Legacy/)
