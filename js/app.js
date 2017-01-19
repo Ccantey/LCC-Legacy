@@ -202,16 +202,28 @@ function showResultsTable (selection) {
                     html += "<tr><th>" +  attributeNameMap[prop] + ": </th><td>" + selection.feature.properties[prop] + "</td></tr>";
                 } 
             } else {
-                if (prop === 'title' || prop === 'fiscal_year' || prop === 'fy_funding' || prop === 'recipient' || prop === 'administrator' || prop === 'source' || prop === 'status') {
-                    html += "<tr><th>" +  attributeNameMap[prop] + ": </th><td>" + selection.feature.properties[prop] + "</td></tr>";
+                if (prop === 'fy_funding'){
+                    var dollars = selection.feature.properties.fy_funding;
+                     html += "<tr><th>" +  attributeNameMap[prop] + ": </th><td  class='"+ prop +"'>" + formatDollar(parseInt(dollars)) + "</td></tr>";
+                } 
+                if (prop === 'title' || prop === 'fiscal_year' || prop === 'recipient' || prop === 'administrator' || prop === 'source' || prop === 'status') {
+                    html += "<tr><th>" +  attributeNameMap[prop] + ": </th><td  class='"+ prop +"'>" + selection.feature.properties[prop] + "</td></tr>";
                 } 
 
             }
         }      
     }
     $('#data').show();
-    $('#data').append(html);
+    $('#data').append(html);    
 	showSelectedIcon(selection);
+}
+
+function formatDollar(num) {
+    var p = num.toFixed(2).split(".");
+    return "$" + p[0].split("").reverse().reduce(
+        function(acc, num, i, orig) {
+            return  num=="-" ? acc : num + (i && !(i % 3) ? "," : "") + acc;
+    }, "");
 }
 
 function showSelectedIcon (selection) {	
