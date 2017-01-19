@@ -49,7 +49,7 @@ function init () {
         attribution: 'Basemap data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a>, ' +
                 'Legislative data &copy; <a href="http://www.gis.leg.mn/">LCC-GIS</a>, ' +
                 'Imagery Â© <a href="http://mapbox.com">Mapbox</a>',
-        id: 'mapbox.light'
+        id: 'mapbox.light'//mapbox.high-contrast looks good at city level scale
     }).addTo(map);
 
     // Add streets basemap
