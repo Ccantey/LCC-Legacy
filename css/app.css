@@ -26,7 +26,7 @@ body {
 
 li.searchli > a, li.layersli a, li.helpli a{
   padding: 2px 0;
-  line-height: 125%;
+  line-height: 110%;
   height: 100%;
   /*vertical-align: middle;*/
 }
@@ -566,6 +566,7 @@ a:focus, a:hover{
     font-weight: 700;
     border: 1px solid #fff;
     font-family: monospace;
+    line-height: 140%;
   }
 
     .layernotificationConstant{
@@ -581,6 +582,7 @@ a:focus, a:hover{
     font-weight: 700;
     border: 1px solid #fff;
     font-family: monospace;
+    line-height: 140%;
   }
 
 .navtitle{

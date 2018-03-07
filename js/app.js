@@ -187,7 +187,7 @@ function showResultsTable (selection) {
             html += "";
         }
     	if (prop === 'title') {
-            html += "<tr><th>Project Link: </th><td><a href='http://www.legacy.leg.mn/node/" + selection.feature.properties.nid + "' target = '_blank'>" + selection.feature.properties[prop] + "</a></td></tr>";
+            html += "<tr><th>Project Link: </th><td><a href='http://www.legacy.mn.gov/node/" + selection.feature.properties.nid + "' target = '_blank'>" + selection.feature.properties[prop] + "</a></td></tr>";
         }
         if (prop === 'count') {
             
